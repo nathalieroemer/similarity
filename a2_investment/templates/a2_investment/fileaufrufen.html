@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles%}
+
+.divbild {
+    width:480px;
+    height:430px;
+    overflow:hidden;
+    margin-right:-80px;
+    border-radius: 7px;
+    }
+{% endblock %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+   <p>
+        <i>You illustrated the word "{{ word }}". This is your illustration:</i>
+        <br>
+        <div class="divbild">
+            <img src="data:image/(png|jpeg);base64,{{ photo1 }}"/>
+        </div>
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

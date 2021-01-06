@@ -1,0 +1,124 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Entscheiden Sie über Ihr Investment
+{% endblock %}
+
+{% block styles %}
+<style>
+
+.divbild {
+  width:336px;
+  height:301px;
+  overflow:hidden;
+  margin-right:-80px;
+  border-radius: 7px;
+}
+  .otree-form-errors {
+    visibility: hidden;
+    display: none;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm">
+        <p>
+        <center>
+            This is the illustration of innovator 1:
+                <br>
+                <div class="divbild">
+                <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%"/>
+                </div>
+        </center>
+        </p>
+
+        <p>
+            <center>
+            Innovator 1 beschreibt die Idee wie folgt:
+                <br>
+        <i> {{ promo_verbal_1 }} </i>
+        </center>
+        </p>
+
+        <p>
+            <center>
+            Innovator 1 schätzt den Wert der eigenen kreativen Idee auf <strong>{{ promo_rec_1 }}</strong>.
+            </center>
+        </p>
+        <p>
+
+
+        </p>
+    </div>
+
+    <div class="col-sm">
+        <p>
+            <center>
+            Das ist die kreative Idee von Innovator 2:
+                 <div class="divbild">
+                <img src="data:image/(png|jpeg);base64,{{ photo2 }}" style="max-width:100%; max-height: 150%"/>
+                </div>
+            </center>
+        </p>
+        <p>
+            <center>
+            Innovator 2 beschreibt die eigene kreative Idee wie folgt:
+                <br>
+            <i> {{ promo_verbal_2 }} </i>
+            </center>
+        </p>
+        <p>
+            <center>
+            Innovator 2 schätzt den Wert der eigenen kreativen Idee auf <strong>{{ promo_rec_2 }}</strong>.
+            </center>
+        </p>
+        <p> Originality of picture 2 is </p>
+        <strong>{{ promo_orig_2 }}</strong>
+        <p>
+        </p>
+    </div>
+</div>
+
+
+
+<input type="hidden" name="chose_2" id="id_chose_2" required  class="form-control">
+<input type="hidden" name="chose_1" id="id_chose_1" required  class="form-control">
+
+<input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
+<input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Illustration 2"/>
+
+<button class="otree-btn-next btn btn-primary" style="display:none;" id="next_page">Submit</button>
+{% endblock %}
+{% block scripts %}
+<script>
+    button_1 = document.getElementById("button_1")
+    button_2 = document.getElementById("button_2")
+    button_1.addEventListener('click', click_illu1)
+    button_2.addEventListener('click', click_illu2)
+
+    function click_illu1() {
+        var field1 = document.getElementById('id_chose_1');
+        field1.value = 1;
+        var field2 = document.getElementById('id_chose_2');
+        field2.value = 0;
+        var next_button = document.getElementById("next_page");
+        next_button.click();
+    }
+
+    function click_illu2() {
+        var field1 = document.getElementById('id_chose_2');
+        field1.value = 1;
+        var field2 = document.getElementById('id_chose_1');
+        field2.value = 0;
+        var next_button = document.getElementById("next_page");
+        next_button.click();
+    }
+
+</script>
+
+{% endblock %}

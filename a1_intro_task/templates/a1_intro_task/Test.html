@@ -1,0 +1,33 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+   Haben Sie gut aufgepasst?
+{% endblock %}
+<style>
+span.frac {
+	display: inline-block;
+	text-align: center;
+}
+span.frac > sup {
+	display: block;
+	border-bottom: 1px solid;
+	font: inherit;
+}
+span.frac > span {
+	display: none;
+}
+span.frac > sub {
+	display: block;
+	font: inherit;
+}
+</style>
+
+{% block content %}
+
+{% formfields %}
+
+
+<button class="otree-btn-next btn btn-primary">Weiter</button>
+
+{% endblock %}

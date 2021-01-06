@@ -1,0 +1,180 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Fragebogen
+{% endblock %}
+
+{% block styles %}
+<style>
+  .otree-form-errors {
+    visibility: hidden;
+    display: none;
+}
+
+#study_field{
+    width: auto;
+    height: calc(2.25rem + 2px);
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-danger" role="alert">
+    <p class="alert-heading">Bitte beantworten Sie alle Fragen.</p>
+</div>
+{% endif %}
+
+<p>
+    Bitte geben Sie die folgenden Informationen ein.
+</p>
+
+{% formfield player.gender %}
+
+{% formfield player.age %}
+
+{% formfield player.colourblindness %}
+
+<br>
+
+<form>
+    <script type="text/javascript">
+        function showfield(name){
+        if(name=='6')document.getElementById('other').innerHTML='Bitte geben Sie Ihren Studienbereich an: <input type="text" name="other_study_field" id="other_study_field" />';
+        else document.getElementById('other').innerHTML='';
+        }
+    </script>
+
+    <label for="study_field">Bitte geben Sie an, in welchem Bereich Sie studieren.</label>
+    <br>
+    <select name="study_field" id="study_field" onchange="showfield(this.options[this.selectedIndex].value)">
+        <option selected="selected">---------</option>
+        <option value="0">Jura</option>
+        <option value="1">Wirtschaft</option>
+        <option value="2">Geisteswissenschaften</option>
+        <option value="3">Naturwissenschaften</option>
+        <option value="4">Ingenieurswesen/IT</option>
+        <option value="5">Kunst</option>
+        <option value="6">Andere</option>
+    </select>
+    <div id="other"></div>
+
+    <br>
+    <br>
+
+{% comment %}
+    The following form creates a likert scale.
+    For new likert scales: change name (= variable); change IDs -> 'label for="ID"'; change labels, question, values...; add lines (values) if needed
+{% endcomment %}
+
+
+     Denken Sie, dass eher weibliche oder eher männliche TeilnehmerInnen gut in dieser Aufgabe waren? <p></p>
+    <div class="row">
+        <div class="col-md" align="center">
+            <label for="a0">Weibliche Teilnehmerinnen</label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="a1"></label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="a2"></label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="a3">Weder noch</label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="a4"></label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="a5"></label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="a6">Männliche Teilnehmer</label>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col-md" align="center">
+            <input type="radio" id="a0" name="advantage" value="0">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="a1" name="advantage" value="1">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="a2" name="advantage" value="2">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="a3" name="advantage" value="3">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="a4" name="advantage" value="4">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="a5" name="advantage" value="5">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="a6" name="advantage" value="6">
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    Wie sehen Sie sich selbst: Sind Sie bereit, Risiken einzugehen, oder versuchen Sie sie zu verhindern? <p></p>
+    <div class="row">
+        <div class="col-md" align="center">
+            <label for="r0">Gar nicht risikobereit</label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="r1"></label>
+        </div>
+        <div class="col-md-auto" align="center">
+            <label for="r2"></label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="r3"></label>
+        </div>
+        <div class="col-md" align="center">
+            <label for="r4">Sehr risikobereit</label>
+        </div>
+
+        <div class="w-100"></div>
+
+        <div class="col-md" align="center">
+            <input type="radio" id="r0" name="risk_preference" value="0">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="r1" name="risk_preference" value="1">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="r2" name="risk_preference" value="2">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="r3" name="risk_preference" value="3">
+        </div>
+        <div class="col-md" align="center">
+            <input type="radio" id="r4" name="risk_preference" value="4">
+        </div>
+    </div>
+
+</form>
+
+<br>
+
+<button class="otree-btn-next btn btn-primary">Weiter</button>
+
+{% endblock %}
+
+

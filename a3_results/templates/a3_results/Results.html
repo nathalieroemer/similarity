@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Auszahlung
+{% endblock %}
+
+{% block content %}
+
+<td> {% if player.role == 'investor' %}
+
+    Danke für Ihre Teilnahme!
+    Zunächst muss der objektive Wert der kreativen Ideen ermittelt werden.
+    Basierend darauf wird ihre Auszahlung berechnet.
+
+    Sie erhalten Ihre Auszahlung in spätestens zwei Wochen.
+
+    {% else %}
+
+    Danke für Ihre Teilnahme!
+    Ihre Auszahlung beträgt {{ player.payoff }}.
+
+    {% endif %}
+
+{% endblock %}
+
+

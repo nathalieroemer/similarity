@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your task
+{% endblock %}
+
+
+{% block content %}
+
+          {% if player.treat == 'verbal_idea' or player.treat == 'verbal_only' %}
+        Außerdem haben die Innovatoren ihre kreative Idee in einem Text beworben.
+        {% endif %}
+
+        {% if player.treat == 'score_only' or player.treat == 'score_idea' %}
+            Außerdem haben die Innovatoren den Wert ihrer kreativen Idee eingeschätzt.
+        {% endif %}
+
+    </p>
+
+<p>
+    <strong>
+        <u>
+            Ihre Aufgabe
+        </u>
+    </strong>
+</p>
+
+<button class="otree-btn-next btn btn-primary">Weiter</button>
+
+{% endblock %}
