@@ -2,11 +2,57 @@
 {% load otree static %}
 
 {% block title %}
-  Welcome
+  Welcome to this task.
 {% endblock %}
 
 {% block content %}
 
-<button class="otree-btn-next btn btn-primary">Weiter</button>
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+        <u>
+            <a onclick="window.open('{% static 'Instructions1.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                Click to review previous instructions
+            </a>
+        </u>
+    </div>
+
+    <p>
+        You will receive a fixed payment of £1.50. Additionally, you can earn a £5 <b>bonus</b>.
+        This bonus is awarded based on your performance on the task.
+    </p>
+    <p>
+        Please carefully read the following instructions before starting to work.
+        Note that there will be an attention check.
+        If you do not pass it, you are not eligible to participate in this task.
+    </p>
+    <p>
+        To be eligible for payment, you have to perform all tasks within the next 2 hours.
+    </p>
+
+
+
+
+
+    <p id="display"></p>
+
+    <script>
+        var par = document.getElementById("display");
+
+        if() {
+            par.innerHTML = '' +
+                'You will be provided with a written promotion provided by the participants that created the illustrations. Participants know that this text may be shown to you and have an incentive to convince the reader that their illustration is of high value.'
+        }
+        else if() {
+            par.innerHTML = '' +
+                'You will be provided with an assessment of the originality and recognizability of the illustration by the participant that created the illustrations. Participants know that this assessment may be shown to you and have an incentives to convince the reader that their illustration is of high value.'
+        }
+    </script>
+
+
+
+
+
+
+
+{% next_button %}
 
 {% endblock %}

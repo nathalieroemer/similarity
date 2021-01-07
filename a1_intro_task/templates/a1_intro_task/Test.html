@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-   Haben Sie gut aufgepasst?
+   Attention check
 {% endblock %}
 <style>
 span.frac {
@@ -25,9 +25,63 @@ span.frac > sub {
 
 {% block content %}
 
-{% formfields %}
+    {% if participant.vars.treat == 'assessment' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Assess.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
 
+    {% if participant.vars.treat == 'verbal' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
 
-<button class="otree-btn-next btn btn-primary">Weiter</button>
+<form>
+    <div class="form-group required">
+        <label class="col-form-label" for="id_testq_0">What determines the value of an illustration?</label>
+        <div class="controls  field-testq">
+            <ul id="id_testq">
+                <li>
+                    <label for="id_testq_0">
+                        <input type="radio" name="testq" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                        Its aesthetic value and the number of objects used.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_1">
+                        <input type="radio" name="testq" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                        Its originality and its recognizability.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2">
+                        <input type="radio" name="testq" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                        The number of objects used and its originality.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_3">
+                        <input type="radio" name="testq" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                        The length of the illustrated word and its recognizability.
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</form>
+
+{% next_button %}
 
 {% endblock %}

@@ -6,7 +6,7 @@ import io
 import os
 import re
 import base64
-from PIL import Image
+# from PIL import Image
 from django.conf import settings
 from os import path
 from uuid import uuid4
@@ -16,7 +16,7 @@ from random import randint
 
 
 class Welcome(Page):
-    from_model='player'
+    from_model = 'player'
 
 
 class Instructions(Page):
@@ -26,5 +26,6 @@ class Instructions(Page):
 class Test(Page):
     form_model = 'player'
     form_fields = ['testq']
+
 
 page_sequence = [Welcome, Instructions, Test]

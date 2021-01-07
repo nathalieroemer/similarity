@@ -6,7 +6,7 @@ import io
 import os
 import re
 import base64
-from PIL import Image
+# from PIL import Image
 from django.conf import settings
 from os import path
 from uuid import uuid4
@@ -45,13 +45,13 @@ class investment(Page):
         return dict(
             photo1=pic_1,
             photo2=pic_2,
-            promo_verbal_1 = promo_verbal_1,
-            promo_verbal_2 = promo_verbal_2,
-            promo_rec_1 = promo_rec_1,
-            promo_rec_2 = promo_rec_2,
+            promo_verbal_1=promo_verbal_1,
+            promo_verbal_2=promo_verbal_2,
+            promo_rec_1=promo_rec_1,
+            promo_rec_2=promo_rec_2,
             promo_orig_1=promo_orig_1,
             promo_orig_2=promo_orig_2,
-            chose_1 = chose_1,
+            chose_1=chose_1,
             chose_2=chose_2)
 
     def before_next_page(self):
@@ -115,32 +115,17 @@ class inv_quest(Page):
     def is_displayed(self):
         return self.participant.vars['passed_quest'] == 0 and self.participant.vars['list_is_empty'] == 1
 
-# folgend bitte anpassen
-# bitte englisch profeciency (wie vorher gehabt) und gender reinnehmen aber ausklammern überall    
     form_model = 'player'
     form_fields = [
-        'gender',
-        'age',
-        'study_field',
-        'other_study_field',
-        'colourblindness',
-        'advantage',
-        'risk_preference',
+    #    'gender',
+    #    'english',
+        'english_prof',
+        'colourb',
+        'stereotypes',
+        'chance_bonus',
+        'risk_pref',
+        'comp'
     ]
-
-    def vars_for_template(self):
-        study_field = self.player.study_field
-        other_study_field = self.player.other_study_field
-        risk_preference = self.player.risk_preference
-        competition = self.player.competition
-        advantage = self.player.advantage
-        return dict(
-            study_field=study_field,
-            other_study_field=other_study_field,
-            risk_preference=risk_preference,
-            competition_preference=competition,
-            advantage=advantage
-        )
 
     def before_next_page(self):
         self.player.participant.vars['passed_quest'] = 1

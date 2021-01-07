@@ -8,24 +8,87 @@
 
 {% block content %}
 
-          {% if player.treat == 'verbal_idea' or player.treat == 'verbal_only' %}
-        Außerdem haben die Innovatoren ihre kreative Idee in einem Text beworben.
-        {% endif %}
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+        <u>
+            <a onclick="window.open('{% static 'Instructions1.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                Click to review previous instructions
+            </a>
+        </u>
+    </div>
 
-        {% if player.treat == 'score_only' or player.treat == 'score_idea' %}
-            Außerdem haben die Innovatoren den Wert ihrer kreativen Idee eingeschätzt.
-        {% endif %}
+    <p>
+        This task consists of 15 rounds. In each round, you will have to choose between two illustrations.
+        These illustrations were created by other participants who were asked to illustrate words
+        (e.g., objects, items or actions) using a fixed set of materials.
+        In doing so, they tried to create illustrations that are
+    </p>
+    <ol>
+        <li>
+            <b>Original</b>:
+            The word is <b>not</b> among a random set of 100 illustrated words from a related previous task.
+        </li>
+        <li>
+            <b>Recognizable</b>:
+            People can <b>recognize the illustrated word</b> when they see your illustration.
+        </li>
+    </ol>
 
+    <p>
+        It is your goal, to choose the illustrations with the highest value.
+        The value of an illustration depends on whether it is original or not
+        and on the recognition rate of the illustrated word. The value is determined as follows:
+    </p>
+    <ul>
+        <li>
+            <b>Value of illustration = 0</b> if it <b>is not original</b>
+        </li>
+        <li>
+            <b>Value of illustration = recognition rate</b> (from 0 to 100)
+            if it <b>is original</b>
+        </li>
+    </ul>
+
+    <br>
+
+    <p>
+        <u>Your bonus</u>
     </p>
 
-<p>
-    <strong>
-        <u>
-            Ihre Aufgabe
-        </u>
-    </strong>
-</p>
+    <p>
+        To determine whether or not you receive the bonus,
+        we will randomly choose one out of the 15 rounds after you completed the task.
+    </p>
+    <ul>
+        <li>
+            If you chose the illustration with the higher value in the selected round, your bonus is £5.
+        </li>
+        <li>
+            If you chose the illustration with the lower value in the selected round, your bonus is £0.
+        </li>
+    </ul>
 
-<button class="otree-btn-next btn btn-primary">Weiter</button>
+    <p>
+        The participants that created these illustrations in the other task are paid according to your decision.
+        They receive a bonus if their illustration is chosen.
+    </p>
+
+    <p>
+        {% if player.treat == 'verbal' %}
+            You will be provided with a written promotion provided by the participants that created the illustrations.
+            Participants know that this text may be shown to you and have an incentive to convince the reader
+            that their illustration is of high value.
+        {% endif %}
+
+        {% if player.treat == 'assessment' %}
+            You will be provided with an assessment of the originality and recognizability of the illustration by the
+            participant that created the illustrations.
+            Participants know that this assessment may be shown to you
+            and have an incentives to convince the reader that their illustration is of high value.
+        {% endif %}
+    </p>
+
+    <br>
+
+{% next_button %}
 
 {% endblock %}

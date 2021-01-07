@@ -2,20 +2,25 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Entscheiden Sie über Ihr Investment
+    Your decision
 {% endblock %}
 
 {% block styles %}
 <style>
 
 .divbild {
-  width:336px;
-  height:301px;
-  overflow:hidden;
-  margin-right:-80px;
-  border-radius: 7px;
+    width:336px;
+    height:301px;
+    overflow:hidden;
+    border-radius: 7px;
+    margin: 0 auto
 }
-  .otree-form-errors {
+
+.col-sm {
+    text-align: center;
+}
+
+.otree-form-errors {
     visibility: hidden;
     display: none;
 }
@@ -25,72 +30,117 @@
 
 {% block content %}
 
-<div class="row">
-    <div class="col-sm">
-        <p>
-        <center>
-            This is the illustration of innovator 1:
-                <br>
-                <div class="divbild">
+    {% if participant.vars.treat == 'assessment' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Assess.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'promotion' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    <p>
+        Please decide between the following illustrations. Which one do you think has the higher value?
+    </p>
+
+    <br>
+
+    <div class="row">
+        <div class="col-sm">
+            <p>
+                Illustration 1:
+            </p>
+            <!--
+            <div class="divbild">
                 <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%"/>
-                </div>
-        </center>
-        </p>
+            </div>
+            -->
 
-        <p>
-            <center>
-            Innovator 1 beschreibt die Idee wie folgt:
-                <br>
-        <i> {{ promo_verbal_1 }} </i>
-        </center>
-        </p>
+            <br>
 
-        <p>
-            <center>
-            Innovator 1 schätzt den Wert der eigenen kreativen Idee auf <strong>{{ promo_rec_1 }}</strong>.
-            </center>
-        </p>
-        <p>
+            {% if participant.vars.treat == 'assessment' %}
+                <p>
+                    The participant that created this illustration assesses the likelihood that it is original with <b>{{ promo_orig_1 }}</b>%.
+                </p>
 
+                <p>
+                    The participant assesses the recognizability rate (from 0 to 100) as <b>{{ promo_rec_1 }}</b>.
+                </p>
+            {% endif %}
 
-        </p>
-    </div>
+            {% if participant.vars.treat == 'verbal' %}
+                <p>
+                    This is the text provided by the participant who created this creative idea:
+                    <br>
+                    <i> {{ promo_verbal_1 }} </i>
+                </p>
+            {% endif %}
+        </div>
 
-    <div class="col-sm">
-        <p>
-            <center>
-            Das ist die kreative Idee von Innovator 2:
-                 <div class="divbild">
+        <div class="col-sm">
+            <p>
+                Illustration 2:
+            </p>
+            <!--
+            <div class="divbild">
                 <img src="data:image/(png|jpeg);base64,{{ photo2 }}" style="max-width:100%; max-height: 150%"/>
-                </div>
-            </center>
-        </p>
-        <p>
-            <center>
-            Innovator 2 beschreibt die eigene kreative Idee wie folgt:
-                <br>
-            <i> {{ promo_verbal_2 }} </i>
-            </center>
-        </p>
-        <p>
-            <center>
-            Innovator 2 schätzt den Wert der eigenen kreativen Idee auf <strong>{{ promo_rec_2 }}</strong>.
-            </center>
-        </p>
-        <p> Originality of picture 2 is </p>
-        <strong>{{ promo_orig_2 }}</strong>
-        <p>
-        </p>
-    </div>
-</div>
+            </div>
+            -->
 
+            <br>
+
+            {% if participant.vars.treat == 'assessment' %}
+                <p>
+                    The participant that created this illustration assesses the likelihood that it is original with <b>{{ promo_orig_2 }}</b>%.
+                </p>
+
+                <p>
+                    The participant assesses the recognizability rate (from 0 to 100) as <b>{{ promo_rec_2 }}</b>.
+                </p>
+            {% endif %}
+
+            {% if participant.vars.treat == 'verbal' %}
+                <p>
+                    This is the text provided by the participant who created this creative idea:
+                    <br>
+                    <i> {{ promo_verbal_2 }} </i>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+
+    <br>
+
+    <p style="text-align: center">
+        Please decide which illustration you want to choose:
+    </p>
+
+    <br>
+
+    <div class="row">
+        <div class="col-sm">
+            <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
+        </div>
+
+        <div class="col-sm">
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Illustration 2"/>
+        </div>
+    </div>
 
 
 <input type="hidden" name="chose_2" id="id_chose_2" required  class="form-control">
 <input type="hidden" name="chose_1" id="id_chose_1" required  class="form-control">
-
-<input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
-<input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Illustration 2"/>
 
 <button class="otree-btn-next btn btn-primary" style="display:none;" id="next_page">Submit</button>
 {% endblock %}

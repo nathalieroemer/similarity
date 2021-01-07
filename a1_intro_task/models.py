@@ -43,7 +43,8 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        treat = itertools.cycle(['verbal_only', 'score_only', 'verbal_idea', 'score_idea', 'idea_only'])
+        treat = itertools.cycle(['verbal', 'assessment'])
+        # 'verbal_only', 'score_only', 'verbal_idea', 'score_idea', 'idea_only'
         self.session.vars['image_data'] = Constants.df['player.image_data'].to_list()
         self.session.vars['words'] = Constants.df['player.word'].to_list()
         self.session.vars['photo_id'] = Constants.df['player.photoid'].to_list()
@@ -61,8 +62,6 @@ class Subsession(BaseSubsession):
             p.participant.vars['list_is_empty'] = 0
             p.participant.vars['passed_quest'] = 0
 
-
-
     def custom_export(session):
         yield ['treat']
         for s in session:
@@ -75,17 +74,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     treat = models.StringField()
-
-    testq = models.IntegerField(
-        label="What determines the value of an illustration?",
-        choices=[
-            [1, 'Its aesthetic value and the number of objects used'],
-            [2, 'Its originality and its recognizability'],
-            [3, 'The number of objects used and its originality'],
-            [4, 'The length of the illustrated word and its recognizability'],
-        ],
-        widget=widgets.RadioSelect
-    )
+    testq = models.IntegerField()
 
   #  def custom_export(players):
   #      yield ['session', 'participant_code', 'round_number', 'id_in_group', 'payoff', 'photoid']

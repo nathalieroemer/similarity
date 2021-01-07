@@ -31,7 +31,6 @@ class Group(BaseGroup):
     pass
 
 
-
 class Player(BasePlayer):
 
     word_1 = models.StringField()
@@ -66,3 +65,14 @@ class Player(BasePlayer):
     list = models.LongStringField()
     chose_1 = models.StringField()
     chose_2 = models.StringField()
+
+#    gender = models.IntegerField()
+    english = models.IntegerField()
+    english_prof = models.IntegerField(
+        blank=True
+    )
+    colourb = models.IntegerField()
+    stereotypes = models.IntegerField()
+    chance_bonus = models.IntegerField()
+    risk_pref = models.IntegerField()
+    comp = models.IntegerField()
