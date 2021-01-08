@@ -7,7 +7,16 @@
 
 {% block content %}
 
-    {% next_button %}
+    {% if participant.vars.testq == 2 %}
+        <p>
+            You have completed the task.
+        </p>
+    {% else %}
+        <p>
+            You did not pass the attention check.
+        </p>
+    {% endif %}
+
 {% endblock %}
 
 

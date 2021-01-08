@@ -64,7 +64,7 @@
 
 {% block content %}
 
-    {% if participant.vars.treat == 'assessment' %}
+    {% if participant.vars.treat == 'score_only' %}
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
             <u>
                 <a onclick="window.open('{% static 'Instructions2Assess.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
@@ -74,7 +74,7 @@
         </div>
     {% endif %}
 
-    {% if participant.vars.treat == 'verbal' %}
+    {% if participant.vars.treat == 'verbal_only' %}
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
             <u>
                 <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">

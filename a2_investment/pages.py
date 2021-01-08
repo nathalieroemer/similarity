@@ -6,7 +6,7 @@ import io
 import os
 import re
 import base64
-# from PIL import Image
+from PIL import Image
 from django.conf import settings
 from os import path
 from uuid import uuid4
@@ -20,7 +20,7 @@ class investment(Page):
     form_fields = ['chose_1', 'chose_2']
 
     def is_displayed(self):
-        return self.participant.vars['list_is_empty'] == 0
+        return self.participant.vars['list_is_empty'] == 0 and self.participant.vars['testq'] == 2
 
     def vars_for_template(self):
 
@@ -86,7 +86,9 @@ class investment(Page):
             self.player.right_choice = 1
         elif self.player.chose_2 == 1 and self.player.value_2 < self.player.value_1:
             self.player.right_choice = 0
-
+        elif self.player.value_1 == self.player.value_2:
+            self.player.equal_value = 1
+            self.player.right_choice = 1
 
    #     for p in self.player.get_others_in_subsession():
     #        if p.participant.vars['photoid'] == self.session.vars['images'][0]:
@@ -130,5 +132,23 @@ class inv_quest(Page):
     def before_next_page(self):
         self.player.participant.vars['passed_quest'] = 1
 
+        # The following code sets the payoff in the last round after completion of the questionnaire
+        # based on a random round.
+        # TODO: For test purposes, the random integer is between 1 and 10, as only 10 pictures are shown.
+        #  For the final implementation, it should be changed to "randint(1, Constants.num_rounds)"
+        if self.round_number == 10:
+            randomround = randint(1, 10)
+            # print("round number is", randomround)
+            if self.player.in_round(randomround).right_choice == 1:
+                self.player.payoff = 4
+            else:
+                self.player.payoff = 0
 
-page_sequence = [investment, inv_quest]
+
+class Results(Page):
+    def is_displayed(self):
+        return self.participant.vars['passed_quest'] == 1 or self.participant.vars['testq'] != 2
+        # Is shown when the participant passed the experiment (questionnaire) or didn't pass the attention check.
+
+
+page_sequence = [investment, inv_quest, Results]

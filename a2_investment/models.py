@@ -63,14 +63,18 @@ class Player(BasePlayer):
     right_choice = models.IntegerField()
 
     list = models.LongStringField()
-    chose_1 = models.StringField()
-    chose_2 = models.StringField()
+    chose_1 = models.IntegerField()
+    chose_2 = models.IntegerField()
+
+    equal_value = models.IntegerField(
+        initial=0
+    )
 
 #    gender = models.IntegerField()
-    english = models.IntegerField()
-    english_prof = models.IntegerField(
-        blank=True
-    )
+#    english = models.IntegerField()
+#    english_prof = models.IntegerField(
+#        blank=True
+#    )
     colourb = models.IntegerField()
     stereotypes = models.IntegerField()
     chance_bonus = models.IntegerField()

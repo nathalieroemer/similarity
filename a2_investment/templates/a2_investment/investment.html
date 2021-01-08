@@ -19,18 +19,13 @@
 .col-sm {
     text-align: center;
 }
-
-.otree-form-errors {
-    visibility: hidden;
-    display: none;
-}
 </style>
 
 {% endblock %}
 
 {% block content %}
 
-    {% if participant.vars.treat == 'assessment' %}
+    {% if participant.vars.treat == 'score_only' %}
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
             <u>
                 <a onclick="window.open('{% static 'Instructions2Assess.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
@@ -40,7 +35,7 @@
         </div>
     {% endif %}
 
-    {% if participant.vars.treat == 'promotion' %}
+    {% if participant.vars.treat == 'verbal_only' %}
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
             <u>
                 <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
@@ -69,7 +64,7 @@
 
             <br>
 
-            {% if participant.vars.treat == 'assessment' %}
+            {% if participant.vars.treat == 'score_only' %}
                 <p>
                     The participant that created this illustration assesses the likelihood that it is original with <b>{{ promo_orig_1 }}</b>%.
                 </p>
@@ -79,7 +74,7 @@
                 </p>
             {% endif %}
 
-            {% if participant.vars.treat == 'verbal' %}
+            {% if participant.vars.treat == 'verbal_only' %}
                 <p>
                     This is the text provided by the participant who created this creative idea:
                     <br>
@@ -100,7 +95,7 @@
 
             <br>
 
-            {% if participant.vars.treat == 'assessment' %}
+            {% if participant.vars.treat == 'score_only' %}
                 <p>
                     The participant that created this illustration assesses the likelihood that it is original with <b>{{ promo_orig_2 }}</b>%.
                 </p>
@@ -110,7 +105,7 @@
                 </p>
             {% endif %}
 
-            {% if participant.vars.treat == 'verbal' %}
+            {% if participant.vars.treat == 'verbal_only' %}
                 <p>
                     This is the text provided by the participant who created this creative idea:
                     <br>

@@ -43,7 +43,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        treat = itertools.cycle(['verbal', 'assessment'])
+        treat = itertools.cycle(['verbal_only', 'score_only'])
         # 'verbal_only', 'score_only', 'verbal_idea', 'score_idea', 'idea_only'
         self.session.vars['image_data'] = Constants.df['player.image_data'].to_list()
         self.session.vars['words'] = Constants.df['player.word'].to_list()
