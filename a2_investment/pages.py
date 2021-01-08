@@ -6,7 +6,7 @@ import io
 import os
 import re
 import base64
-from PIL import Image
+#from PIL import Image
 from django.conf import settings
 from os import path
 from uuid import uuid4
@@ -56,6 +56,11 @@ class investment(Page):
 
     def before_next_page(self):
 
+        if self.round_number == 1:
+            self.player.roundcount = 1
+        elif self.round_number > 1:
+            self.player.roundcount = self.player.in_round(self.round_number - 1).roundcount + 1
+
         self.player.x = self.participant.vars['list'][0]
         self.player.y = self.participant.vars['list'][1]
 
@@ -88,7 +93,6 @@ class investment(Page):
             self.player.right_choice = 0
         elif self.player.value_1 == self.player.value_2:
             self.player.equal_value = 1
-            self.player.right_choice = 1
 
    #     for p in self.player.get_others_in_subsession():
     #        if p.participant.vars['photoid'] == self.session.vars['images'][0]:
@@ -134,15 +138,14 @@ class inv_quest(Page):
 
         # The following code sets the payoff in the last round after completion of the questionnaire
         # based on a random round.
-        # TODO: For test purposes, the random integer is between 1 and 10, as only 10 pictures are shown.
-        #  For the final implementation, it should be changed to "randint(1, Constants.num_rounds)"
-        if self.round_number == 10:
-            randomround = randint(1, 10)
-            # print("round number is", randomround)
-            if self.player.in_round(randomround).right_choice == 1:
-                self.player.payoff = 4
-            else:
-                self.player.payoff = 0
+        randomround = randint(1, self.player.roundcount)
+        print("round number is", randomround)
+        if self.player.in_round(randomround).right_choice == 1:
+            self.player.payoff = 5
+        elif self.player.in_round(randomround).equal_value == 1:
+            self.player.payoff = 2.5
+        else:
+            self.player.payoff = 0
 
 
 class Results(Page):

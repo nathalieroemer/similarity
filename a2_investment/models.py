@@ -70,11 +70,13 @@ class Player(BasePlayer):
         initial=0
     )
 
+    roundcount = models.IntegerField()
+
 #    gender = models.IntegerField()
 #    english = models.IntegerField()
-#    english_prof = models.IntegerField(
-#        blank=True
-#    )
+    english_prof = models.IntegerField(
+        blank=True
+    )
     colourb = models.IntegerField()
     stereotypes = models.IntegerField()
     chance_bonus = models.IntegerField()

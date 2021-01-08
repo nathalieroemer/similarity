@@ -6,7 +6,7 @@ import io
 import os
 import re
 import base64
-from PIL import Image
+#from PIL import Image
 from django.conf import settings
 from os import path
 from uuid import uuid4
