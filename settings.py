@@ -33,7 +33,7 @@ LANGUAGE_CODE = 'en'
 REAL_WORLD_CURRENCY_CODE = 'GBP'
 USE_POINTS = False
 
-DEBUG = False
+DEBUG = True
 ROOMS = [
     dict(
         name='econ101',

@@ -52,7 +52,7 @@
     <br>
 
     <div class="row">
-        <div class="col-sm">
+        <div class="col-sm" style="border-right: 1px solid black">
             <p>
                 <u>Illustration 1:</u>
             </p>
@@ -78,13 +78,14 @@
                 <p>
                     This is the text provided by the participant who created this creative idea:
                     <br>
-                     <br>
-                    <i> {{ promo_verbal_1 }} </i>
+                    <p>
+                        <i> {{ promo_verbal_1 }} </i>
+                    </p>
                 </p>
             {% endif %}
         </div>
 
-        <div class="col-sm">
+        <div class="col-sm" style="border-left: 1px solid black">
             <p>
                 <u>Illustration 2:</u>
             </p>
@@ -110,8 +111,9 @@
                 <p>
                     This is the text provided by the participant who created this creative idea:
                     <br>
-                    <br>
-                    <i> {{ promo_verbal_2 }} </i>
+                    <p>
+                        <i> {{ promo_verbal_2 }} </i>
+                    </p>
                 </p>
             {% endif %}
         </div>
@@ -119,7 +121,6 @@
 
     <br>
     <br>
-
 
     <p>
         Please decide which illustration you want to choose:
