@@ -19,7 +19,7 @@ SESSION_CONFIGS = [
     dict(
         name='a1_intro_task',  ## name muss app name entsprechen
         display_name='a1_intro_task',  ### display name kann gleich sein
-        num_demo_participants=3,
+        num_demo_participants=100,
         app_sequence=['a1_intro_task', 'a2_investment'],
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
     ),
