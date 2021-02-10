@@ -20,7 +20,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'InvestorDecisions'
     players_per_group = None
-    num_rounds = 15
+    num_rounds = 18
 
 
 class Subsession(BaseSubsession):
@@ -72,12 +72,14 @@ class Player(BasePlayer):
 
     roundcount = models.IntegerField()
 
-#    gender = models.IntegerField()
-#    english = models.IntegerField()
+    gender = models.IntegerField()
+    english = models.IntegerField()
     english_prof = models.IntegerField(
         blank=True
     )
-    colourb = models.IntegerField()
+    colourb = models.IntegerField(
+        blank=True
+    )
     stereotypes = models.IntegerField()
     chance_bonus = models.IntegerField()
     risk_pref = models.IntegerField()

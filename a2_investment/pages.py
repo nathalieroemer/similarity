@@ -39,6 +39,9 @@ class investment(Page):
         promo_orig_1 = self.session.vars['promo_orig'][x]
         promo_orig_2 = self.session.vars['promo_orig'][y]
 
+        word_1 = self.session.vars['words'][x]
+        word_2 = self.session.vars['words'][y]
+
         chose_1 = self.player.chose_1
         chose_2 = self.player.chose_2
 
@@ -52,7 +55,9 @@ class investment(Page):
             promo_orig_1=promo_orig_1,
             promo_orig_2=promo_orig_2,
             chose_1=chose_1,
-            chose_2=chose_2)
+            chose_2=chose_2,
+            word_1=word_1,
+            word_2=word_2)
 
     def before_next_page(self):
 
@@ -74,11 +79,11 @@ class investment(Page):
         self.player.orig_1 = self.session.vars['orig'][self.player.x]
         self.player.orig_2 = self.session.vars['orig'][self.player.y]
 
-        self.player.recog_1 = self.session.vars['recog'][self.player.x]
-        self.player.recog_2 = self.session.vars['recog'][self.player.y]
+        self.player.recog_1 = int(self.session.vars['recog'][self.player.x])
+        self.player.recog_2 = int(self.session.vars['recog'][self.player.y])
 
-        self.player.value_1 = self.session.vars['value'][self.player.x]
-        self.player.value_2 = self.session.vars['value'][self.player.y]
+        self.player.value_1 = int(self.session.vars['value'][self.player.x])
+        self.player.value_2 = int(self.session.vars['value'][self.player.y])
 
         self.player.word_1 = str(self.session.vars['words'][self.player.x])
         self.player.word_2 = str(self.session.vars['words'][self.player.y])
@@ -123,8 +128,8 @@ class inv_quest(Page):
 
     form_model = 'player'
     form_fields = [
-    #    'gender',
-    #    'english',
+        'gender',
+        'english',
         'english_prof',
         'colourb',
         'stereotypes',
@@ -141,9 +146,9 @@ class inv_quest(Page):
         randomround = randint(1, self.player.roundcount)
         print("round number is", randomround)
         if self.player.in_round(randomround).right_choice == 1:
-            self.player.payoff = 5
+            self.player.payoff = 1.50
         elif self.player.in_round(randomround).equal_value == 1:
-            self.player.payoff = 2.5
+            self.player.payoff = 0.75
         else:
             self.player.payoff = 0
 
