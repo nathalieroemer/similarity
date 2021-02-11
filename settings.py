@@ -18,7 +18,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     description='Depending on your performance, you can earn up to $1.80 in 5 minutes in this task.',
     frame_height=500,
     template='global/mturk_template.html',
-    minutes_allotted_per_assignment=15,
+    minutes_allotted_per_assignment=20,
     expiration_hours=1 * 24,
     qualification_requirements=[
         {
