@@ -26,7 +26,7 @@ class Constants(BaseConstants):
     num_rounds = 1
     IMAGE_EXTENTION = 'png'
     data = pd.read_csv("investor.csv", delimiter=",", encoding="latin1")
-    df = pd.DataFrame(data, columns=['playerimage_data', 'word', 'photo_id', 'playerpromo_verbal', 'playerpromo_rec', 'playerpromo_orig', 'female', 'value', 'recog', 'originality50'])
+    df = pd.DataFrame(data, columns=['playerimage_data', 'word', 'photo_id', 'playerpromo_verbal', 'female', 'value', 'recog', 'originality50'])
     index = df.index
     number_of_rows = len(index)
 
@@ -34,8 +34,6 @@ class Constants(BaseConstants):
     words = df['word'].to_list()
     photo_ids = df['photo_id'].to_list()
     promo_verbal = df['playerpromo_verbal'].to_list()
-    promo_rec = df['playerpromo_rec'].to_list()
-    promo_orig = df['playerpromo_orig'].to_list()
     orig = df['originality50'].to_list()
     recog = df['recog'].to_list()
     value = df['value'].to_list()
@@ -44,13 +42,11 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        treat = itertools.cycle(['verbal_only', 'score_only', 'verbal_idea', 'score_idea', 'idea_only'])
+        treat = itertools.cycle(['verbal_only', 'verbal_idea', 'idea_only'])
         self.session.vars['image_data'] = Constants.df['playerimage_data'].to_list()
         self.session.vars['words'] = Constants.df['word'].to_list()
         self.session.vars['photo_id'] = Constants.df['photo_id'].to_list()
-        self.session.vars['promo_rec'] = Constants.df['playerpromo_rec'].to_list()
         self.session.vars['promo_verbal'] = Constants.df['playerpromo_verbal'].to_list()
-        self.session.vars['promo_orig'] = Constants.df['playerpromo_orig'].to_list()
         self.session.vars['orig'] = Constants.df['originality50'].to_list()
         self.session.vars['recog'] = Constants.df['recog'].to_list()
         self.session.vars['value'] = Constants.df['value'].to_list()
@@ -60,7 +56,7 @@ class Subsession(BaseSubsession):
             p.treat = next(treat)
             p.participant.vars['treat'] = p.treat
             # hier wird für jeden Teilnehmer eine zufällige Liste gezogen mit Zahlen die den Zeilen der Liste entsprechen
-            p.participant.vars['list'] = random.sample(range(Constants.number_of_rows), k=36)
+            p.participant.vars['list'] = random.sample(range(Constants.number_of_rows), k=34)
             p.participant.vars['list_is_empty'] = 0
             p.participant.vars['passed_quest'] = 0
 

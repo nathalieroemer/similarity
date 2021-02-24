@@ -27,18 +27,29 @@ class investment(Page):
         # der Index in den eckigen Klammern zeigt an welche Zeile / Position der Liste/ des Datensatzes aufgerufen werden soll
         x = self.participant.vars['list'][0]
         y = self.participant.vars['list'][1]
+        print('Vorher Female x', self.session.vars['female'][x])
+        print('Vorher Female y', self.session.vars['female'][y])
+        i = 1  # Laufvariable für die While-Schleife
+        while self.session.vars['female'][x] == self.session.vars['female'][y]:
+            # Solange zwei Bilder vom gleichen Geschlecht angezeigt werden,
+            # erhöht sich der Indexwert der Liste durch den der Wert von y bestimmt wird.
+            y = self.participant.vars['list'][1 + i]
+            i = i + 1
+
+        self.player.x = x
+        self.player.y = y
+        print('Hilfsvariable x', x)
+        print('Hilfsvariable y', y)
+        print('Player x', self.player.x)
+        print('Player y', self.player.y)
+        print('Female x', self.session.vars['female'][x])
+        print('Female y', self.session.vars['female'][y])
 
         pic_1 = self.session.vars['image_data'][x]
         pic_2 = self.session.vars['image_data'][y]
 
         promo_verbal_1 = self.session.vars['promo_verbal'][x]
         promo_verbal_2 = self.session.vars['promo_verbal'][y]
-
-        promo_rec_1 = self.session.vars['promo_rec'][x]
-        promo_rec_2 = self.session.vars['promo_rec'][y]
-
-        promo_orig_1 = self.session.vars['promo_orig'][x]
-        promo_orig_2 = self.session.vars['promo_orig'][y]
 
         word_1 = self.session.vars['words'][x]
         word_2 = self.session.vars['words'][y]
@@ -51,10 +62,6 @@ class investment(Page):
             photo2=pic_2,
             promo_verbal_1=promo_verbal_1,
             promo_verbal_2=promo_verbal_2,
-            promo_rec_1=promo_rec_1,
-            promo_rec_2=promo_rec_2,
-            promo_orig_1=promo_orig_1,
-            promo_orig_2=promo_orig_2,
             chose_1=chose_1,
             chose_2=chose_2,
             word_1=word_1,
@@ -67,21 +74,10 @@ class investment(Page):
         elif self.round_number > 1:
             self.player.roundcount = self.player.in_round(self.round_number - 1).roundcount + 1
 
-        self.player.x = self.participant.vars['list'][0]
-        self.player.y = self.participant.vars['list'][1]
-
         self.player.photo_id_1 = str(self.session.vars['photo_id'][self.player.x])
         self.player.photo_id_2 = str(self.session.vars['photo_id'][self.player.y])
 
-        print("this is orig", self.session.vars['orig'][self.player.x])
-        print("this is recog", self.session.vars['recog'][self.player.x])
         print("this is value", self.session.vars['value'][self.player.x])
-
-        self.player.orig_1 = self.session.vars['orig'][self.player.x]
-        self.player.orig_2 = self.session.vars['orig'][self.player.y]
-
-        self.player.recog_1 = int(self.session.vars['recog'][self.player.x])
-        self.player.recog_2 = int(self.session.vars['recog'][self.player.y])
 
         self.player.value_1 = int(self.session.vars['value'][self.player.x])
         self.player.value_2 = int(self.session.vars['value'][self.player.y])
@@ -110,7 +106,10 @@ class investment(Page):
             # print(p.participant.vars['investment'])
 
         # hier werden die ersten zwei einträge der liste entfernt
-        del self.participant.vars['list'][:2]
+        # del self.participant.vars['list'][:2]
+        # Mit dem remove-Befehl werden die Einträge mit den entsprechenden Werten ohne Kenntnis des Indexes entfernt.
+        self.participant.vars['list'].remove(self.player.x)
+        self.participant.vars['list'].remove(self.player.y)
         list = self.participant.vars['list']
         print(list)
         print(len(list))

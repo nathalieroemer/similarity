@@ -30,15 +30,6 @@
 
 {% block content %}
 
-    {% if participant.vars.treat == 'score_only' %}
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Score.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
     {% if participant.vars.treat == 'idea_only' %}
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
             <u>
@@ -71,17 +62,6 @@
         </div>
     {% endif %}
 
-    {% if participant.vars.treat == 'score_idea' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2ScoreIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
     <p>
         Please decide between the following illustrations. Which one do you think has the higher value? <br>
         Keep in mind:
@@ -105,7 +85,7 @@
             <p>
                 The creator illustrated the word <i> {{ word_1 }}</i>.
             </p>
-            {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' or participant.vars.treat == 'score_idea' %}
+            {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
 
             <div class="divbild">
                 <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:102%; max-height: 170%;"/>
@@ -113,16 +93,6 @@
             {% endif %}
 
             <br>
-
-            {% if participant.vars.treat == 'score_only' or participant.vars.treat == 'score_idea' %}
-                <p>
-                    The creator assesses the likelihood that it is <b> original </b> with <b>{{ promo_orig_1 }}</b>%.
-                </p>
-
-                <p>
-                    The creator assesses the  <b> recognizability</b> rate (from 0 to 100) as <b>{{ promo_rec_1 }}</b>%.
-                </p>
-            {% endif %}
 
             {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea'  %}
                 <p>
@@ -143,23 +113,13 @@
             The creator illustrated the word <i> {{ word_2 }}</i>.
             </p>
 
-            {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' or participant.vars.treat == 'score_idea' %}
+            {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
             <div class="divbild">
                 <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:102%; max-height: 170%;"/>
             </div>
             {% endif %}
 
             <br>
-
-            {% if participant.vars.treat == 'score_only' or participant.vars.treat == 'score_idea' %}
-                <p>
-                    <b> The creator  </b> assesses the likelihood that it is <b> original </b> with <b>{{ promo_orig_2 }}</b>%.
-                </p>
-
-                <p>
-                    <b> The creator </b> assesses the  <b> recognizability</b> rate (from 0 to 100) as <b>{{ promo_rec_2 }}</b>%.
-                </p>
-            {% endif %}
 
             {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea' %}
                 <p>
