@@ -54,10 +54,12 @@ class Subsession(BaseSubsession):
         self.session.vars['orig'] = Constants.df['originality50'].to_list()
         self.session.vars['recog'] = Constants.df['recog'].to_list()
         self.session.vars['value'] = Constants.df['value'].to_list()
+        self.session.vars['female'] = Constants.df['female'].to_list()
 
         for p in self.get_players():
             p.treat = next(treat)
             p.participant.vars['treat'] = p.treat
+            # hier wird für jeden Teilnehmer eine zufällige Liste gezogen mit Zahlen die den Zeilen der Liste entsprechen
             p.participant.vars['list'] = random.sample(range(Constants.number_of_rows), k=36)
             p.participant.vars['list_is_empty'] = 0
             p.participant.vars['passed_quest'] = 0

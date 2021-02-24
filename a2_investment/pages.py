@@ -23,7 +23,8 @@ class investment(Page):
         return self.participant.vars['list_is_empty'] == 0 and self.participant.vars['testq'] == 2
 
     def vars_for_template(self):
-
+        # die zufällige Liste bestimmt welche Beobachtung (Zeile) aus den Daten aufgerufen wird
+        # der Index in den eckigen Klammern zeigt an welche Zeile / Position der Liste/ des Datensatzes aufgerufen werden soll
         x = self.participant.vars['list'][0]
         y = self.participant.vars['list'][1]
 
@@ -108,6 +109,7 @@ class investment(Page):
     #            p.investment = investment_in_2
             # print(p.participant.vars['investment'])
 
+        # hier werden die ersten zwei einträge der liste entfernt
         del self.participant.vars['list'][:2]
         list = self.participant.vars['list']
         print(list)

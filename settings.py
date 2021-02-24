@@ -50,9 +50,9 @@ SESSION_CONFIGS = [
 # for example: de, fr, ja, ko, zh-hans
 LANGUAGE_CODE = 'en'
 
-AWS_ACCESS_KEY_ID = 'AKIAJ2VWMYHZIHXGSHKQ'
+AWS_ACCESS_KEY_ID = ''
     #environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = 'nsLkTnVo7/AeCAzTil2QC4cqHAWyatFQMv0H4EUx'
+AWS_SECRET_ACCESS_KEY = ''
     #environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, GBP, CNY, JPY
