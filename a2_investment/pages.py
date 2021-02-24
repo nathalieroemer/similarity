@@ -85,6 +85,9 @@ class investment(Page):
         self.player.word_1 = str(self.session.vars['words'][self.player.x])
         self.player.word_2 = str(self.session.vars['words'][self.player.y])
 
+        self.player.female_1 = int(self.session.vars['female'][self.player.x])
+        self.player.female_2 = int(self.session.vars['female'][self.player.y])
+
         if self.player.chose_1 == 1 and self.player.value_1 > self.player.value_2:
             self.player.right_choice = 1
         elif self.player.chose_1 == 1 and self.player.value_1 < self.player.value_2:
