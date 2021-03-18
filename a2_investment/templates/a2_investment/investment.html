@@ -92,10 +92,10 @@
 .divprom {
     border-radius: 15px;
     margin:0 auto;
-    border-top: #dbdbdb 4px solid;
-    border-left: #dbdbdb 4px solid;
-    border-right: #dbdbdb 4px solid;
-    border-bottom: #dbdbdb 4px solid;
+    border-top: #dbdbdb 0px solid;
+    border-left: #dbdbdb 0px solid;
+    border-right: #dbdbdb 0px solid;
+    border-bottom: #dbdbdb 0px solid;
     font-style: italic;
     font-weight: bold;
 }
@@ -172,6 +172,17 @@
             </u>
         </div>
     {% endif %}
+
+    {% if participant.vars.treat == 'no_info' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2VerbalIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
     <p>
         Please decide between the following illustrations. Which one do you think has the higher value? <br>
         Keep in mind:
@@ -197,13 +208,13 @@
 
             {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
                 {% if female_1 == 1 %}
-                    <div class="divbild_f">
+                    <div class="divbild">
 
                         <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
 
                     </div>
                 {% else %}
-                    <div class="divbild_m">
+                    <div class="divbild">
                         <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
                     </div>
                 {% endif %}
@@ -230,13 +241,13 @@
                     The creator of this illustration describes it as follows:
                 </p>
                 {% if female_1 == 1 %}
-                    <div class="divprom_f">
+                    <div class="divprom">
                         <p>
                             {{ promo_verbal_1 }}
                         </p>
                     </div>
                 {% else %}
-                    <div class="divprom_m">
+                    <div class="divprom">
                         <p>
                             {{ promo_verbal_1 }}
                         </p>
@@ -275,11 +286,11 @@
 
             {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
                 {% if female_2 == 1 %}
-                    <div class="divbild_f">
+                    <div class="divbild">
                         <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
                     </div>
                 {% else %}
-                    <div class="divbild_m">
+                    <div class="divbild">
                         <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
                     </div>
                 {% endif %}
@@ -304,13 +315,13 @@
                     The creator of this illustration describes it as follows:
                 </p>
                 {% if female_2 == 1 %}
-                    <div class="divprom_f">
+                    <div class="divprom">
                         <p>
                             {{ promo_verbal_2 }}
                         </p>
                     </div>
                 {% else %}
-                    <div class="divprom_m">
+                    <div class="divprom">
                         <p>
                             {{ promo_verbal_2 }}
                         </p>
@@ -347,7 +358,7 @@
     </p>
 
     <br>
-
+{% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea' or participant.vars.treat == 'idea_only' or participant.vars.treat == 'no_info'%}
     <div class="row">
         <div class="col-sm">
             {% if female_1 == 1 %}
@@ -366,7 +377,20 @@
 
         </div>
     </div>
+{% endif %}
 
+{% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' or participant.vars.treat == 'idea_b'%}
+    <div class="row">
+        <div class="col-sm">
+                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
+        </div>
+
+        <div class="col-sm">
+
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Illustration 2"/>
+        </div>
+    </div>
+{% endif %}
 
 <input type="hidden" name="chose_2" id="id_chose_2" required  class="form-control">
 <input type="hidden" name="chose_1" id="id_chose_1" required  class="form-control">

@@ -17,7 +17,13 @@
     </div>
 
     <p>
-        This task consists of 18 rounds. In each round, you will have to choose between two illustrations provided by two different creators.
+        This task consists of 18 rounds. In each round, you will have to choose between two illustrations provided by two different creators. You choose an illustration by clicking on the button, indicating the respective illustration.
+        <br> <br>
+        {% if player.treat == 'no_info' or player.treat == 'idea_only' or player.treat == 'verbal_only' or player.treat == 'verbal_idea'%}
+        If the creator of the illustration is <span style="color:#9400D3">female</span> this button is <span style="color:#9400D3">purple</span>.
+        If the creator of the illustration is <span style="color:#00BFFF">male</span> this button is <span style="color:#00BFFF">blue</span>.
+        {% endif %}
+        <br> <br>
         The creators are workers from another task who were asked to illustrate words
         (e.g., objects, items or actions) using a fixed set of materials.
     </p>
@@ -81,28 +87,17 @@
     </ul>
 
     <p>
-        {% if player.treat == 'idea_only' %}
-        If the creator of the illustration is <span style="color:#9400D3">female</span>, the illustration has a <span style="color:#9400D3">purple</span> frame.
-        If the creator of the illustration is <span style="color:#00BFFF">male</span>, the illustration has a <span style="color:#00BFFF">blue</span> frame.
 
-        {% endif %}
         {% if player.treat == 'verbal_only' %}
             You will be provided with a description written by the the creators of the respective illustrations.
             Creators know that the description may be shown to you and have an incentive to convince you
             that their illustration is of high value.
-        <br> <br>
-            If the creator of the illustration is <span style="color:#9400D3">female</span>, the description of the illustration has a <span style="color:#9400D3">purple</span> frame.
-            If the creator of the illustration is <span style="color:#00BFFF">male</span>, the description of the illustration has a <span style="color:#00BFFF">blue</span> frame.
         {% endif %}
 
         {% if player.treat == 'verbal_idea' %}
             In addition to the illustrations, you will be provided with a description written by the creators of the respective illustrations.
             Creators know that this description may be shown to you and have an incentive to convince you
             that their illustration is of high value.
-         <br>
-            <br>
-            If the creator of the illustration is <span style="color:#9400D3">female</span>, the illustration and its description have a <span style="color:#9400D3">purple</span> frame.
-            If the creator of the illustration is <span style="color:#00BFFF">male</span>, the illustration and its description have a <span style="color:#00BFFF">blue</span> frame.
         {% endif %}
 
         {% if player.treat == 'verbal_only_b' %}

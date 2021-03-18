@@ -42,7 +42,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        treat = itertools.cycle(['verbal_only', 'verbal_idea', 'idea_only', 'verbal_only_b', 'verbal_idea_b', 'idea_only_b'])
+        treat = itertools.cycle(['verbal_only', 'verbal_idea', 'idea_only', 'verbal_only_b', 'verbal_idea_b', 'idea_only_b', 'no_info'])
         self.session.vars['image_data'] = Constants.df['playerimage_data'].to_list()
         self.session.vars['words'] = Constants.df['word'].to_list()
         self.session.vars['photo_id'] = Constants.df['photo_id'].to_list()
