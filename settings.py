@@ -76,7 +76,7 @@ ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
 DEMO_PAGE_INTRO_HTML = """
 Here are some oTree games.
 """
-DEBUG = True
+DEBUG = False
 # don't share this with anybody.
 SECRET_KEY = '(r)%s)(c+6*zp7utwg8mw@9$*muwn^fh3&!id%&wgid5r7!^=i'
 
