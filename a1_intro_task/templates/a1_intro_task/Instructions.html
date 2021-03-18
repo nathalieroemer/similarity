@@ -42,7 +42,7 @@
             <b>Value of illustration = 0</b> if it <b>is not original</b>
         <ul>
             <li>
-             An illustration is <b>original</b> if the illustrated word is <b>not</b> among a set of 50 words that creators illustrated in a similar task.
+             An illustration is <b>original</b> if <b>no other creator</b> among 50 randomly drawn creators in this task <b>illustrated the same word</b>.
             </li>
         </ul>
         </li>
@@ -52,11 +52,10 @@
         </li>
          <ul>
             <li>
-            The <b>recognition rate</b> is the fraction of people (from 0-100%) that recognize the word when they see the illustration only.
+            The <b>recognition rate</b> is the fraction of people (from 0-100%) that recognized the word when we asked them to guess the illustrated word based on the illustration only.
             </li>
          </ul>
     </ul>
-
 
 
     <br>
@@ -82,31 +81,42 @@
     </ul>
 
     <p>
+        {% if player.treat == 'idea_only' %}
+        If the creator of the illustration is female, the illustration has a <span style="color:#9400D3">purple</span> frame.
+        If the creator of the illustration is male, the illustration has a <span style="color:#00BFFF">blue</span> frame.
+
+        {% endif %}
         {% if player.treat == 'verbal_only' %}
             You will be provided with a description written by the the creators of the respective illustrations.
             Creators know that the description may be shown to you and have an incentive to convince you
             that their illustration is of high value.
+        <br> <br>
+            If the creator of the illustration is female, the description of the illustration has a <span style="color:#9400D3">purple</span> frame.
+            If the creator of the illustration is male, the description of the illustration has a <span style="color:#00BFFF">blue</span> frame.
         {% endif %}
 
         {% if player.treat == 'verbal_idea' %}
             In addition to the illustrations, you will be provided with a description written by the creators of the respective illustrations.
             Creators know that this description may be shown to you and have an incentive to convince you
             that their illustration is of high value.
+         <br>
+            <br>
+            If the creator of the illustration is <span style="color:#9400D3">female</span>, the illustration and its description have a <span style="color:#9400D3">purple</span> frame.
+            If the creator of the illustration is <span style="color:#00BFFF">male</span>, the illustration and its description have a <span style="color:#00BFFF">blue</span> frame.
         {% endif %}
 
-        {% if player.treat == 'score_only' %}
-            You will be provided with an assessment of the originality and recognizability of the respective illustration by its
-            creator.
-            Creators know that this assessment may be shown to you
-            and have an incentives to convince you that their illustration is of high value.
+        {% if player.treat == 'verbal_only_b' %}
+            You will be provided with a description written by the the creators of the respective illustrations.
+            Creators know that the description may be shown to you and have an incentive to convince you
+            that their illustration is of high value.
         {% endif %}
 
-         {% if player.treat == 'score_idea' %}
-            In addition to the illustrations, you will be provided with an assessment of the originality and recognizability of the respective illustration by its
-            creator.
-            Participants know that this assessment may be shown to you
-            and have an incentives to convince the reader that their illustration is of high value.
+        {% if player.treat == 'verbal_idea_b' %}
+            In addition to the illustrations, you will be provided with a description written by the creators of the respective illustrations.
+            Creators know that this description may be shown to you and have an incentive to convince you
+            that their illustration is of high value.
         {% endif %}
+
 
     </p>
 

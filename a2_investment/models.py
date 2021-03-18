@@ -42,8 +42,8 @@ class Player(BasePlayer):
     photo_id_1 = models.StringField()
     photo_id_2 = models.StringField()
 
-    photo_verbal_1 = models.LongStringField()
-    photo_verbal_2 = models.LongStringField()
+  #  photo_verbal_1 = models.LongStringField()
+ #   photo_verbal_2 = models.LongStringField()
 
     female_1 = models.IntegerField()
     female_2 = models.IntegerField()

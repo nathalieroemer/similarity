@@ -13,7 +13,7 @@ from uuid import uuid4
 dataUrlPattern = re.compile('data:image/(png|jpeg);base64,(.*)$')
 from random import seed
 from random import randint
-
+import random
 
 class investment(Page):
     form_model = 'player'
@@ -27,23 +27,38 @@ class investment(Page):
         # der Index in den eckigen Klammern zeigt an welche Zeile / Position der Liste/ des Datensatzes aufgerufen werden soll
         x = self.participant.vars['list'][0]
         y = self.participant.vars['list'][1]
+        print(x)
+        print(y)
         print('Vorher Female x', self.session.vars['female'][x])
         print('Vorher Female y', self.session.vars['female'][y])
         i = 1  # Laufvariable für die While-Schleife
         while self.session.vars['female'][x] == self.session.vars['female'][y]:
             # Solange zwei Bilder vom gleichen Geschlecht angezeigt werden,
             # erhöht sich der Indexwert der Liste durch den der Wert von y bestimmt wird.
-            y = self.participant.vars['list'][1 + i]
-            i = i + 1
+            # random eine zahl ziehen die bestimmt ob man bei x oder bei y nachzieht
+            l=[1,2]
+            r = random.choice(l)
+            print(l)
+            if r == 1:
+                y = self.participant.vars['list'][1 + i]
+                i = i + 1
+            else:
+                x = self.participant.vars['list'][1 + i]
+                i = i + 1
 
         self.player.x = x
         self.player.y = y
+        print(self.session.vars['female'])
+        print(self.participant.vars['list'])
         print('Hilfsvariable x', x)
         print('Hilfsvariable y', y)
         print('Player x', self.player.x)
         print('Player y', self.player.y)
         print('Female x', self.session.vars['female'][x])
         print('Female y', self.session.vars['female'][y])
+
+        female_1 = self.session.vars['female'][x]
+        female_2 = self.session.vars['female'][y]
 
         pic_1 = self.session.vars['image_data'][x]
         pic_2 = self.session.vars['image_data'][y]
@@ -65,7 +80,10 @@ class investment(Page):
             chose_1=chose_1,
             chose_2=chose_2,
             word_1=word_1,
-            word_2=word_2)
+            word_2=word_2,
+            female_1=female_1,
+            female_2=female_2
+                )
 
     def before_next_page(self):
 
