@@ -25,7 +25,19 @@ span.frac > sub {
 
 {% block content %}
 
+
+    {% if participant.vars.treat == 'idea_only' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Idea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
     {% if participant.vars.treat == 'verbal_only' %}
+
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
             <u>
                 <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
@@ -34,6 +46,61 @@ span.frac > sub {
             </u>
         </div>
     {% endif %}
+
+    {% if participant.vars.treat == 'verbal_idea' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2VerbalIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'idea_only_b' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Idea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'verbal_only_b' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'verbal_idea_b' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2VerbalIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'no_info' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2NoInfo.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
 
 <form>
     <div class="form-group required">

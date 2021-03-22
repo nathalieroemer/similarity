@@ -199,6 +199,7 @@
 
     <br>
 
+{% if participant.vars.treat != 'no_info' %}
 <!-- Illustration 1, left side of the table -->
 
     <div class="row">
@@ -352,8 +353,7 @@
     </div>
 
     <br>
-    <br>
-
+{% endif %}
     <p>
         Please decide which illustration you want to choose:
     </p>
@@ -380,10 +380,10 @@
     </div>
 {% endif %}
 
-{% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' or participant.vars.treat == 'idea_b'%}
+{% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' or participant.vars.treat == 'idea_only_b'%}
     <div class="row">
         <div class="col-sm">
-                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
+            <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
         </div>
 
         <div class="col-sm">

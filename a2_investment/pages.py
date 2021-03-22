@@ -27,10 +27,7 @@ class investment(Page):
         # der Index in den eckigen Klammern zeigt an welche Zeile / Position der Liste/ des Datensatzes aufgerufen werden soll
         x = self.participant.vars['list'][0]
         y = self.participant.vars['list'][1]
-        print(x)
-        print(y)
-        print('Vorher Female x', self.session.vars['female'][x])
-        print('Vorher Female y', self.session.vars['female'][y])
+        print(self.participant.vars['treat'])
         i = 1  # Laufvariable für die While-Schleife
         while self.session.vars['female'][x] == self.session.vars['female'][y]:
             # Solange zwei Bilder vom gleichen Geschlecht angezeigt werden,
@@ -48,14 +45,6 @@ class investment(Page):
 
         self.player.x = x
         self.player.y = y
-        print(self.session.vars['female'])
-        print(self.participant.vars['list'])
-        print('Hilfsvariable x', x)
-        print('Hilfsvariable y', y)
-        print('Player x', self.player.x)
-        print('Player y', self.player.y)
-        print('Female x', self.session.vars['female'][x])
-        print('Female y', self.session.vars['female'][y])
 
         female_1 = self.session.vars['female'][x]
         female_2 = self.session.vars['female'][y]
