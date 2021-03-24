@@ -135,7 +135,7 @@ class investment(Page):
 
 class inv_quest(Page):
     def is_displayed(self):
-        return self.participant.vars['passed_quest'] == 0 and self.participant.vars['list_is_empty'] == 1
+        return self.participant.vars['passed_quest'] == 0 and self.participant.vars['list_is_empty'] == 1 and self.participant.vars['testq'] == 2
 
     form_model = 'player'
     form_fields = [
