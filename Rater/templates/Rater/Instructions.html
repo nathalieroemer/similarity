@@ -1,0 +1,48 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+        <u>
+            <a onclick="window.open('{% static 'Instructions1.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                Click to review previous instructions
+            </a>
+        </u>
+    </div>
+
+    <p>
+        Next, you will see 24 consecutive illustrations on your screen.
+        These illustrations were created by workers in a prior task.
+        These workers' task was to  illustrate words, such as objects, items or actions with a provided set of elements.
+        The words could be chosen freely and had to consist of <b> only one </b> (British English) word.
+    </p>
+    <p> <b>
+        Your task is to identify the illustrated words.</b>
+        In order to receive payment for an illustration, you must enter the <b> exact word </b>
+        that the other worker assigned to that illustration. </b>
+    </p>
+    <p>
+        Please note that the words were illustrated by different workers.
+        This means that it is possible to see more than one illustration of the same word.
+    </p>
+
+    <br>
+
+    <p>
+        <b><u>Payment</u></b>
+    </p>
+    <p>
+        You will receive your payment only if you complete the entire task. You receive <b>$0.30</b> for
+        participating in the task. In addition, you receive <b>$0.10</b> for each illustration that you correctly identify.
+    </p>
+
+    <br>
+
+    {% next_button %}
+
+{% endblock %}

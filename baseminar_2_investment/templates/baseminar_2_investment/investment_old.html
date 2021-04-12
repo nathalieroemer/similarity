@@ -1,0 +1,172 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+    Entscheiden Sie über Ihr Investment
+{% endblock %}
+
+{% block styles %}
+<style>
+
+.divbild {
+  width:480px;
+  height:430px;
+  overflow:hidden;
+  margin-right:-80px;
+  border-radius: 7px;
+}
+
+  .otree-form-errors {
+    visibility: hidden;
+    display: none;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm">
+         {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'score_idea' or participant.vars.treat == 'verbal_idea' %}
+        <p>
+        <center>
+            This is the illustration of innovator 1:
+                <br>
+                <div class="divbild">
+                <img src="data:image/(png|jpeg);base64,{{ photo1 }}"/>
+                </div>
+        </center>
+        </p>
+         {% endif %}
+        {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea' %}
+        <p>
+            <center>
+            Innovator 1 beschreibt die Idee wie folgt:
+                <br>
+        <i> {{ promo_verbal_1 }} </i>
+        </center>
+        </p>
+         {% endif %}
+        {% if participant.vars.treat == 'score_only' or participant.vars.treat == 'score_idea' %}
+        <p>
+            <center>
+            Innovator 1 schätzt den Wert der eigenen kreativen Idee auf <strong>{{ promo_rec_1 }}</strong>.
+            </center>
+        </p>
+        {% endif %}
+        <p>
+            <center>
+        {% comment %} Dieses Formfield ist nicht notwendig, wenn ein großer Slider genutzt wird.    {% formfield player.invest_1 %}    {% endcomment %}
+            </center>
+        </p>
+    </div>
+
+    <div class="col-sm">
+        {% if participant.vars.treat == 'idea_only' or participant.vars.treat== 'score_idea' or participant.vars.treat == 'verbal_idea' %}
+        <p>
+            <center>
+            Das ist die kreative Idee von Innovator 2:
+                 <div class="divbild">
+                <img src="data:image/(png|jpeg);base64,{{ photo2 }}"/>
+                </div>
+            </center>
+        </p>
+         {% endif %}
+         {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea' %}
+        <p>
+            <center>
+            Innovator 2 beschreibt die eigene kreative Idee wie folgt:
+                <br>
+            <i> {{ promo_verbal_2 }} </i>
+            </center>
+        </p>
+         {% endif %}
+        {% if participant.vars.treat == 'score_only' or participant.vars.treat == 'score_idea' %}
+        <p>
+            <center>
+            Innovator 2 schätzt den Wert der eigenen kreativen Idee auf <strong>{{ promo_rec_2 }}</strong>.
+            </center>
+        </p>
+         {% endif %}
+
+        <p>
+        <center>
+        {% comment %} Dieses Formfield ist nicht notwendig, wenn ein großer Slider genutzt wird.    {% formfield player.invest_2 %}    {% endcomment %}
+        </center>
+        </p>
+    </div>
+</div>
+
+<br>
+<br>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.slidecontainer {
+    flex-grow: 1;
+    margin: auto;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+</style>
+</head>
+
+<form>
+<div class="row">
+    <div class="input-group-prepend">
+        <span class="input-group-text">10€ in <br> Idee 1 investieren</span>
+    </div>
+    <div class="slidecontainer">
+        <input type="range" min="0" max="10" step="0.1" class="slider" id="myRange" name="allotment">
+    </div>
+    <div class="input-group-append">
+        <span class="input-group-text">10€ in <br> Idee 2 investieren</span>
+    </div>
+</div>
+
+<center>
+    <p><span id="demo"></span></p>
+</center>
+</form>
+
+<script>
+var slider = document.getElementById("myRange");
+var output = document.getElementById("demo");
+output.innerHTML = '5,00€ in Idee 1 investieren und 5,00€ in Idee 2 investieren';
+
+slider.oninput = function() {
+    output.innerHTML = (Math.round((10 - this.value) * 10) / 10).toFixed(2).toString().replace(".", ",") + '€ in Idee 1 investieren und ' + (Math.round(this.value * 10) / 10).toFixed(2).toString().replace(".", ",") + '€ in Idee 2 investieren';
+}
+</script>
+
+<button class="otree-btn-next btn btn-primary">Weiter</button>
+
+{% endblock %}
