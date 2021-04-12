@@ -25,61 +25,67 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     IMAGE_EXTENTION = 'png'
-    data = pd.read_csv("investor.csv", delimiter=",", encoding="latin1")
-    df = pd.DataFrame(data, columns=['playerimage_data', 'word', 'photo_id', 'playerpromo_verbal', 'female', 'value', 'recog', 'originality50'])
+    data = pd.read_csv("supporter.csv", delimiter=",", encoding="latin1")
+    df = pd.DataFrame(data, columns=['image_data', 'word', 'photoid', 'promo_txt', 'female', 'value', 'recog', 'orig50', 'count_obs_pb', 'count_obs_ib', 'count_obs_pib', 'count_obs_p', 'count_obs_i', 'count_obs_fi', 'count_obs_ni'])
     index = df.index
     number_of_rows = len(index)
 
-    image_data = df['playerimage_data'].to_list()
+    image_data = df['image_data'].to_list()
     words = df['word'].to_list()
-    photo_ids = df['photo_id'].to_list()
-    promo_verbal = df['playerpromo_verbal'].to_list()
-    orig = df['originality50'].to_list()
+    photo_ids = df['photoid'].to_list()
+    promo_verbal = df['promo_txt'].to_list()
+    orig = df['orig50'].to_list()
     recog = df['recog'].to_list()
     value = df['value'].to_list()
     female = df['female'].to_list()
+    count_obs_pb = df['count_obs_pb'].to_list()
+    count_obs_ib = df['count_obs_ib'].to_list()
+    count_obs_pib = df['count_obs_pib'].to_list()
+    count_obs_p = df['count_obs_p'].to_list()
+    count_obs_i = df['count_obs_i'].to_list()
+    count_obs_fi = df['count_obs_fi'].to_list()
+    count_obs_ni = df['count_obs_ni'].to_list()
 
 
 class Subsession(BaseSubsession):
     def creating_session(self):
         treat = itertools.cycle(['verbal_only', 'verbal_idea', 'idea_only', 'verbal_only_b', 'verbal_idea_b', 'idea_only_b', 'no_info'])
-        self.session.vars['image_data'] = Constants.df['playerimage_data'].to_list()
+        self.session.vars['image_data'] = Constants.df['image_data'].to_list()
         self.session.vars['words'] = Constants.df['word'].to_list()
-        self.session.vars['photo_id'] = Constants.df['photo_id'].to_list()
-        self.session.vars['promo_verbal'] = Constants.df['playerpromo_verbal'].to_list()
-        self.session.vars['orig'] = Constants.df['originality50'].to_list()
+        self.session.vars['photo_id'] = Constants.df['photoid'].to_list()
+        self.session.vars['promo_verbal'] = Constants.df['promo_txt'].to_list()
+        self.session.vars['orig'] = Constants.df['orig50'].to_list()
         self.session.vars['recog'] = Constants.df['recog'].to_list()
         self.session.vars['value'] = Constants.df['value'].to_list()
         self.session.vars['female'] = Constants.df['female'].to_list()
 
         # capturing obs per idea in treatment promotion blind
-        self.session.vars['count_obs_pb'] = [0] * 34
+        self.session.vars['count_obs_pb'] = Constants.df['count_obs_pb'].to_list()
 
         # capturing obs per idea in treatment idea blind
-        self.session.vars['count_obs_ib'] = [0] * 34
+        self.session.vars['count_obs_ib'] = Constants.df['count_obs_ib'].to_list()
 
         # capturing obs per idea in treatment promotion & idea blind
-        self.session.vars['count_obs_pib'] = [0] * 34
+        self.session.vars['count_obs_pib'] = Constants.df['count_obs_pib'].to_list()
 
         # capturing obs per idea in treatment promotion revealed
-        self.session.vars['count_obs_p'] = [0] * 34
-
+        self.session.vars['count_obs_p'] = Constants.df['count_obs_p'].to_list()
+        print("count obs list", self.session.vars['count_obs_p'])
         # capturing obs per idea in treatment idea revealed
-        self.session.vars['count_obs_i'] = [0] * 34
+        self.session.vars['count_obs_i'] = Constants.df['count_obs_i'].to_list()
 
         # capturing obs per idea in treatment full info
-        self.session.vars['count_obs_fi'] = [0] * 34
+        self.session.vars['count_obs_fi'] = Constants.df['count_obs_fi'].to_list()
 
         # capturing obs per idea in no info
-        self.session.vars['count_obs_ni'] = [0] * 34
+        self.session.vars['count_obs_ni'] = Constants.df['count_obs_ni'].to_list()
 
 
         for p in self.get_players():
             p.treat = next(treat)
             p.participant.vars['treat'] = p.treat
             # hier wird für jeden Teilnehmer eine zufällige Liste gezogen mit Zahlen die den Zeilen der Liste entsprechen
-            p.participant.vars['list'] = list(range(0,34))
-            print(p.participant.vars['list'])
+            p.participant.vars['list'] = list(range(0,252))
             random.shuffle(p.participant.vars['list'])
             p.participant.vars['list_is_empty'] = 0
             p.participant.vars['passed_quest'] = 0

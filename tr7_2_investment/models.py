@@ -51,6 +51,9 @@ class Player(BasePlayer):
     x = models.IntegerField()
     y = models.IntegerField()
 
+    obs_num1 = models.IntegerField()
+    obs_num2 = models.IntegerField()
+
     right_choice = models.IntegerField()
 
     list = models.LongStringField()
