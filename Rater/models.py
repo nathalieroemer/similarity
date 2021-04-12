@@ -21,7 +21,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'a1_intro_task'
+    name_in_url = 'rater_add'
     players_per_group = None
     num_rounds = 24
     IMAGE_EXTENTION = 'png'

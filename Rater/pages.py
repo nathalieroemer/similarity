@@ -15,7 +15,6 @@ class Instructions(Page):
     def before_next_page(self):
         self.participant.vars['passed_instr'] = 1
 
-
 class Task(Page):
     def is_displayed(self):
         return self.participant.vars['list_is_empty'] == 0
