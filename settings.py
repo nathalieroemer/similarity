@@ -14,8 +14,8 @@ SESSION_CONFIG_DEFAULTS = dict(
     real_world_currency_per_point=1.00, participation_fee=0.30, doc="",
     mturk_hit_settings=dict(
     keywords='bonus, study',
-    title='Task with bonus payment',
-    description='Depending on your performance, you can earn up to $1.80 in 5 minutes in this task.',
+    title='Task',
+    description='Depending on your performance, you can earn up to $2.40 in 10 minutes in this task.',
     frame_height=500,
     template='global/mturk_template.html',
     minutes_allotted_per_assignment=20,
@@ -24,7 +24,7 @@ SESSION_CONFIG_DEFAULTS = dict(
         {
         'QualificationTypeId': "00000000000000000071",
         'Comparator': "EqualTo",
-        'LocaleValues': [{'Country': "GB"}]
+        'LocaleValues': [{'Country': "US"}]
         },
         {
         'QualificationTypeId': "38ASA1XP59Y2SB4QW6YC4OOEET8GHV", # to prevent retakes
