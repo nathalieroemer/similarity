@@ -1,0 +1,144 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+   Attention check
+{% endblock %}
+<style>
+span.frac {
+	display: inline-block;
+	text-align: center;
+}
+span.frac > sup {
+	display: block;
+	border-bottom: 1px solid;
+	font: inherit;
+}
+span.frac > span {
+	display: none;
+}
+span.frac > sub {
+	display: block;
+	font: inherit;
+}
+</style>
+
+{% block content %}
+
+
+    {% if participant.vars.treat == 'idea_only' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Idea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'verbal_only' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'verbal_idea' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2VerbalIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'idea_only_b' %}
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Idea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'verbal_only_b' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2Verbal_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'verbal_idea_b' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2VerbalIdea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+    {% if participant.vars.treat == 'no_info' %}
+
+        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+            <u>
+                <a onclick="window.open('{% static 'Instructions2NoInfo.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                    Click to review previous instructions
+                </a>
+            </u>
+        </div>
+    {% endif %}
+
+
+<form>
+    <div class="form-group required">
+        <label class="col-form-label" for="id_testq_0">What determines the value of an illustration?</label>
+        <div class="controls  field-testq">
+            <ul id="id_testq">
+                <li>
+                    <label for="id_testq_0">
+                        <input type="radio" name="testq" value="1" required="" id="id_testq_0" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                        Its aesthetic value and the number of objects used.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_1">
+                        <input type="radio" name="testq" value="2" required="" id="id_testq_1" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                        Its originality and its recognizability.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_2">
+                        <input type="radio" name="testq" value="3" required="" id="id_testq_2" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                        Its aesthetic value and its recognizability.
+                    </label>
+                </li>
+
+                <li>
+                    <label for="id_testq_3">
+                        <input type="radio" name="testq" value="4" required="" id="id_testq_3" class="form-check-input" onclick="document.getElementById('id_testq_0').setCustomValidity('')">
+                        Its originality and the number of objects used.
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+</form>
+
+{% next_button %}
+
+{% endblock %}

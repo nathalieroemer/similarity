@@ -38,11 +38,35 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='a1_intro_task',  ## name muss app name entsprechen
-        display_name='a1_intro_task',  ### display name kann gleich sein
-        num_demo_participants=100,
-        app_sequence=['a1_intro_task', 'a2_investment'],
+        name='tr7_1_intro_task',  ## name muss app name entsprechen
+        display_name='Supporters (all treatments)',  ### display name kann gleich sein
+        num_demo_participants=50,
+        app_sequence=['tr7_1_intro_task', 'tr7_2_investment'],
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
+    ),
+    dict(
+        name='tr6_1_intro_task',  ## name muss app name entsprechen
+        display_name='Supporters (without no info treatment)',  ### display name kann gleich sein
+        num_demo_participants=50,
+        app_sequence=['tr6_1_intro_task', 'tr6_2_investment'],
+    ),
+    dict(
+        name='tr0_1_intro_task',  ## name muss app name entsprechen
+        display_name='Supporters (only no info treatment)',  ### display name kann gleich sein
+        num_demo_participants=50,
+        app_sequence=['tr0_1_intro_task', 'tr0_2_investment'],
+    ),
+    dict(
+        name='ra_rater',  ## name muss app name entsprechen
+        display_name='Rater Experiment (Hiwis)',  ### display name kann gleich sein
+        num_demo_participants=50,
+        app_sequence=['ra_rater'],
+    ),
+    dict(
+        name='ra_1_intro_task',  ## name muss app name entsprechen
+        display_name='Supporter Experiment (Hiwis)',  ### display name kann gleich sein
+        num_demo_participants=50,
+        app_sequence=['ra_1_intro_task', 'ra_2_investment'],
     ),
 ]
 
@@ -50,10 +74,8 @@ SESSION_CONFIGS = [
 # for example: de, fr, ja, ko, zh-hans
 LANGUAGE_CODE = 'en'
 
-AWS_ACCESS_KEY_ID = ''
-    #environ.get('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY = ''
-    #environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_ACCESS_KEY_ID = environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
 
 # e.g. EUR, GBP, CNY, JPY
 REAL_WORLD_CURRENCY_CODE = 'USD'
@@ -68,7 +90,7 @@ ROOMS = [
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
 
-DEBUG = False
+DEBUG = True
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
