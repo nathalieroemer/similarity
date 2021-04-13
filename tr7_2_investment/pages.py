@@ -425,13 +425,15 @@ class inv_quest(Page):
         # based on a random round.
         #print(self.player.roundcount)
         randomround = randint(1, self.player.roundcount)
-        #print("round number is", randomround)
+        print("round number is", randomround)
+        print("right choice?", self.player.in_round(randomround).right_choice)
         if self.player.in_round(randomround).right_choice == 1:
             self.player.payoff = 1.50
         elif self.player.in_round(randomround).equal_value == 1:
             self.player.payoff = 0.75
         else:
             self.player.payoff = 0
+        print("payoff", self.player.payoff)
 
 
 class Results(Page):
