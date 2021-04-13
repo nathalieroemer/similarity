@@ -1,0 +1,103 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Fragebogen
+{% endblock %}
+
+{% block styles %}
+<style>
+.dropdown{
+    width: auto;
+    height: calc(2.25rem + 2px);
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.textinput{
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+.numberinput{
+    display: block;
+    max-width: 100px;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+[class*="col-"] {
+    width: 14%;
+}
+
+.row{
+    width: 100%;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Bitte beantworten Sie uns noch folgende Fragen.
+    </p>
+
+    <br>
+
+    <form>
+
+        <label for="gender">Bitte geben Sie Ihr Geschlecht an.</label>
+        <br>
+        <select class="dropdown" name="gender" id="gender" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
+            <option value="" selected="selected">---------</option>
+            <option value="1">Weiblich</option>
+            <option value="2">Männlich</option>
+            <option value="3">Divers</option>
+        </select>
+
+    </form>
+<br>
+<br>
+
+    <p>
+        <label for="name">Bitte geben Sie einen (Nick-)Namen an, unter welchem wir Sie bei der Auslosung aufrufen dürfen.</label>
+    </p>
+    <p>
+        <input class="textinput" name="name" id="name" required oninvalid="setCustomValidity('Bitte geben Sie einen Namen ein')" oninput="setCustomValidity('')">
+    </p>
+
+
+    <br>
+
+    {% next_button %}
+
+
+{% endblock %}
+
+

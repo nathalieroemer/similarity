@@ -21,11 +21,11 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'tr7_intro_task'
+    name_in_url = 'baseminar_1_intro'
     players_per_group = None
     num_rounds = 1
     IMAGE_EXTENTION = 'png'
-    data = pd.read_csv("supporter.csv", delimiter=",", encoding="latin1")
+    data = pd.read_csv("ba_seminar_picdata.csv", delimiter=",", encoding="latin1")
     df = pd.DataFrame(data, columns=['image_data', 'word', 'photoid', 'promo_txt', 'female', 'value', 'recog', 'orig50', 'count_obs_pb', 'count_obs_ib', 'count_obs_pib', 'count_obs_p', 'count_obs_i', 'count_obs_fi', 'count_obs_ni'])
     index = df.index
     number_of_rows = len(index)
@@ -41,7 +41,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        treat = itertools.cycle(['verbal_idea', 'idea_only'])
+        treat = itertools.cycle(['verbal_idea_b', 'idea_only_b'])
         self.session.vars['image_data'] = Constants.df['image_data'].to_list()
         self.session.vars['words'] = Constants.df['word'].to_list()
         self.session.vars['photo_id'] = Constants.df['photoid'].to_list()
@@ -55,7 +55,7 @@ class Subsession(BaseSubsession):
             p.treat = next(treat)
             p.participant.vars['treat'] = p.treat
             # hier wird für jeden Teilnehmer eine zufällige Liste gezogen mit Zahlen die den Zeilen der Liste entsprechen
-            p.participant.vars['list'] = list(range(0,252))
+            p.participant.vars['list'] = list(range(0,2))
             random.shuffle(p.participant.vars['list'])
             p.participant.vars['list_is_empty'] = 0
             p.participant.vars['passed_quest'] = 0

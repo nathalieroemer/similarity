@@ -2,7 +2,7 @@
 {% load staticfiles otree_tags %}
 
 {% block title %}
-    Your decision
+    Ihre Entscheidung
 {% endblock %}
 
 {% block styles %}
@@ -110,89 +110,15 @@
 
 {% block content %}
 
-    {% if participant.vars.treat == 'idea_only' %}
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Idea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'verbal_only' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Verbal.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'verbal_idea' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2VerbalIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'idea_only_b' %}
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Idea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'verbal_only_b' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Verbal_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'verbal_idea_b' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2VerbalIdea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'no_info' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2NoInfo.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
     <p>
-        Please decide between the following illustrations. Which one do you think has the higher value? <br>
-        Keep in mind:
+        Bitte entscheiden Sie sich zwischen den beiden kreativen Ideen. Welche, glauben Sie, hat den höheren Wert? <br>
+        Zur Erinnerung:
         <ul>
         <li>
-            <b>Value of illustration = 0</b> if it <b>is not original</b> (i.e.  <b>someone else</b> among a random set of 50 other creators <b>illustrated the same</b> word).
+            <b>Wert = 0</b> wenn die Idee <b>nicht originell ist</b>
         </li>
         <li>
-            <b>Value of illustration = recognition rate</b> (from 0 to 100) if it <b>is original</b> (i.e.  <b>no one else</b> among a random set of 50 other creators <b>illustrated the same</b> word).
+            <b>Wert = Erkennungsrate</b> (von 0 bis 100) <b>wenn die Idee originell ist</b>
         </li>
     </ul>
     </p>
@@ -205,7 +131,7 @@
     <div class="row">
         <div class="col-sm" style="border-right: 1px solid black">
             <p>
-                <u>Illustration 1:</u>
+                <u>Idee 1:</u>
             </p>
 
             {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
@@ -240,7 +166,7 @@
 
             {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea'  %}
             <p>
-                    The creator of this illustration describes it as follows:
+                    Der/ die InnovatorIn beschreibt die Idee wie folgt:
                 </p>
                 {% if female_1 == 1 %}
                     <div class="divprom">
@@ -259,7 +185,7 @@
 
             {% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b'  %}
             <p>
-                    The creator of this illustration describes it as follows:
+                    Der/ die InnovatorIn beschreibt die Idee wie folgt:
                 </p>
                 {% if female_1 == 1 %}
                     <div class="divprom">
@@ -283,7 +209,7 @@
 
         <div class="col-sm" style="border-left: 1px solid black;  text-align: center;">
             <p>
-                <u>Illustration 2:</u>
+                <u>Idee 2:</u>
             </p>
 
             {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
@@ -314,7 +240,7 @@
 
             {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea' %}
                 <p>
-                    The creator of this illustration describes it as follows:
+                    Der/ die InnovatorIn beschreibt die Idee wie folgt:
                 </p>
                 {% if female_2 == 1 %}
                     <div class="divprom">
@@ -333,7 +259,7 @@
 
              {% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' %}
                 <p>
-                    The creator of this illustration describes it as follows:
+                    Der/ die InnovatorIn beschreibt die Idee wie folgt:
                 </p>
                 {% if female_2 == 1 %}
                     <div class="divprom">
@@ -355,7 +281,7 @@
     <br>
 {% endif %}
     <p>
-        Please decide which illustration you want to choose:
+        Bitte entscheiden Sie sich welche Idee Sie wählen:
     </p>
 
     <br>
@@ -363,17 +289,17 @@
     <div class="row">
         <div class="col-sm">
             {% if female_1 == 1 %}
-                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-f" value="Illustration 1"/>
+                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-f" value="Idee 1"/>
             {% else %}
-                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-m" value="Illustration 1"/>
+                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-m" value="Idee 1"/>
             {% endif %}
         </div>
 
         <div class="col-sm">
             {% if female_2 == 1 %}
-            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-f" value="Illustration 2"/>
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-f" value="Idee 2"/>
             {% else %}
-            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-m" value="Illustration 2"/>
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-m" value="Idee 2"/>
             {% endif %}
 
         </div>
@@ -383,12 +309,12 @@
 {% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' or participant.vars.treat == 'idea_only_b'%}
     <div class="row">
         <div class="col-sm">
-            <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
+            <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Idee 1"/>
         </div>
 
         <div class="col-sm">
 
-            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Illustration 2"/>
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Idee 2"/>
         </div>
     </div>
 {% endif %}

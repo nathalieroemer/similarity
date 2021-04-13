@@ -18,9 +18,9 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'tr7_decisions'
+    name_in_url = 'baseminar_2_invest'
     players_per_group = None
-    num_rounds = 50
+    num_rounds = 1
 
 
 class Subsession(BaseSubsession):
@@ -67,14 +67,5 @@ class Player(BasePlayer):
     roundcount = models.IntegerField()
 
     gender = models.IntegerField()
-    english = models.IntegerField()
-    english_prof = models.IntegerField(
-        blank=True
-    )
-    colourb = models.IntegerField(
-        blank=True
-    )
-    stereotypes = models.IntegerField()
-    chance_bonus = models.IntegerField()
-    risk_pref = models.IntegerField()
-    comp = models.IntegerField()
+    name = models.StringField()
+    pay_euro = models.IntegerField()
