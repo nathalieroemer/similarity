@@ -348,8 +348,8 @@ class investment(Page):
             self.session.vars['count_obs_ni'][self.player.x] = self.session.vars['count_obs_ni'][self.player.x] + 1
             self.session.vars['count_obs_ni'][self.player.y] = self.session.vars['count_obs_ni'][self.player.y] + 1
 
-        self.player.photo_id_1 = str(self.session.vars['photo_id'][self.player.x])
-        self.player.photo_id_2 = str(self.session.vars['photo_id'][self.player.y])
+        self.player.photoid1 = str(self.session.vars['photo_id'][self.player.x])
+        self.player.photoid2 = str(self.session.vars['photo_id'][self.player.y])
 
         #print("this is value", self.session.vars['value'][self.player.x])
 
