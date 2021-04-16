@@ -24,7 +24,7 @@ SESSION_CONFIG_DEFAULTS = dict(
         {
         'QualificationTypeId': "00000000000000000071",
         'Comparator': "EqualTo",
-        'LocaleValues': [{'Country': "US"}]
+        'LocaleValues': [{'Country': "US"}, {'Country': "GB"}, {'Country': "CA"}, {'Country': "AU"}]
         },
         {
         'QualificationTypeId': "38ASA1XP59Y2SB4QW6YC4OOEET8GHV", # to prevent retakes
