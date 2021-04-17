@@ -23,8 +23,8 @@ SESSION_CONFIG_DEFAULTS = dict(
     qualification_requirements=[
         {
         'QualificationTypeId': "00000000000000000071",
-        'Comparator': "EqualTo",
-        'LocaleValues': [{'Country': "US"}, {'Country': "GB"}, {'Country': "CA"}, {'Country': "AU"}, {'Country': "IN"}]
+        'Comparator': "In",
+        'LocaleValues': [{'Country': "US"}, {'Country': "GB"}, {'Country': "CA"}, {'Country': "AU"}]
         },
         {
         'QualificationTypeId': "38ASA1XP59Y2SB4QW6YC4OOEET8GHV", # to prevent retakes
