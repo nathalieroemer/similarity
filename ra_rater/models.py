@@ -23,9 +23,9 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'ra_rater'
     players_per_group = None
-    num_rounds = 50
+    num_rounds = 13
     IMAGE_EXTENTION = 'png'
-    data = pd.read_csv("ra_rater.csv", delimiter=",", encoding="latin1")
+    data = pd.read_csv("ra_rater_upload2.csv", delimiter=",", encoding="latin1")
     df = pd.DataFrame(data, columns=['playerimage_data', 'playerword', 'playerphotoid'])
     index = df.index
     number_of_rows = len(index)
@@ -47,7 +47,7 @@ class Subsession(BaseSubsession):
 
         for p in self.get_players():
            # if p.participant.id_in_session <= 39:
-                l = list(range(0,50))
+                l = list(range(0,13))
                 # print(l)
                 random.shuffle(l)
                 p.participant.vars['list'] = l
