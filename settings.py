@@ -21,11 +21,11 @@ SESSION_CONFIG_DEFAULTS = dict(
     minutes_allotted_per_assignment=20,
     expiration_hours=1 * 24,
     qualification_requirements=[
-        {
-        'QualificationTypeId': "00000000000000000071",
-        'Comparator': "In",
-        'LocaleValues': [{'Country': "US"}, {'Country': "GB"}, {'Country': "CA"}, {'Country': "AU"}, {'Country': "IN"}]
-        },
+#        {
+#        'QualificationTypeId': "00000000000000000071",
+#        'Comparator': "In",
+#        'LocaleValues': [{'Country': "US"}, {'Country': "GB"}, {'Country': "CA"}, {'Country': "AU"}, {'Country': "IN"}]
+#        },
         {
         'QualificationTypeId': "38ASA1XP59Y2SB4QW6YC4OOEET8GHV", # to prevent retakes
         'Comparator': "DoesNotExist",
