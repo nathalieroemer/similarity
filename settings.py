@@ -43,20 +43,6 @@ SESSION_CONFIGS = [
         app_sequence=['tr7_1_intro_task', 'tr7_2_investment'],
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
     ),
-    dict(
-        name='ra_rater',  ## name muss app name entsprechen
-        display_name='rest of obs',  ### display name kann gleich sein
-        num_demo_participants=50,
-        app_sequence=['Rater'],
-        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
-    ),
-    dict(
-        name='baseminar_1_intro',  ## name muss app name entsprechen
-        display_name='Experiment im Bachelorseminar',  ### display name kann gleich sein
-        num_demo_participants=50,
-        app_sequence=['baseminar_1_intro', 'baseminar_2_invest'],
-        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
-    ),
     #    dict(
 #        name='tr6_1_intro_task',  ## name muss app name entsprechen
 #        display_name='Supporters (without no info treatment)',  ### display name kann gleich sein
