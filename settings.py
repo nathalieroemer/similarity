@@ -44,8 +44,8 @@ SESSION_CONFIGS = [
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
     ),
     dict(
-        name='Rater',  ## name muss app name entsprechen
-        display_name='Rater (additional)',  ### display name kann gleich sein
+        name='ra_rater',  ## name muss app name entsprechen
+        display_name='rest of obs',  ### display name kann gleich sein
         num_demo_participants=50,
         app_sequence=['Rater'],
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
