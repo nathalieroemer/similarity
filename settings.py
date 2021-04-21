@@ -21,11 +21,11 @@ SESSION_CONFIG_DEFAULTS = dict(
     minutes_allotted_per_assignment=20,
     expiration_hours=1 * 24,
     qualification_requirements=[
-#        {
-#        'QualificationTypeId': "00000000000000000071",
-#        'Comparator': "In",
-#        'LocaleValues': [{'Country': "US"}, {'Country': "GB"}, {'Country': "CA"}, {'Country': "AU"}, {'Country': "IN"}]
-#        },
+        {
+        'QualificationTypeId': "00000000000000000071",
+       'Comparator': "In",
+        'LocaleValues': [{'Country': "US"}, {'Country': "GB"}, {'Country': "CA"}, {'Country': "AU"}, {'Country': "IN"}]
+        },
         {
         'QualificationTypeId': "38ASA1XP59Y2SB4QW6YC4OOEET8GHV", # to prevent retakes
         'Comparator': "DoesNotExist",
@@ -55,12 +55,12 @@ SESSION_CONFIGS = [
 #        num_demo_participants=50,
 #        app_sequence=['tr0_1_intro_task', 'tr0_2_investment'],
 #    ),
-    dict(
-        name='ra_rater',  ## name muss app name entsprechen
-        display_name='Rater Experiment (Hiwis)',  ### display name kann gleich sein
-        num_demo_participants=50,
-        app_sequence=['ra_rater'],
-    ),
+#    dict(
+#        name='ra_rater',  ## name muss app name entsprechen
+#        display_name='Rater Experiment (Hiwis)',  ### display name kann gleich sein
+#        num_demo_participants=50,
+#        app_sequence=['ra_rater'],
+#    ),
 #    dict(
 #        name='ra_1_intro_task',  ## name muss app name entsprechen
 #        display_name='Supporter Experiment (Hiwis)',  ### display name kann gleich sein
