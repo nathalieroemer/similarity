@@ -1,4 +1,4 @@
 Django==2.2.12
 pandas==1.1.1
 numpy==1.19.1
-otree[mturk]>=2.5.5.,<5
+otree[mturk]>=3.2.2.,<5
