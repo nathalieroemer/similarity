@@ -61,12 +61,12 @@ SESSION_CONFIGS = [
 #        num_demo_participants=50,
 #        app_sequence=['ra_rater'],
 #    ),
-    dict(
-        name='ra_1_intro_task',  ## name muss app name entsprechen
-        display_name='Supporter Experiment (Hiwis)',  ### display name kann gleich sein
-        num_demo_participants=50,
-        app_sequence=['ra_1_intro_task', 'ra_2_investment'],
-    ),
+#    dict(
+#        name='ra_1_intro_task',  ## name muss app name entsprechen
+#        display_name='Supporter Experiment (Hiwis)',  ### display name kann gleich sein
+#        num_demo_participants=50,
+#        app_sequence=['ra_1_intro_task', 'ra_2_investment'],
+#    ),
 ]
 
 # ISO-639 code
@@ -89,7 +89,6 @@ ROOMS = [
     dict(name='live_demo', display_name='Room for live demo (no participant labels)'),
 ]
 
-DEBUG = False
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
