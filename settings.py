@@ -61,12 +61,12 @@ SESSION_CONFIGS = [
 #        num_demo_participants=50,
 #        app_sequence=['ra_rater'],
 #    ),
-#    dict(
-#        name='ra_1_intro_task',  ## name muss app name entsprechen
-#        display_name='Supporter Experiment (Hiwis)',  ### display name kann gleich sein
-#        num_demo_participants=50,
-#        app_sequence=['ra_1_intro_task', 'ra_2_investment'],
-#    ),
+    dict(
+        name='ra_1_intro_task',  ## name muss app name entsprechen
+        display_name='Supporter Experiment (Hiwis)',  ### display name kann gleich sein
+        num_demo_participants=50,
+        app_sequence=['ra_1_intro_task', 'ra_2_investment'],
+    ),
 ]
 
 # ISO-639 code
