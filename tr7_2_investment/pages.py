@@ -138,7 +138,7 @@ class investment(Page):
 
         elif self.participant.vars['treat'] == "verbal_only_b":
             min_num_obs = min(self.session.vars['count_obs_pb'])
-
+            print("min number of obs", min_num_obs)
             #define empty list that gets filled with observations for which conditions are fulfilled (gender and how many dec were made)
             obs_left_male = []
             obs_left_female = []

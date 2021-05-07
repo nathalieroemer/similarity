@@ -25,7 +25,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     IMAGE_EXTENTION = 'png'
-    data = pd.read_csv("supporter_upload_s44.csv", delimiter=",", encoding="latin1")
+    data = pd.read_csv("supporter_upload_s45.csv", delimiter=",", encoding="latin1")
     df = pd.DataFrame(data, columns=['image_data', 'word', 'photoid', 'promo_txt', 'female', 'value', 'recog', 'orig50', 'count_obs_pb', 'count_obs_ib', 'count_obs_pib', 'count_obs_p', 'count_obs_i', 'count_obs_fi', 'count_obs_ni'])
     index = df.index
     number_of_rows = len(index)
