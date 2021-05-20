@@ -44,11 +44,11 @@ SESSION_CONFIGS = [
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
     ),
         dict(
-        name='tr6_1_intro_task',  ## name muss app name entsprechen
-       display_name='Supporters (without no info treatment)',  ### display name kann gleich sein
-        num_demo_participants=50,
-        app_sequence=['tr6_1_intro_task', 'tr6_2_investment'],
-    ),
+#        name='tr6_1_intro_task',  ## name muss app name entsprechen
+#       display_name='Supporters (without no info treatment)',  ### display name kann gleich sein
+#        num_demo_participants=50,
+#        app_sequence=['tr6_1_intro_task', 'tr6_2_investment'],
+#    ),
 #    dict(
 #        name='tr0_1_intro_task',  ## name muss app name entsprechen
 #        display_name='Supporters (only no info treatment)',  ### display name kann gleich sein
