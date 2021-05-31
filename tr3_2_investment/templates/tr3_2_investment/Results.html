@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    You have completed the task
+{% endblock %}
+
+{% block content %}
+
+    {% if participant.vars.testq == 2 %}
+        <p>
+            You have completed the task.
+            You will receive your bonus, if applicable, within 6 days after the completion of this task.
+            Your completion code is LUH2021.
+        </p>
+    {% else %}
+        <p>
+            You did not pass the attention check.
+        </p>
+<!--
+        <p>
+            You did not pass the attention check. You will only receive a partial payment.
+            Please return your submission so that we can send you your partial payment.
+        </p>
+        !-->
+    {% endif %}
+
+{% endblock %}
