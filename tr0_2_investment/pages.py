@@ -28,8 +28,8 @@ class investment(Page):
         l = [1, 2]
         r = random.choice(l)
 
-        print(self.participant.vars['treat'])
-        print(self.participant.vars['list'])
+        #print(self.participant.vars['treat'])
+        #print(self.participant.vars['list'])
 
         # generate list of male and female obs
         all_male_obs = []
@@ -41,28 +41,28 @@ class investment(Page):
             else:
                 all_male_obs.append(x)
 
-        print(self.session.vars['count_obs'])
+        min_num_obs = min(self.session.vars['count_obs_ni'])
 
         #define empty list that gets filled with observations for which conditions are fulfilled (gender and how many dec were made)
         obs_left_male = []
         obs_left_female = []
 
-        # fill list with entries of participant list that contains random shuffled indices of the dataset and only take entries of the specific gender and that were not in more than X decisions already
+            # fill list with entries of participant list that contains random shuffled indices of the dataset and only take entries of the specific gender and that were not in more than X decisions already
         for x in self.participant.vars['list']:
-            if self.session.vars['count_obs'][x] < 3 and self.session.vars['female'][x] == 0:
+            if self.session.vars['count_obs_ni'][x] == min_num_obs and self.session.vars['female'][x] == 0:
                 obs_left_male.append(x)
 
         for x in self.participant.vars['list']:
-            if self.session.vars['count_obs'][x] < 3 and self.session.vars['female'][x] != 0:
+            if self.session.vars['count_obs_ni'][x] == min_num_obs and self.session.vars['female'][x] != 0:
                 obs_left_female.append(x)
 
-            print("obs left male", obs_left_male)
-            print("obs left female", obs_left_female)
+            #print("obs left male no info", obs_left_male)
+            #print("obs left female no info", obs_left_female)
 
-        # if there are entries in the list with obs that fulfill conditions above, take the first entry as the first picture
+            # if there are entries in the list with obs that fulfill conditions above, take the first entry as the first picture
         if len(obs_left_male) != 0:
             male_obs = obs_left_male[0]
-        # if not, take any male obs
+            # if not, take any male obs
         else:
             male_obs = all_male_obs[0]
 
@@ -93,6 +93,9 @@ class investment(Page):
         word_1 = self.session.vars['words'][x]
         word_2 = self.session.vars['words'][y]
 
+        #print("num and sex of obs x", self.player.x, female_1, word_1)
+        #print("num and sex of obs y", self.player.y, female_2, word_2)
+
         chose_1 = self.player.chose_1
         chose_2 = self.player.chose_2
 
@@ -114,13 +117,15 @@ class investment(Page):
         self.player.roundcount = self.participant.vars['count_round']
         self.participant.vars['count_round'] = self.participant.vars['count_round'] + 1
 
-        self.session.vars['count_obs'][self.player.x] = self.session.vars['count_obs'][self.player.x] + 1
-        self.session.vars['count_obs'][self.player.y] = self.session.vars['count_obs'][self.player.y] + 1
+        self.player.obs_num1 = int(self.session.vars['count_obs_ni'][self.player.x])
+        self.player.obs_num2 = int(self.session.vars['count_obs_ni'][self.player.y])
+        self.session.vars['count_obs_ni'][self.player.x] = self.session.vars['count_obs_ni'][self.player.x] + 1
+        self.session.vars['count_obs_ni'][self.player.y] = self.session.vars['count_obs_ni'][self.player.y] + 1
 
-        self.player.photo_id_1 = str(self.session.vars['photo_id'][self.player.x])
-        self.player.photo_id_2 = str(self.session.vars['photo_id'][self.player.y])
+        self.player.photoid1 = str(self.session.vars['photo_id'][self.player.x])
+        self.player.photoid2 = str(self.session.vars['photo_id'][self.player.y])
 
-        print("this is value", self.session.vars['value'][self.player.x])
+        #print("this is value", self.session.vars['value'][self.player.x])
 
         self.player.value_1 = int(self.session.vars['value'][self.player.x])
         self.player.value_2 = int(self.session.vars['value'][self.player.y])
@@ -159,16 +164,16 @@ class investment(Page):
 
 
         list = self.participant.vars['list']
-        print(list)
-        print(len(list))
+        #print(list)
+        #print(len(list))
         # adjust to 51 since then the 50th round already took place
         if len(list) == 0 or self.participant.vars['count_round'] == 11:
             self.participant.vars['list_is_empty'] = 1
         else:
             self.participant.vars['list_is_empty'] = 0
 
-        print("empty", self.participant.vars['list_is_empty'])
-        print("quest", self.participant.vars['passed_quest'])
+        #print("empty", self.participant.vars['list_is_empty'])
+        #print("quest", self.participant.vars['passed_quest'])
 
 
 class inv_quest(Page):
@@ -192,15 +197,17 @@ class inv_quest(Page):
 
         # The following code sets the payoff in the last round after completion of the questionnaire
         # based on a random round.
-        print(self.player.roundcount)
+        #print(self.player.roundcount)
         randomround = randint(1, self.player.roundcount)
         print("round number is", randomround)
+        print("right choice?", self.player.in_round(randomround).right_choice)
         if self.player.in_round(randomround).right_choice == 1:
             self.player.payoff = 1.50
         elif self.player.in_round(randomround).equal_value == 1:
             self.player.payoff = 0.75
         else:
             self.player.payoff = 0
+        print("payoff", self.player.payoff)
 
 
 class Results(Page):

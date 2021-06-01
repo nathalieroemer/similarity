@@ -20,16 +20,14 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'tr0_decisions'
     players_per_group = None
-    num_rounds = 50
+    num_rounds = 10
 
 
 class Subsession(BaseSubsession):
     pass
 
-
 class Group(BaseGroup):
     pass
-
 
 class Player(BasePlayer):
 
@@ -39,8 +37,8 @@ class Player(BasePlayer):
     value_1 = models.IntegerField()
     value_2 = models.IntegerField()
 
-    photo_id_1 = models.StringField()
-    photo_id_2 = models.StringField()
+    photoid1 = models.StringField()
+    photoid2 = models.StringField()
 
   #  photo_verbal_1 = models.LongStringField()
  #   photo_verbal_2 = models.LongStringField()
@@ -50,6 +48,9 @@ class Player(BasePlayer):
 
     x = models.IntegerField()
     y = models.IntegerField()
+
+    obs_num1 = models.IntegerField()
+    obs_num2 = models.IntegerField()
 
     right_choice = models.IntegerField()
 

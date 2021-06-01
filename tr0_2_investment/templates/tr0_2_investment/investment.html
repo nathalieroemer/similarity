@@ -20,7 +20,7 @@
     border-color: #9400D3;
 }
 
-.divbild {
+.divbild_old {
     width:360px;
     height:320px;
     margin:0 auto;
@@ -32,6 +32,14 @@
     border-bottom: #dbdbdb 4px solid;
 }
 
+.divbild {
+    width:360px;
+    height:319px;
+    overflow:hidden;
+    z-index:0;
+    margin:0 auto;
+    border-radius: 15px;
+}
 
 .divbild_test {
     width:360px;
@@ -107,18 +115,9 @@
 </style>
 
 {% endblock %}
-
+<!-- div bild old with 140% 140% & margin on both sides -4px allows to add a frame with perfect overlapping-->
 {% block content %}
 
-    {% if participant.vars.treat == 'idea_only' %}
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Idea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
 
     {% if participant.vars.treat == 'verbal_only' %}
 
@@ -131,26 +130,6 @@
         </div>
     {% endif %}
 
-    {% if participant.vars.treat == 'verbal_idea' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2VerbalIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'idea_only_b' %}
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Idea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
 
     {% if participant.vars.treat == 'verbal_only_b' %}
 
@@ -212,12 +191,12 @@
                 {% if female_1 == 1 %}
                     <div class="divbild">
 
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
+                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%;  "/>
 
                     </div>
                 {% else %}
                     <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
+                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%;  "/>
                     </div>
                 {% endif %}
             {% endif %}
@@ -226,12 +205,12 @@
                 {% if female_1 == 1 %}
                     <div class="divbild">
 
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
+                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%; "/>
 
                     </div>
                 {% else %}
                     <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
+                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%; "/>
                     </div>
                 {% endif %}
             {% endif %}
@@ -286,26 +265,15 @@
                 <u>Illustration 2:</u>
             </p>
 
-            {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
-                {% if female_2 == 1 %}
-                    <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
-                    </div>
-                {% else %}
-                    <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
-                    </div>
-                {% endif %}
-            {% endif %}
 
-            {% if participant.vars.treat == 'idea_only_b' or participant.vars.treat == 'verbal_idea_b' %}
+            {% if participant.vars.treat == 'verbal_idea_b' %}
                 {% if female_2 == 1 %}
                     <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
+                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:100%; max-height: 150%;"/>
                     </div>
                 {% else %}
                     <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:140%; max-height: 140%; margin-left: -4px; margin-top: -4px;"/>
+                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:100%; max-height: 150%; "/>
                     </div>
                 {% endif %}
             {% endif %}
@@ -359,7 +327,7 @@
     </p>
 
     <br>
-{% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea' or participant.vars.treat == 'idea_only' or participant.vars.treat == 'no_info'%}
+{% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'no_info'%}
     <div class="row">
         <div class="col-sm">
             {% if female_1 == 1 %}
@@ -380,7 +348,7 @@
     </div>
 {% endif %}
 
-{% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' or participant.vars.treat == 'idea_only_b'%}
+{% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' %}
     <div class="row">
         <div class="col-sm">
             <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
