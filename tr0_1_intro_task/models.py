@@ -25,7 +25,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     IMAGE_EXTENTION = 'png'
-    data = pd.read_csv("supporter_upload_s82.csv", delimiter=",", encoding="latin1")
+    data = pd.read_csv("supporter_upload_s83.csv", delimiter=",", encoding="latin1")
     df = pd.DataFrame(data, columns=['image_data', 'word', 'photoid', 'promo_txt', 'female', 'value', 'recog', 'orig50', 'count_obs_pb', 'count_obs_ib', 'count_obs_pib', 'count_obs_p', 'count_obs_i', 'count_obs_fi', 'count_obs_ni'])
     index = df.index
     number_of_rows = len(index)
@@ -70,7 +70,7 @@ class Subsession(BaseSubsession):
 
         # capturing obs per idea in treatment promotion revealed
         self.session.vars['count_obs_p'] = Constants.df['count_obs_p'].to_list()
-        print("count obs list", self.session.vars['count_obs_p'])
+
         # capturing obs per idea in treatment idea revealed
         self.session.vars['count_obs_i'] = Constants.df['count_obs_i'].to_list()
 
@@ -79,7 +79,7 @@ class Subsession(BaseSubsession):
 
         # capturing obs per idea in no info
         self.session.vars['count_obs_ni'] = Constants.df['count_obs_ni'].to_list()
-
+        print("count obs list", self.session.vars['count_obs_ni'])
 
         for p in self.get_players():
             p.treat = next(treat)

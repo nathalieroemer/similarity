@@ -56,8 +56,8 @@ class investment(Page):
             if self.session.vars['count_obs_ni'][x] == min_num_obs and self.session.vars['female'][x] != 0:
                 obs_left_female.append(x)
 
-            #print("obs left male no info", obs_left_male)
-            #print("obs left female no info", obs_left_female)
+            print("obs left male no info", obs_left_male)
+            print("obs left female no info", obs_left_female)
 
             # if there are entries in the list with obs that fulfill conditions above, take the first entry as the first picture
         if len(obs_left_male) != 0:
@@ -93,8 +93,8 @@ class investment(Page):
         word_1 = self.session.vars['words'][x]
         word_2 = self.session.vars['words'][y]
 
-        #print("num and sex of obs x", self.player.x, female_1, word_1)
-        #print("num and sex of obs y", self.player.y, female_2, word_2)
+        print("num and sex of obs x", self.player.x, female_1, word_1)
+        print("num and sex of obs y", self.player.y, female_2, word_2)
 
         chose_1 = self.player.chose_1
         chose_2 = self.player.chose_2
