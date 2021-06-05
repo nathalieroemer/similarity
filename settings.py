@@ -19,7 +19,7 @@ SESSION_CONFIG_DEFAULTS = dict(
     frame_height=500,
     template='global/mturk_template.html',
     minutes_allotted_per_assignment=20,
-    expiration_hours=1 * 24,
+    expiration_hours=2 * 24,
     qualification_requirements=[
         {
         'QualificationTypeId': "00000000000000000071",
