@@ -37,24 +37,10 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
 #    dict(
-#        name='tr7_1_intro_task',  ## name muss app name entsprechen
+#        name='maletask_intro',  ## name muss app name entsprechen
 #        display_name='Supporters (all treatments)',  ### display name kann gleich sein
 #        num_demo_participants=50,
-#        app_sequence=['tr7_1_intro_task', 'tr7_2_investment'],
-#        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
-#    ),
-#    dict(
-#        name='tr2_1_intro_task',  ## name muss app name entsprechen
-#        display_name='Supporters (2 treatments)',  ### display name kann gleich sein
-#        num_demo_participants=50,
-#        app_sequence=['tr2_1_intro_task', 'tr2_2_investment'],
-#        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
-#    ),
-#    dict(
-#        name='tr4_1_intro_task',  ## name muss app name entsprechen
-#        display_name='Supporters (4 treatments)',  ### display name kann gleich sein
-#        num_demo_participants=50,
-#        app_sequence=['tr4_1_intro_task', 'tr4_2_investment'],
+#        app_sequence=['maletask_intro', 'maletask_task'],
 #        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
 #    ),
 #    dict(
@@ -63,30 +49,6 @@ SESSION_CONFIGS = [
 #        num_demo_participants=50,
 #        app_sequence=['tr3_1_intro_task', 'tr3_2_investment'],
 #        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
-#    ),
-#        dict(
-#        name='tr6_1_intro_task',  ## name muss app name entsprechen
-#       display_name='Supporters (without no info treatment)',  ### display name kann gleich sein
-#        num_demo_participants=50,
-#        app_sequence=['tr6_1_intro_task', 'tr6_2_investment'],
-#    ),
-    dict(
-        name='tr0_1_intro_task',  ## name muss app name entsprechen
-        display_name='Supporters (only no info treatment)',  ### display name kann gleich sein
-        num_demo_participants=50,
-        app_sequence=['tr0_1_intro_task', 'tr0_2_investment'],
-    ),
-#    dict(
-#        name='ra_rater',  ## name muss app name entsprechen
-#        display_name='Rater Experiment (Hiwis)',  ### display name kann gleich sein
-#        num_demo_participants=50,
-#        app_sequence=['ra_rater'],
-#    ),
-#    dict(
-#        name='ra_1_intro_task',  ## name muss app name entsprechen
-#        display_name='Supporter Experiment (Hiwis)',  ### display name kann gleich sein
-#        num_demo_participants=50,
-#        app_sequence=['ra_1_intro_task', 'ra_2_investment'],
 #    ),
 ]
 
