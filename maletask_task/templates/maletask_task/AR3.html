@@ -1,0 +1,49 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Question {{ player.round_number }}
+{% endblock %}
+
+{% block content %}
+
+    <form>
+        <div class="form-group required">
+            <label class="col-form-label" for="ar3">Mia earns $8.10 per hour and worked 40 hours. Charlotte earns $10.80 per hour. How many hours would Charlotte need to work to equal Mia's earnings over 40 hours?</label>
+            <div class="controls  field-ar3">
+                <ul id="ar3">
+                    <li>
+                        <label for="ar31">
+                            <input type="radio" name="ar3" value="1" required="" id="ar31" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                            30
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="ar32">
+                            <input type="radio" name="ar3" value="2" required="" id="ar32" class="form-check-input" onclick="document.getElementById('ar31').setCustomValidity('')">
+                            27
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="ar33">
+                            <input type="radio" name="ar3" value="3" required="" id="ar33" class="form-check-input" onclick="document.getElementById('ar31').setCustomValidity('')">
+                            25
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="ar34">
+                            <input type="radio" name="ar3" value="4" required="" id="ar34" class="form-check-input" onclick="document.getElementById('ar31').setCustomValidity('')">
+                            28
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    {% next_button %}
+
+{% endblock %}

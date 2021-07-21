@@ -1,0 +1,68 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Question {{ player.round_number }}
+{% endblock %}
+
+<style>
+    span.frac {
+        display: inline-block;
+        text-align: center;
+    }
+    span.frac > sup {
+        display: block;
+        border-bottom: 1px solid;
+        font: inherit;
+    }
+    span.frac > span {
+        display: none;
+    }
+    span.frac > sub {
+        display: block;
+        font: inherit;
+    }
+</style>
+
+{% block content %}
+
+    <form>
+        <div class="form-group required">
+            <label class="col-form-label" for="ar5">There are 5 blue marbles, 4 red marbles, and 3 yellow marbles in a box. If Jim randomly selects a marble from the box, what is the probability of selecting a red or yellow marble?</label>
+            <div class="controls  field-ar5">
+                <ul id="ar5">
+                    <li>
+                        <label for="ar51">
+                            <input type="radio" name="ar5" value="1" required="" id="ar51" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                            <span class="frac"><sup>3</sup> <span>/</span> <sub>4</sub></span>
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="ar52">
+                            <input type="radio" name="ar5" value="2" required="" id="ar52" class="form-check-input" onclick="document.getElementById('ar51').setCustomValidity('')">
+                            <span class="frac"><sup>1</sup> <span>/</span> <sub>4</sub></span>
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="ar53">
+                            <input type="radio" name="ar5" value="3" required="" id="ar53" class="form-check-input" onclick="document.getElementById('ar51').setCustomValidity('')">
+                            <span class="frac"><sup>1</sup> <span>/</span> <sub>3</sub></span>
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="ar54">
+                            <input type="radio" name="ar5" value="4" required="" id="ar54" class="form-check-input" onclick="document.getElementById('ar51').setCustomValidity('')">
+                            <span class="frac"><sup>7</sup> <span>/</span> <sub>12</sub></span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    {% next_button %}
+
+{% endblock %}

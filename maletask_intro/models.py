@@ -9,6 +9,8 @@ from otree.api import (
     currency_range,
 )
 
+import random
+
 
 author = 'Your name here'
 
@@ -18,13 +20,19 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'maletask'
+    name_in_url = 'maletask_intro'
     players_per_group = None
     num_rounds = 1
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        # We need a list for every participant with 20 elements which contain random numbers from 1 to 25. These
+        # determine which questions are shown. Each question will have its own page, so to be precise, the random
+        # numbers determine, which pages will be shown in the second app.
+        for p in self.get_players():
+            p.participant.vars['quest_list'] = random.sample(range(1, 26), k=20)
+            p.participant.vars['list_empty'] = 0
 
 
 class Group(BaseGroup):

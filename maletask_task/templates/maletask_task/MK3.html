@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Question {{ player.round_number }}
+{% endblock %}
+
+{% block content %}
+
+    <form>
+        <div class="form-group required">
+            <label class="col-form-label" for="mk3">
+                The sixth root of 64 is:
+            </label>
+            <div class="controls  field-mk3">
+                <ul id="mk3">
+                    <li>
+                        <label for="mk31">
+                            <input type="radio" name="mk3" value="1" required="" id="mk31" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                            6
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mk32">
+                            <input type="radio" name="mk3" value="2" required="" id="mk32" class="form-check-input" onclick="document.getElementById('mk31').setCustomValidity('')">
+                            2
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mk33">
+                            <input type="radio" name="mk3" value="3" required="" id="mk33" class="form-check-input" onclick="document.getElementById('mk31').setCustomValidity('')">
+                            4
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mk34">
+                            <input type="radio" name="mk3" value="4" required="" id="mk34" class="form-check-input" onclick="document.getElementById('mk31').setCustomValidity('')">
+                            8
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    {% next_button %}
+
+{% endblock %}

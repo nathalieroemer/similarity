@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Question {{ player.round_number }}
+{% endblock %}
+
+{% block content %}
+
+    <form>
+        <div class="form-group required">
+            <label class="col-form-label" for="mc2">
+                What is the advantage of a single pulley?
+            </label>
+            <div class="controls  field-mc2">
+                <ul id="mc2">
+                    <li>
+                        <label for="mc21">
+                            <input type="radio" name="mc2" value="1" required="" id="mc21" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                            It allows you to lift something with less force
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mc22">
+                            <input type="radio" name="mc2" value="2" required="" id="mc22" class="form-check-input" onclick="document.getElementById('mc21').setCustomValidity('')">
+                            It changes the direction of the effort
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mc23">
+                            <input type="radio" name="mc2" value="3" required="" id="mc23" class="form-check-input" onclick="document.getElementById('mc21').setCustomValidity('')">
+                            It diminishes the effects of gravity
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mc24">
+                            <input type="radio" name="mc2" value="4" required="" id="mc24" class="form-check-input" onclick="document.getElementById('mc21').setCustomValidity('')">
+                            It decreases the chances of injury
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    {% next_button %}
+
+{% endblock %}

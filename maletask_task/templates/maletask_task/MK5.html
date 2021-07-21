@@ -1,0 +1,51 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Question {{ player.round_number }}
+{% endblock %}
+
+{% block content %}
+
+    <form>
+        <div class="form-group required">
+            <label class="col-form-label" for="mk5">
+                The volume of this box is ____.
+            </label>
+            <div class="controls  field-mk5">
+                <ul id="mk5">
+                    <li>
+                        <label for="mk51">
+                            <input type="radio" name="mk5" value="1" required="" id="mk51" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                            12
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mk52">
+                            <input type="radio" name="mk5" value="2" required="" id="mk52" class="form-check-input" onclick="document.getElementById('mk51').setCustomValidity('')">
+                            60
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mk53">
+                            <input type="radio" name="mk5" value="3" required="" id="mk53" class="form-check-input" onclick="document.getElementById('mk51').setCustomValidity('')">
+                            20
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="mk54">
+                            <input type="radio" name="mk5" value="4" required="" id="mk54" class="form-check-input" onclick="document.getElementById('mk51').setCustomValidity('')">
+                            15
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    {% next_button %}
+
+{% endblock %}
