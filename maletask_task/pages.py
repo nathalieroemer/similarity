@@ -3,10 +3,10 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class AR1(Page):
+class q1_AR1(Page):
     form_model = 'player'
     form_fields = [
-        'ar1'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -23,6 +23,12 @@ class AR1(Page):
         return self.player.rand_quest == 1
 
     def before_next_page(self):
+        # Before proceeding to the next page, the variable 'right' is assigned the value 1 if the participant answered correctly and 0 otherwise
+        if self.player.answer == 3: # the right option in this case would have been option 3, therefore if he/she answered with option 3, the answer was right
+            self.player.right = 1
+        elif self.player.answer != 3: # if he or she did select a different answer option, the answer was wrong
+            self.player.right = 0
+
         # Before the next page, the next value from the question list (a participant var) is assigned to the variable
         # next_rand_quest, which will determine the value of the rand_quest in the next round.
         # We cannot just let this assignment happen in a is_displayed method, we have to use next_rand_quest, as this
@@ -41,10 +47,10 @@ class AR1(Page):
         )
 
 
-class AR2(Page):
+class q2_AR2(Page):
     form_model = 'player'
     form_fields = [
-        'ar2'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -56,6 +62,11 @@ class AR2(Page):
         return self.player.rand_quest == 2
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -68,10 +79,10 @@ class AR2(Page):
         )
 
 
-class AR3(Page):
+class q3_AR3(Page):
     form_model = 'player'
     form_fields = [
-        'ar3'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -83,6 +94,11 @@ class AR3(Page):
         return self.player.rand_quest == 3
 
     def before_next_page(self):
+        if self.player.answer == 3:
+            self.player.right = 1
+        elif self.player.answer != 3:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -95,10 +111,10 @@ class AR3(Page):
         )
 
 
-class AR4(Page):
+class q4_AR4(Page):
     form_model = 'player'
     form_fields = [
-        'ar4'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -110,6 +126,11 @@ class AR4(Page):
         return self.player.rand_quest == 4
 
     def before_next_page(self):
+        if self.player.answer == 4:
+            self.player.right = 1
+        elif self.player.answer != 4:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -122,10 +143,10 @@ class AR4(Page):
         )
 
 
-class AR5(Page):
+class q5_AO1(Page):
     form_model = 'player'
     form_fields = [
-        'ar5'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -136,7 +157,18 @@ class AR5(Page):
 
         return self.player.rand_quest == 5
 
+    def vars_for_template(self):
+        return dict(
+            # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
+            objects1="{}.png".format("objects1"),
+        )
+
     def before_next_page(self):
+        if self.player.answer == 2:
+            self.player.right = 1
+        elif self.player.answer != 2:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -149,10 +181,10 @@ class AR5(Page):
         )
 
 
-class AO1(Page):
+class q6_AO2(Page):
     form_model = 'player'
     form_fields = [
-        'ao1'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -166,10 +198,15 @@ class AO1(Page):
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
-            objects1="{}.png".format("objects1"),
+            objects2="{}.png".format("objects2"),
         )
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -182,10 +219,10 @@ class AO1(Page):
         )
 
 
-class AO2(Page):
+class q7_AO3(Page):
     form_model = 'player'
     form_fields = [
-        'ao2'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -199,10 +236,15 @@ class AO2(Page):
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
-            objects2="{}.png".format("objects2"),
+            objects3="{}.png".format("objects3"),
         )
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -215,10 +257,10 @@ class AO2(Page):
         )
 
 
-class AO3(Page):
+class q8_AO4(Page):
     form_model = 'player'
     form_fields = [
-        'ao3'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -232,10 +274,15 @@ class AO3(Page):
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
-            objects3="{}.png".format("objects3"),
+            objects4="{}.png".format("objects4"),
         )
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -248,10 +295,12 @@ class AO3(Page):
         )
 
 
-class AO4(Page):
+
+
+class q9_GS1(Page):
     form_model = 'player'
     form_fields = [
-        'ao4'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -262,13 +311,12 @@ class AO4(Page):
 
         return self.player.rand_quest == 9
 
-    def vars_for_template(self):
-        return dict(
-            # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
-            objects4="{}.png".format("objects4"),
-        )
-
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -281,10 +329,10 @@ class AO4(Page):
         )
 
 
-class AO5(Page):
+class q10_GS2(Page):
     form_model = 'player'
     form_fields = [
-        'ao5'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -295,13 +343,12 @@ class AO5(Page):
 
         return self.player.rand_quest == 10
 
-    def vars_for_template(self):
-        return dict(
-            # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
-            objects5="{}.png".format("objects5"),
-        )
-
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -314,10 +361,10 @@ class AO5(Page):
         )
 
 
-class GS1(Page):
+class q11_GS3(Page):
     form_model = 'player'
     form_fields = [
-        'gs1'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -329,6 +376,11 @@ class GS1(Page):
         return self.player.rand_quest == 11
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -341,10 +393,10 @@ class GS1(Page):
         )
 
 
-class GS2(Page):
+class q12_GS4(Page):
     form_model = 'player'
     form_fields = [
-        'gs2'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -356,6 +408,11 @@ class GS2(Page):
         return self.player.rand_quest == 12
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -368,10 +425,11 @@ class GS2(Page):
         )
 
 
-class GS3(Page):
+
+class q13_MK1(Page):
     form_model = 'player'
     form_fields = [
-        'gs3'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -383,6 +441,11 @@ class GS3(Page):
         return self.player.rand_quest == 13
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -395,10 +458,10 @@ class GS3(Page):
         )
 
 
-class GS4(Page):
+class q14_MK2(Page):
     form_model = 'player'
     form_fields = [
-        'gs4'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -410,6 +473,11 @@ class GS4(Page):
         return self.player.rand_quest == 14
 
     def before_next_page(self):
+        if self.player.answer == 2:
+            self.player.right = 1
+        elif self.player.answer != 2:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -422,10 +490,10 @@ class GS4(Page):
         )
 
 
-class GS5(Page):
+class q15_MK3(Page):
     form_model = 'player'
     form_fields = [
-        'gs5'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -437,6 +505,11 @@ class GS5(Page):
         return self.player.rand_quest == 15
 
     def before_next_page(self):
+        if self.player.answer == 2:
+            self.player.right = 1
+        elif self.player.answer != 2:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -449,10 +522,10 @@ class GS5(Page):
         )
 
 
-class MK1(Page):
+class q16_MK4(Page):
     form_model = 'player'
     form_fields = [
-        'mk1'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -464,6 +537,11 @@ class MK1(Page):
         return self.player.rand_quest == 16
 
     def before_next_page(self):
+        if self.player.answer == 2:
+            self.player.right = 1
+        elif self.player.answer != 2:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -476,10 +554,11 @@ class MK1(Page):
         )
 
 
-class MK2(Page):
+
+class q17_MC1(Page):
     form_model = 'player'
     form_fields = [
-        'mk2'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -491,6 +570,11 @@ class MK2(Page):
         return self.player.rand_quest == 17
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -503,10 +587,10 @@ class MK2(Page):
         )
 
 
-class MK3(Page):
+class q18_MC2(Page):
     form_model = 'player'
     form_fields = [
-        'mk3'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -518,6 +602,11 @@ class MK3(Page):
         return self.player.rand_quest == 18
 
     def before_next_page(self):
+        if self.player.answer == 2:
+            self.player.right = 1
+        elif self.player.answer != 2:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -530,10 +619,10 @@ class MK3(Page):
         )
 
 
-class MK4(Page):
+class q19_MC3(Page):
     form_model = 'player'
     form_fields = [
-        'mk4'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -545,6 +634,11 @@ class MK4(Page):
         return self.player.rand_quest == 19
 
     def before_next_page(self):
+        if self.player.answer == 1:
+            self.player.right = 1
+        elif self.player.answer != 1:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -557,10 +651,10 @@ class MK4(Page):
         )
 
 
-class MK5(Page):
+class q20_MC4(Page):
     form_model = 'player'
     form_fields = [
-        'mk5'
+        'answer'
     ]
 
     def is_displayed(self):
@@ -572,6 +666,11 @@ class MK5(Page):
         return self.player.rand_quest == 20
 
     def before_next_page(self):
+        if self.player.answer == 4:
+            self.player.right = 1
+        elif self.player.answer != 4:
+            self.player.right = 0
+
         if self.participant.vars['list_empty'] != 1:
             self.player.next_rand_quest = self.participant.vars['quest_list'][0]
             del self.participant.vars['quest_list'][0]
@@ -582,142 +681,6 @@ class MK5(Page):
             self.participant.vars['quest_list'],
             self.player.next_rand_quest
         )
-
-
-class MC1(Page):
-    form_model = 'player'
-    form_fields = [
-        'mc1'
-    ]
-
-    def is_displayed(self):
-        if self.round_number == 1:
-            self.player.rand_quest = self.participant.vars['first_quest']
-        elif self.round_number > 1:
-            self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
-
-        return self.player.rand_quest == 21
-
-    def before_next_page(self):
-        if self.participant.vars['list_empty'] != 1:
-            self.player.next_rand_quest = self.participant.vars['quest_list'][0]
-            del self.participant.vars['quest_list'][0]
-            q_l = self.participant.vars['quest_list']
-            if len(q_l) == 0:
-                self.participant.vars['list_empty'] = 1
-        print(
-            self.participant.vars['quest_list'],
-            self.player.next_rand_quest
-        )
-
-
-class MC2(Page):
-    form_model = 'player'
-    form_fields = [
-        'mc2'
-    ]
-
-    def is_displayed(self):
-        if self.round_number == 1:
-            self.player.rand_quest = self.participant.vars['first_quest']
-        elif self.round_number > 1:
-            self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
-
-        return self.player.rand_quest == 22
-
-    def before_next_page(self):
-        if self.participant.vars['list_empty'] != 1:
-            self.player.next_rand_quest = self.participant.vars['quest_list'][0]
-            del self.participant.vars['quest_list'][0]
-            q_l = self.participant.vars['quest_list']
-            if len(q_l) == 0:
-                self.participant.vars['list_empty'] = 1
-        print(
-            self.participant.vars['quest_list'],
-            self.player.next_rand_quest
-        )
-
-
-class MC3(Page):
-    form_model = 'player'
-    form_fields = [
-        'mc3'
-    ]
-
-    def is_displayed(self):
-        if self.round_number == 1:
-            self.player.rand_quest = self.participant.vars['first_quest']
-        elif self.round_number > 1:
-            self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
-
-        return self.player.rand_quest == 23
-
-    def before_next_page(self):
-        if self.participant.vars['list_empty'] != 1:
-            self.player.next_rand_quest = self.participant.vars['quest_list'][0]
-            del self.participant.vars['quest_list'][0]
-            q_l = self.participant.vars['quest_list']
-            if len(q_l) == 0:
-                self.participant.vars['list_empty'] = 1
-        print(
-            self.participant.vars['quest_list'],
-            self.player.next_rand_quest
-        )
-
-
-class MC4(Page):
-    form_model = 'player'
-    form_fields = [
-        'mc4'
-    ]
-
-    def is_displayed(self):
-        if self.round_number == 1:
-            self.player.rand_quest = self.participant.vars['first_quest']
-        elif self.round_number > 1:
-            self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
-
-        return self.player.rand_quest == 24
-
-    def before_next_page(self):
-        if self.participant.vars['list_empty'] != 1:
-            self.player.next_rand_quest = self.participant.vars['quest_list'][0]
-            del self.participant.vars['quest_list'][0]
-            q_l = self.participant.vars['quest_list']
-            if len(q_l) == 0:
-                self.participant.vars['list_empty'] = 1
-        print(
-            self.participant.vars['quest_list'],
-            self.player.next_rand_quest
-        )
-
-
-class MC5(Page):
-    form_model = 'player'
-    form_fields = [
-        'mc5'
-    ]
-
-    def is_displayed(self):
-        if self.round_number == 1:
-            self.player.rand_quest = self.participant.vars['first_quest']
-        elif self.round_number > 1:
-            self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
-
-        return self.player.rand_quest == 25
-
-    def before_next_page(self):
-        if self.participant.vars['list_empty'] != 1:
-            self.player.next_rand_quest = self.participant.vars['quest_list'][0]
-            del self.participant.vars['quest_list'][0]
-            q_l = self.participant.vars['quest_list']
-            if len(q_l) == 0:
-                self.participant.vars['list_empty'] = 1
-        print(
-            self.participant.vars['quest_list'],
-            self.player.next_rand_quest
-        )
-
 
 class Results(Page):
     def is_displayed(self):
@@ -725,29 +688,24 @@ class Results(Page):
 
 
 page_sequence = [
-    AR1,
-    AR2,
-    AR3,
-    AR4,
-    AR5,
-    AO1,
-    AO2,
-    AO3,
-    AO4,
-    AO5,
-    GS1,
-    GS2,
-    GS3,
-    GS4,
-    GS5,
-    MK1,
-    MK2,
-    MK3,
-    MK4,
-    MK5,
-    MC1,
-    MC2,
-    MC3,
-    MC4,
-    MC5,
+    q1_AR1,
+    q2_AR2,
+    q3_AR3,
+    q4_AR4,
+    q5_AO1,
+    q6_AO2,
+    q7_AO3,
+    q8_AO4,
+    q9_GS1,
+    q10_GS2,
+    q11_GS3,
+    q12_GS4,
+    q13_MK1,
+    q14_MK2,
+    q15_MK3,
+    q16_MK4,
+    q17_MC1,
+    q18_MC2,
+    q19_MC3,
+    q20_MC4,
     Results]

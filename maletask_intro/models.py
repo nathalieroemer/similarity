@@ -27,11 +27,11 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
-        # We need a list for every participant with 20 elements which contain random numbers from 1 to 25. These
+        # We need a list for every participant with 20 elements which contain random numbers from 1 to 20. These
         # determine which questions are shown. Each question will have its own page, so to be precise, the random
         # numbers determine, which pages will be shown in the second app.
         for p in self.get_players():
-            p.participant.vars['quest_list'] = random.sample(range(1, 26), k=20)
+            p.participant.vars['quest_list'] = random.sample(range(1, 21), k=20)
             p.participant.vars['list_empty'] = 0
 
 
