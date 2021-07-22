@@ -31,17 +31,14 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
 
-    word_1 = models.StringField()
-    word_2 = models.StringField()
-
     value_1 = models.IntegerField()
     value_2 = models.IntegerField()
 
-    photoid1 = models.StringField()
-    photoid2 = models.StringField()
+    id1 = models.StringField()
+    id2 = models.StringField()
 
-  #  photo_verbal_1 = models.LongStringField()
- #   photo_verbal_2 = models.LongStringField()
+    performance1 = models.StringField()
+    performance2 = models.StringField()
 
     female_1 = models.IntegerField()
     female_2 = models.IntegerField()

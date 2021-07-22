@@ -142,17 +142,6 @@
         </div>
     {% endif %}
 
-    {% if participant.vars.treat == 'verbal_idea_b' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2VerbalIdea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
     {% if participant.vars.treat == 'no_info' %}
 
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
@@ -165,15 +154,6 @@
     {% endif %}
     <p>
         Please decide between the following illustrations. Which one do you think has the higher value? <br>
-        Keep in mind:
-        <ul>
-        <li>
-            <b>Value of illustration = 0</b> if it <b>is not original</b> (i.e.  <b>someone else</b> among a random set of 50 other creators <b>illustrated the same</b> word).
-        </li>
-        <li>
-            <b>Value of illustration = recognition rate</b> (from 0 to 100) if it <b>is original</b> (i.e.  <b>no one else</b> among a random set of 50 other creators <b>illustrated the same</b> word).
-        </li>
-    </ul>
     </p>
 
     <br>
@@ -187,72 +167,15 @@
                 <u>Illustration 1:</u>
             </p>
 
-            {% if participant.vars.treat == 'idea_only' or participant.vars.treat == 'verbal_idea' %}
-                {% if female_1 == 1 %}
-                    <div class="divbild">
-
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%;  "/>
-
-                    </div>
-                {% else %}
-                    <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%;  "/>
-                    </div>
-                {% endif %}
-            {% endif %}
-
-            {% if participant.vars.treat == 'idea_only_b' or participant.vars.treat == 'verbal_idea_b' %}
-                {% if female_1 == 1 %}
-                    <div class="divbild">
-
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%; "/>
-
-                    </div>
-                {% else %}
-                    <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo1 }}" style="max-width:100%; max-height: 150%; "/>
-                    </div>
-                {% endif %}
-            {% endif %}
-
-            <br>
-
-            {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea'  %}
+            {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_only_b'  %}
             <p>
-                    The creator of this illustration describes it as follows:
+                    The worker describes its performance as follows:
                 </p>
-                {% if female_1 == 1 %}
                     <div class="divprom">
                         <p>
                             {{ promo_verbal_1 }}
                         </p>
                     </div>
-                {% else %}
-                    <div class="divprom">
-                        <p>
-                            {{ promo_verbal_1 }}
-                        </p>
-                    </div>
-                {% endif %}
-            {% endif %}
-
-            {% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b'  %}
-            <p>
-                    The creator of this illustration describes it as follows:
-                </p>
-                {% if female_1 == 1 %}
-                    <div class="divprom">
-                        <p>
-                            {{ promo_verbal_1 }}
-                        </p>
-                    </div>
-                {% else %}
-                    <div class="divprom">
-                        <p>
-                            {{ promo_verbal_1 }}
-                        </p>
-                    </div>
-                {% endif %}
             {% endif %}
 
         </div>
@@ -262,68 +185,30 @@
 
         <div class="col-sm" style="border-left: 1px solid black;  text-align: center;">
             <p>
-                <u>Illustration 2:</u>
+                <u>Worker 2:</u>
             </p>
 
 
-            {% if participant.vars.treat == 'verbal_idea_b' %}
-                {% if female_2 == 1 %}
-                    <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:100%; max-height: 150%;"/>
-                    </div>
-                {% else %}
-                    <div class="divbild">
-                        <img src="data:image/(png|jpeg);base64,{{ photo2 }}"  style="max-width:100%; max-height: 150%; "/>
-                    </div>
-                {% endif %}
-            {% endif %}
-
-            <br>
-
-            {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_idea' %}
+            {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_only_b' %}
                 <p>
-                    The creator of this illustration describes it as follows:
+                    The worker describes its performance as follows:
                 </p>
-                {% if female_2 == 1 %}
+
                     <div class="divprom">
                         <p>
                             {{ promo_verbal_2 }}
                         </p>
                     </div>
-                {% else %}
-                    <div class="divprom">
-                        <p>
-                            {{ promo_verbal_2 }}
-                        </p>
-                    </div>
-                {% endif %}
+
             {% endif %}
 
-             {% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' %}
-                <p>
-                    The creator of this illustration describes it as follows:
-                </p>
-                {% if female_2 == 1 %}
-                    <div class="divprom">
-                        <p>
-                            {{ promo_verbal_2 }}
-                        </p>
-                    </div>
-                {% else %}
-                    <div class="divprom">
-                        <p>
-                            {{ promo_verbal_2 }}
-                        </p>
-                    </div>
-                {% endif %}
-            {% endif %}
         </div>
     </div>
 
     <br>
 {% endif %}
     <p>
-        Please decide which illustration you want to choose:
+        Please decide which worker you want to choose:
     </p>
 
     <br>
@@ -348,7 +233,7 @@
     </div>
 {% endif %}
 
-{% if participant.vars.treat == 'verbal_only_b' or participant.vars.treat == 'verbal_idea_b' %}
+{% if participant.vars.treat == 'verbal_only_b' %}
     <div class="row">
         <div class="col-sm">
             <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>

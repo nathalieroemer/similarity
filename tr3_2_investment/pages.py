@@ -149,14 +149,11 @@ class investment(Page):
         female_1 = self.session.vars['female'][x]
         female_2 = self.session.vars['female'][y]
 
-        pic_1 = self.session.vars['image_data'][x]
-        pic_2 = self.session.vars['image_data'][y]
-
         promo_verbal_1 = self.session.vars['promo_verbal'][x]
         promo_verbal_2 = self.session.vars['promo_verbal'][y]
 
-        word_1 = self.session.vars['words'][x]
-        word_2 = self.session.vars['words'][y]
+        performance1 = self.session.vars['performance'][x]
+        performance2 = self.session.vars['performance'][y]
 
         #print("num and sex of obs x", self.player.x, female_1, word_1)
         #print("num and sex of obs y", self.player.y, female_2, word_2)
@@ -201,39 +198,25 @@ class investment(Page):
             self.session.vars['count_obs_ni'][self.player.x] = self.session.vars['count_obs_ni'][self.player.x] + 1
             self.session.vars['count_obs_ni'][self.player.y] = self.session.vars['count_obs_ni'][self.player.y] + 1
 
-        self.player.photoid1 = str(self.session.vars['photo_id'][self.player.x])
-        self.player.photoid2 = str(self.session.vars['photo_id'][self.player.y])
+        self.player.id1 = str(self.session.vars['id'][self.player.x])
+        self.player.id2 = str(self.session.vars['id'][self.player.y])
 
-        #print("this is value", self.session.vars['value'][self.player.x])
-
-        self.player.value_1 = int(self.session.vars['value'][self.player.x])
-        self.player.value_2 = int(self.session.vars['value'][self.player.y])
-
-        self.player.word_1 = str(self.session.vars['words'][self.player.x])
-        self.player.word_2 = str(self.session.vars['words'][self.player.y])
+        self.player.performance1 = int(self.session.vars['performance'][self.player.x])
+        self.player.performance2 = int(self.session.vars['performance'][self.player.y])
 
         self.player.female_1 = int(self.session.vars['female'][self.player.x])
         self.player.female_2 = int(self.session.vars['female'][self.player.y])
 
-        if self.player.chose_1 == 1 and self.player.value_1 > self.player.value_2:
+        if self.player.chose_1 == 1 and self.player.performance1 > self.player.performance2:
             self.player.right_choice = 1
-        elif self.player.chose_1 == 1 and self.player.value_1 < self.player.value_2:
+        elif self.player.chose_1 == 1 and self.player.performance1 < self.player.performance2:
             self.player.right_choice = 0
-        elif self.player.chose_2 == 1 and self.player.value_2 > self.player.value_1:
+        elif self.player.chose_2 == 1 and self.player.performance2 > self.player.performance1:
             self.player.right_choice = 1
-        elif self.player.chose_2 == 1 and self.player.value_2 < self.player.value_1:
+        elif self.player.chose_2 == 1 and self.player.performance2 < self.player.performance1:
             self.player.right_choice = 0
-        elif self.player.value_1 == self.player.value_2:
+        elif self.player.performance == self.player.performance2:
             self.player.equal_value = 1
-
-   #     for p in self.player.get_others_in_subsession():
-    #        if p.participant.vars['photoid'] == self.session.vars['images'][0]:
-   #             p.participant.vars['investment'] = investment_in_1
-   #             p.investment = investment_in_1
-   #         elif p.participant.vars['photoid'] == self.session.vars['images'][1]:
-   #             p.participant.vars['investment'] = investment_in_2
-    #            p.investment = investment_in_2
-            # print(p.participant.vars['investment'])
 
         # hier werden die ersten zwei einträge der liste entfernt
         # del self.participant.vars['list'][:2]
