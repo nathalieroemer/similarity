@@ -32,7 +32,30 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    # Variables for the questions:
     rand_quest = models.IntegerField()
     next_rand_quest = models.IntegerField()
     answer = models.IntegerField()
     right = models.IntegerField()
+
+    # Part 2:
+    promotion = models.LongStringField()
+
+    # Part 3:
+    performance = models.IntegerField()
+    perf_slider = models.IntegerField()
+    application = models.IntegerField()
+    success = models.IntegerField()
+
+    # Questionnaire:
+    colorb = models.IntegerField()
+    native = models.IntegerField()
+    eng_prof = models.IntegerField(
+        blank=True  # Only shown if not native
+    )
+    difficult = models.IntegerField()
+    stereotypes = models.IntegerField()
+    bonus_chance = models.IntegerField()
+    prom_quality = models.IntegerField()
+    risk_pref = models.IntegerField()
+    competition = models.IntegerField()

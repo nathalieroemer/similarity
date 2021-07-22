@@ -1,0 +1,519 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your task in part 3
+{% endblock %}
+
+{% block styles %}
+<style>
+    .slidecontainer {
+        flex-grow: 1;
+        margin: auto;
+    }
+    .slidecontainer {
+        flex-grow: 1;
+        margin: auto;
+    }
+    .slider:invalid {
+        border: 5px solid red!important;
+    }
+
+    .slider {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 10px;
+        border: 1px;
+        border-radius: 5px;
+        background: #d3d3d3;
+        outline: none;
+        opacity: 0.7;
+        -webkit-transition: .2s;
+        transition: opacity .2s;
+    }
+
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none!important;
+        appearance: none;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background: #4CAF50;
+        cursor: pointer;
+    }
+
+    /* custom thumb for Safari, Opera, and Chrome */
+    .myClass::-webkit-slider-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+        border: 2px solid #007bff;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer !important !important;
+        -webkit-appearance: none !important;
+        margin-top: -8px !important;
+    }
+
+    /* custom thumb for Firefox */
+    .myClassFF::-moz-range-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+        border: 1px solid #007bff;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer !important !important;
+        -moz-appearance: none !important;
+        margin-top: -8px !important;
+    }
+
+    /* custom thumb for Microsoft */
+    .myClassMS::-ms-thumb {
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+        border: 1px solid #007bff;
+        height: 20px !important;
+        width: 20px !important;
+        border-radius: 10px !important;
+        background: #007bff !important;
+        cursor: pointer !important !important;
+        margin-top: -8px !important;
+    }
+
+    /* hide default range styling */
+	input[type=range] {
+		-webkit-appearance: none;
+		margin: 10px 0;
+		height: 8px;
+		width: 100%;
+		border: 1px solid white;
+    }
+
+    /* hide default focus styling */
+	input[type=range]:focus {
+		outline: none;
+	}
+
+    /* get ride of weird dotted outline around range in Firefox */
+	input[type=range]::-moz-focus-outer {
+        border: 0;
+    	outline: none;
+    }
+
+    /* custom range styling for Safari, Opera, and Chrome */
+	input[type=range]::-webkit-slider-runnable-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border-radius: 1px;
+		border: 0.5px solid #d3d3d3;
+	}
+
+    /* custom range styling for Firefox */
+	input[type=range]::-moz-range-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
+		border-radius: 1px;
+		border: 0.5px solid #aeacac;
+	}
+
+    /* custom range styling for Microsoft */
+	input[type=range]::ms-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+
+    /* hide default thumb in Opera, Safari, Chrome */
+	input[type=range]::-webkit-slider-thumb {
+		border: 0px;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-webkit-appearance: none;
+	}
+
+    /* hide default thumb in Firefox */
+	input[type=range]::-moz-range-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-moz-appearance: none;
+	}
+
+    /* hide default thumb for Microsoft */
+    input[type=range]::-ms-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+	}
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        Now, please answer the five questions below to complete part 3.
+    </p>
+    <p>
+        One of your answers to these questions may be shown additionally to your part 3 employer, who will be another
+        MTurk worker who completes a different version of this study.
+    </p>
+
+    <br>
+
+    <form>
+
+        <p><b>Please indicate how well you think you performed on the test you took in part 1.</b></p>
+        <div class="row">
+            <div class="col-md" align="center">
+                <label for="p0">Terrible</label>
+            </div>
+            <div class="col-md" align="center">
+                <label for="p1">Very poor</label>
+            </div>
+            <div class="col-md" align="center">
+                <label for="p2">Neutral</label>
+            </div>
+            <div class="col-md" align="center">
+                <label for="p3">Good</label>
+            </div>
+            <div class="col-md" align="center">
+                <label for="p4">Very good</label>
+            </div>
+            <div class="col-md" align="center">
+                <label for="p5">Exceptional</label>
+            </div>
+
+            <div class="w-100"></div>
+
+            <div class="col-md" align="center">
+                <input type="radio" id="p0" name="performance" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+            </div>
+            <div class="col-md" align="center">
+                <input type="radio" id="p1" name="performance" value="2" onclick="document.getElementById('p0').setCustomValidity('')">
+            </div>
+            <div class="col-md" align="center">
+                <input type="radio" id="p2" name="performance" value="3" onclick="document.getElementById('p0').setCustomValidity('')">
+            </div>
+            <div class="col-md" align="center">
+                <input type="radio" id="p3" name="performance" value="4" onclick="document.getElementById('p0').setCustomValidity('')">
+            </div>
+            <div class="col-md" align="center">
+                <input type="radio" id="p4" name="performance" value="5" onclick="document.getElementById('p0').setCustomValidity('')">
+            </div>
+            <div class="col-md" align="center">
+                <input type="radio" id="p5" name="performance" value="6" onclick="document.getElementById('p0').setCustomValidity('')">
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <p>
+            On a scale from 0 (entirely disagree) to 100 (entirely agree), please indicate the extent to which you agree
+            with each of the follwoing statements:
+        </p>
+        <p>
+            <label for="perf">
+                <b>I performed well on the test I took in part 1.</b>
+            </label>
+        </p>
+        <div class="row">
+            <div class="col-md">
+                <p align="center">Entirely disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Strongly disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Somewhat disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Neither disagree nor agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Somewhat agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Strongly agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Entirely agree</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 10px; margin-right: 10px">
+            <div class="col-md">
+                0
+            </div>
+            <div class="col-md">
+                10
+            </div>
+            <div class="col-md">
+                20
+            </div>
+            <div class="col-md">
+                30
+            </div>
+            <div class="col-md">
+                40
+            </div>
+             <div class="col-md">
+                50
+            </div>
+             <div class="col-md">
+                60
+            </div>
+            <div class="col-md">
+                70
+            </div>
+            <div class="col-md">
+                80
+            </div>
+            <div class="col-md">
+                90
+            </div>
+            <div class="col-md">
+                100
+            </div>
+        </div>
+        <div class="row" style="margin-left: 10px; margin-right: 10px">
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" step="1" value="0" class="slider" id="perf" name="perf_slider" onclick="setClick1()">
+            </div>
+        </div>
+
+        <br>
+
+        <p>
+            <label for="applic">
+                <b>I would apply for a job that required me to perform well on the test I took in part 1.</b>
+            </label>
+        </p>
+        <div class="row">
+            <div class="col-md">
+                <p align="center">Entirely disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Strongly disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Somewhat disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Neither disagree nor agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Somewhat agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Strongly agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Entirely agree</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 10px; margin-right: 10px">
+            <div class="col-md">
+                0
+            </div>
+            <div class="col-md">
+                10
+            </div>
+            <div class="col-md">
+                20
+            </div>
+            <div class="col-md">
+                30
+            </div>
+            <div class="col-md">
+                40
+            </div>
+             <div class="col-md">
+                50
+            </div>
+             <div class="col-md">
+                60
+            </div>
+            <div class="col-md">
+                70
+            </div>
+            <div class="col-md">
+                80
+            </div>
+            <div class="col-md">
+                90
+            </div>
+            <div class="col-md">
+                100
+            </div>
+        </div>
+        <div class="row" style="margin-left: 10px; margin-right: 10px">
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" step="1" value="0" class="slider" id="applic" name="application" onclick="setClick2()">
+            </div>
+        </div>
+
+        <br>
+
+        <p>
+            <label for="suc">
+                <b>I would succeed in a job that required me to perform well on the test I took in part 1.</b>
+            </label>
+        </p>
+        <div class="row">
+            <div class="col-md">
+                <p align="center">Entirely disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Strongly disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Somewhat disagree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Neither disagree nor agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Somewhat agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Strongly agree</p>
+            </div>
+            <div class="col-md">
+                <p align="center">Entirely agree</p>
+            </div>
+        </div>
+
+        <div class="row" style="margin-left: 10px; margin-right: 10px">
+            <div class="col-md">
+                0
+            </div>
+            <div class="col-md">
+                10
+            </div>
+            <div class="col-md">
+                20
+            </div>
+            <div class="col-md">
+                30
+            </div>
+            <div class="col-md">
+                40
+            </div>
+             <div class="col-md">
+                50
+            </div>
+             <div class="col-md">
+                60
+            </div>
+            <div class="col-md">
+                70
+            </div>
+            <div class="col-md">
+                80
+            </div>
+            <div class="col-md">
+                90
+            </div>
+            <div class="col-md">
+                100
+            </div>
+        </div>
+        <div class="row" style="margin-left: 10px; margin-right: 10px">
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" step="1" value="0" class="slider" id="suc" name="success" onclick="setClick3()">
+            </div>
+        </div>
+    </form>
+
+    <button class="otree-btn-next btn btn-primary" onclick="validation()">Next</button>
+
+    <script>
+        var slider1 = document.getElementById("perf");
+        var slider2 = document.getElementById("applic");
+        var slider3 = document.getElementById("suc")
+        var click1 = 0;
+        var click2 = 0;
+        var click3 = 0;
+
+        slider1.oninput = function() {
+            slider1.classList.add("myClass","myClassFF","myClassMS");
+            slider1.style.background = 'linear-gradient(to right, darkred ' + slider1.value + '%, dodgerblue ' + slider1.value + '%)'
+        }
+        slider2.oninput = function() {
+            slider2.classList.add("myClass","myClassFF","myClassMS");
+            slider2.style.background = 'linear-gradient(to right, darkred ' + slider2.value + '%, dodgerblue ' + slider2.value + '%)'
+        }
+        slider3.oninput = function() {
+            slider3.classList.add("myClass","myClassFF","myClassMS");
+            slider3.style.background = 'linear-gradient(to right, darkred ' + slider3.value + '%, dodgerblue ' + slider3.value + '%)'
+        }
+
+        function setClick1() {
+            click1=1;
+            slider1.setCustomValidity('');
+        }
+        function setClick2() {
+            click2=1;
+            slider2.setCustomValidity('');
+        }
+        function setClick3() {
+            click3=1;
+            slider3.setCustomValidity('');
+        }
+
+        function slidererrormessage() {
+            if (click1===0) {
+                slider1.setCustomValidity("Please make your guess.");
+            }
+            if (click2===0) {
+                slider2.setCustomValidity("Please make your guess.");
+            }
+            if (click3===0) {
+                slider3.setCustomValidity("Please make your guess.");
+            }
+        }
+
+        function validation() {
+            slidererrormessage()
+        }
+    </script>
+
+{% endblock %}

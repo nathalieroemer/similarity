@@ -5,31 +5,24 @@
     Question {{ player.round_number }}
 {% endblock %}
 
-<style>
-    span.frac {
-        display: inline-block;
-        text-align: center;
-    }
-    span.frac > sup {
-        display: block;
-        border-bottom: 1px solid;
-        font: inherit;
-    }
-    span.frac > span {
-        display: none;
-    }
-    span.frac > sub {
-        display: block;
-        font: inherit;
-    }
-</style>
-
 {% block content %}
 
     <form>
         <div class="form-group required">
             <label class="col-form-label" for="mk4">
-                If a=8, then <span class="frac"><sup>8<sup>4</sup> <span>/</span> <sub>a</sub></span> =
+                If a=8, then
+                <math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">
+                    <mrow>
+                        <mfrac>
+                            <mrow>
+                                <msup><mi>8</mi><mn>4</mn></msup>
+                            </mrow>
+                            <mrow>
+                                <mi>a</mi>
+                            </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
             </label>
             <div class="controls  field-mk4">
                 <ul id="mk4">
@@ -68,3 +61,4 @@
     {% next_button %}
 
 {% endblock %}
+

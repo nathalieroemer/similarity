@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Your task in part 2
+{% endblock %}
+
+{% block content %}
+
+    <p>
+        It is your task now to promote your work in order to persuade the employer to choose you over the competitor
+        so that you receive the bonus.
+    </p>
+    <p>
+        Please describe how well you think you performed on the test that you took in part 1 and why.
+    </p>
+
+    <br>
+
+    <form>
+        <div class="form-group required">
+            <div class="controls field-promotion">
+                <textarea id="promo" style="margin: solid 5px!important;" class="form-control" name="promotion" cols="40" rows="10" required oninvalid="this.setCustomValidity('Please promote your work.')" oninput="this.setCustomValidity('')"></textarea>
+            </div>
+        </div>
+    </form>
+
+    {% next_button %}
+{% endblock %}
+
+

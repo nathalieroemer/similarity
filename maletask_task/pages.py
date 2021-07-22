@@ -23,10 +23,11 @@ class q1_AR1(Page):
         return self.player.rand_quest == 1
 
     def before_next_page(self):
-        # Before proceeding to the next page, the variable 'right' is assigned the value 1 if the participant answered correctly and 0 otherwise
-        if self.player.answer == 3: # the right option in this case would have been option 3, therefore if he/she answered with option 3, the answer was right
+        # Before proceeding to the next page, the variable 'right' is assigned the value 1 if the participant answered
+        # correctly and 0 otherwise.
+        if self.player.answer == 3:  # the right option in this case would have been option 3, therefore if he/she answered with option 3, the answer was right
             self.player.right = 1
-        elif self.player.answer != 3: # if he or she did select a different answer option, the answer was wrong
+        elif self.player.answer != 3:  # if he or she did select a different answer option, the answer was wrong
             self.player.right = 0
 
         # Before the next page, the next value from the question list (a participant var) is assigned to the variable
@@ -536,6 +537,12 @@ class q16_MK4(Page):
 
         return self.player.rand_quest == 16
 
+    def vars_for_template(self):
+        return dict(
+            # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
+            box="{}.png".format("boxmaths"),
+        )
+
     def before_next_page(self):
         if self.player.answer == 2:
             self.player.right = 1
@@ -682,6 +689,51 @@ class q20_MC4(Page):
             self.player.next_rand_quest
         )
 
+
+class Bonus(Page):
+    def is_displayed(self):
+        return self.round_number == 20
+
+
+class Part2(Page):
+    form_model = 'player'
+    form_fields = ['promotion']
+
+    def is_displayed(self):
+        return self.round_number == 20
+
+
+class Part3(Page):
+    form_model = 'player'
+    form_fields = [
+        'performance',
+        'perf_slider',
+        'application',
+        'success'
+    ]
+
+    def is_displayed(self):
+        return self.round_number == 20
+
+
+class Questionnaire(Page):
+    form_model = 'player'
+    form_fields = [
+        'colorb',
+        'native',
+        'eng_prof',
+        'difficult',
+        'stereotypes',
+        'bonus_chance',
+        'prom_quality',
+        'risk_pref',
+        'competition'
+    ]
+
+    def is_displayed(self):
+        return self.round_number == 20
+
+
 class Results(Page):
     def is_displayed(self):
         return self.round_number == 20
@@ -708,4 +760,8 @@ page_sequence = [
     q18_MC2,
     q19_MC3,
     q20_MC4,
+    Bonus,
+    Part2,
+    Part3,
+    Questionnaire,
     Results]
