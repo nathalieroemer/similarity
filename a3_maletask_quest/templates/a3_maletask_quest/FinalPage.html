@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+   You have completed the task.
+{% endblock %}
+
+{% block content %}
+
+{% if player.testq == 2 %}
+    <p>
+        You have completed the task. Your completion code is 64B107A8.
+        You will receive your bonus, if applicable, within 6 days after the completion of this task.
+    </p>
+
+{% else %}
+    <p>
+        You did not pass the attention check. You will only receive a partial payment.
+        Your completion code is 64B107A8.
+        Please return your submission so that we can send you your partial payment.
+    </p>
+{% endif %}
+
+
+{% endblock %}
+
+

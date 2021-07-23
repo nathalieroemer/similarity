@@ -37,8 +37,8 @@ class Player(BasePlayer):
     id1 = models.StringField()
     id2 = models.StringField()
 
-    performance1 = models.StringField()
-    performance2 = models.StringField()
+    performance1 = models.IntegerField()
+    performance2 = models.IntegerField()
 
     female_1 = models.IntegerField()
     female_2 = models.IntegerField()

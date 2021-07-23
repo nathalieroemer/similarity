@@ -18,9 +18,9 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'maletask_task'
+    name_in_url = 'a3_maletask_quest'
     players_per_group = None
-    num_rounds = 20
+    num_rounds = 1
 
 
 class Subsession(BaseSubsession):
@@ -32,23 +32,22 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    # Variables for the questions:
-    rand_quest = models.IntegerField()
-    next_rand_quest = models.IntegerField()
-    answer = models.IntegerField()
-    right = models.IntegerField()
-
-    # Part 2:
+    # Written promotion:
     promotion = models.LongStringField()
 
-    # Part 3:
-    performance = models.IntegerField()
-    perf_slider = models.IntegerField()
+    # Promotion, other questons:
+    promo6scale = models.IntegerField()
+    promo100scale = models.IntegerField()
     application = models.IntegerField()
     success = models.IntegerField()
 
+    # Beliefs about correctly answered questions
+    beliefs_correct_q = models.IntegerField()
+
     # Questionnaire:
-    colorb = models.IntegerField()
+    colorb = models.IntegerField(
+        blank=True
+    )
     native = models.IntegerField()
     eng_prof = models.IntegerField(
         blank=True  # Only shown if not native

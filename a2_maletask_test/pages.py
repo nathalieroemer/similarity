@@ -9,6 +9,8 @@ class q1_AR1(Page):
         'answer'
     ]
 
+    timeout_seconds = 30
+
     def is_displayed(self):
         # In the first round, the random question is determined by the value of the participant variable, whose value
         # was assigned to it at the end of the previous app. A participant var had to be used to pass it between apps.
@@ -20,7 +22,11 @@ class q1_AR1(Page):
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
         # The page is displayed if the number for the random question is 1.
-        return self.player.rand_quest == 1
+        return self.player.rand_quest == 1 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         # Before proceeding to the next page, the variable 'right' is assigned the value 1 if the participant answered
@@ -53,6 +59,7 @@ class q2_AR2(Page):
     form_fields = [
         'answer'
     ]
+    timeout_seconds = 30
 
     def is_displayed(self):
         if self.round_number == 1:
@@ -60,7 +67,11 @@ class q2_AR2(Page):
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 2
+        return self.player.rand_quest == 2 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -86,13 +97,19 @@ class q3_AR3(Page):
         'answer'
     ]
 
+    timeout_seconds = 30
+
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 3
+        return self.player.rand_quest == 3 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 3:
@@ -118,13 +135,19 @@ class q4_AR4(Page):
         'answer'
     ]
 
+    timeout_seconds = 30
+
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 4
+        return self.player.rand_quest == 4 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 4:
@@ -149,6 +172,7 @@ class q5_AO1(Page):
     form_fields = [
         'answer'
     ]
+    timeout_seconds = 30
 
     def is_displayed(self):
         if self.round_number == 1:
@@ -156,13 +180,17 @@ class q5_AO1(Page):
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 5
+        return self.player.rand_quest == 5 and self.participant.vars['testq'] ==2
 
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
             objects1="{}.png".format("objects1"),
         )
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 2:
@@ -188,19 +216,25 @@ class q6_AO2(Page):
         'answer'
     ]
 
+    timeout_seconds = 30
+
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 6
+        return self.player.rand_quest == 6 and self.participant.vars['testq'] ==2
 
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
             objects2="{}.png".format("objects2"),
         )
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -225,6 +259,7 @@ class q7_AO3(Page):
     form_fields = [
         'answer'
     ]
+    timeout_seconds = 30
 
     def is_displayed(self):
         if self.round_number == 1:
@@ -232,13 +267,17 @@ class q7_AO3(Page):
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 7
+        return self.player.rand_quest == 7 and self.participant.vars['testq'] ==2
 
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
             objects3="{}.png".format("objects3"),
         )
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -264,19 +303,25 @@ class q8_AO4(Page):
         'answer'
     ]
 
+    timeout_seconds = 30
+
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 8
+        return self.player.rand_quest == 8 and self.participant.vars['testq'] ==2
 
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
             objects4="{}.png".format("objects4"),
         )
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -304,13 +349,19 @@ class q9_GS1(Page):
         'answer'
     ]
 
+    timeout_seconds = 30
+
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 9
+        return self.player.rand_quest == 9 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -336,13 +387,19 @@ class q10_GS2(Page):
         'answer'
     ]
 
+    timeout_seconds = 30
+
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 10
+        return self.player.rand_quest == 10 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -367,6 +424,7 @@ class q11_GS3(Page):
     form_fields = [
         'answer'
     ]
+    timeout_seconds = 30
 
     def is_displayed(self):
         if self.round_number == 1:
@@ -374,7 +432,11 @@ class q11_GS3(Page):
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 11
+        return self.player.rand_quest == 11 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -399,14 +461,18 @@ class q12_GS4(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 12
+        return self.player.rand_quest == 12 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -432,14 +498,18 @@ class q13_MK1(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 13
+        return self.player.rand_quest == 13 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -464,14 +534,18 @@ class q14_MK2(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 14
+        return self.player.rand_quest == 14 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 2:
@@ -496,14 +570,18 @@ class q15_MK3(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 15
+        return self.player.rand_quest == 15 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 2:
@@ -528,20 +606,24 @@ class q16_MK4(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 16
+        return self.player.rand_quest == 16 and self.participant.vars['testq'] ==2
 
     def vars_for_template(self):
         return dict(
             # Mit .format wird der spezifizierte Wert in den Platzhalter überführt, also {}.
             box="{}.png".format("boxmaths"),
         )
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 2:
@@ -567,14 +649,18 @@ class q17_MC1(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 17
+        return self.player.rand_quest == 17 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -599,14 +685,18 @@ class q18_MC2(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 18
+        return self.player.rand_quest == 18 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 2:
@@ -631,14 +721,18 @@ class q19_MC3(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 19
+        return self.player.rand_quest == 19 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 1:
@@ -663,14 +757,18 @@ class q20_MC4(Page):
     form_fields = [
         'answer'
     ]
-
+    timeout_seconds = 30
     def is_displayed(self):
         if self.round_number == 1:
             self.player.rand_quest = self.participant.vars['first_quest']
         elif self.round_number > 1:
             self.player.rand_quest = self.player.in_round(self.round_number - 1).next_rand_quest
 
-        return self.player.rand_quest == 20
+        return self.player.rand_quest == 20 and self.participant.vars['testq'] ==2
+
+    def before_next_page(self, timeout_happened):
+        if timeout_happened:
+            self.timeout = 1
 
     def before_next_page(self):
         if self.player.answer == 4:
@@ -688,56 +786,6 @@ class q20_MC4(Page):
             self.participant.vars['quest_list'],
             self.player.next_rand_quest
         )
-
-
-class Bonus(Page):
-    def is_displayed(self):
-        return self.round_number == 20
-
-
-class Part2(Page):
-    form_model = 'player'
-    form_fields = ['promotion']
-
-    def is_displayed(self):
-        return self.round_number == 20
-
-
-class Part3(Page):
-    form_model = 'player'
-    form_fields = [
-        'performance',
-        'perf_slider',
-        'application',
-        'success'
-    ]
-
-    def is_displayed(self):
-        return self.round_number == 20
-
-
-class Questionnaire(Page):
-    form_model = 'player'
-    form_fields = [
-        'colorb',
-        'native',
-        'eng_prof',
-        'difficult',
-        'stereotypes',
-        'bonus_chance',
-        'prom_quality',
-        'risk_pref',
-        'competition'
-    ]
-
-    def is_displayed(self):
-        return self.round_number == 20
-
-
-class Results(Page):
-    def is_displayed(self):
-        return self.round_number == 20
-
 
 page_sequence = [
     q1_AR1,
@@ -759,9 +807,5 @@ page_sequence = [
     q17_MC1,
     q18_MC2,
     q19_MC3,
-    q20_MC4,
-    Bonus,
-    Part2,
-    Part3,
-    Questionnaire,
-    Results]
+    q20_MC4
+    ]

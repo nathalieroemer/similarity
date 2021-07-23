@@ -40,4 +40,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    testq = models.IntegerField()

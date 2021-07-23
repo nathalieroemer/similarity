@@ -164,7 +164,7 @@
     <div class="row">
         <div class="col-sm" style="border-right: 1px solid black">
             <p>
-                <u>Illustration 1:</u>
+                <u>Worker 1:</u>
             </p>
 
             {% if participant.vars.treat == 'verbal_only' or participant.vars.treat == 'verbal_only_b'  %}
@@ -216,17 +216,17 @@
     <div class="row">
         <div class="col-sm">
             {% if female_1 == 1 %}
-                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-f" value="Illustration 1"/>
+                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-f" value="Worker 1"/>
             {% else %}
-                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-m" value="Illustration 1"/>
+                     <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-m" value="Worker 1"/>
             {% endif %}
         </div>
 
         <div class="col-sm">
             {% if female_2 == 1 %}
-            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-f" value="Illustration 2"/>
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-f" value="Worker 2"/>
             {% else %}
-            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-m" value="Illustration 2"/>
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-m" value="Worker 2"/>
             {% endif %}
 
         </div>
@@ -236,12 +236,12 @@
 {% if participant.vars.treat == 'verbal_only_b' %}
     <div class="row">
         <div class="col-sm">
-            <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Illustration 1"/>
+            <input type="button" id="button_1" name="chose_1" class="otree-btn-next btn btn-primary" value="Worker 1"/>
         </div>
 
         <div class="col-sm">
 
-            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Illustration 2"/>
+            <input type="button" id="button_2" name="chose_2" class="otree-btn-next btn btn-primary" value="Worker 2"/>
         </div>
     </div>
 {% endif %}

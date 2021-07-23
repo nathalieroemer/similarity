@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Thank you.
+{% endblock %}
+
+{% block content %}
+Out of the 20 questions on the test you took in part 1, how many questions do you think you answered correctly?
+    <form>
+        <label for="belief_correct_q"><b>Do you have a red-green colorblindness?</b></label>
+        <br>
+        <select class="dropdown" name="belief_correct_q" id="belief_correct_q">
+            <option value="" selected="selected">---------</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">2</option>
+            <option value="4">2</option>
+            <option value="5">2</option>
+            <option value="6">2</option>
+            <option value="7">2</option>
+            <option value="8">2</option>
+            <option value="9">2</option>
+            <option value="10">2</option>
+            <option value="11">2</option>
+            <option value="12">2</option>
+            <option value="13">2</option>
+            <option value="14">2</option>
+            <option value="15">2</option>
+            <option value="16">2</option>
+            <option value="17">2</option>
+            <option value="18">2</option>
+            <option value="19">2</option>
+            <option value="20">2</option>
+        </select>
+    </form>
+{% endblock %}
+
+

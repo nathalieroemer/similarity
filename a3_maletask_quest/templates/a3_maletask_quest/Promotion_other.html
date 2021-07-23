@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Your task in part 3
+    Your task
 {% endblock %}
 
 {% block styles %}
@@ -168,12 +168,9 @@
 {% block content %}
 
     <p>
-        Now, please answer the five questions below to complete part 3.
+        Please answer the following questions. One of the answer may be shown to the third party when deciding between you and your competitor.
     </p>
-    <p>
-        One of your answers to these questions may be shown additionally to your part 3 employer, who will be another
-        MTurk worker who completes a different version of this study.
-    </p>
+
 
     <br>
 
@@ -203,22 +200,22 @@
             <div class="w-100"></div>
 
             <div class="col-md" align="center">
-                <input type="radio" id="p0" name="performance" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                <input type="radio" id="p0" name="promo6scale" value="1" required oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
             </div>
             <div class="col-md" align="center">
-                <input type="radio" id="p1" name="performance" value="2" onclick="document.getElementById('p0').setCustomValidity('')">
+                <input type="radio" id="p1" name="promo6scale" value="2" onclick="document.getElementById('p0').setCustomValidity('')">
             </div>
             <div class="col-md" align="center">
-                <input type="radio" id="p2" name="performance" value="3" onclick="document.getElementById('p0').setCustomValidity('')">
+                <input type="radio" id="p2" name="promo6scale" value="3" onclick="document.getElementById('p0').setCustomValidity('')">
             </div>
             <div class="col-md" align="center">
-                <input type="radio" id="p3" name="performance" value="4" onclick="document.getElementById('p0').setCustomValidity('')">
+                <input type="radio" id="p3" name="promo6scale" value="4" onclick="document.getElementById('p0').setCustomValidity('')">
             </div>
             <div class="col-md" align="center">
-                <input type="radio" id="p4" name="performance" value="5" onclick="document.getElementById('p0').setCustomValidity('')">
+                <input type="radio" id="p4" name="promo6scale" value="5" onclick="document.getElementById('p0').setCustomValidity('')">
             </div>
             <div class="col-md" align="center">
-                <input type="radio" id="p5" name="performance" value="6" onclick="document.getElementById('p0').setCustomValidity('')">
+                <input type="radio" id="p5" name="promo6scale" value="6" onclick="document.getElementById('p0').setCustomValidity('')">
             </div>
         </div>
 
@@ -302,7 +299,7 @@
         </div>
         <div class="row" style="margin-left: 10px; margin-right: 10px">
             <div class="slidecontainer">
-                <input type="range" min="0" max="100" step="1" value="0" class="slider" id="perf" name="perf_slider" onclick="setClick1()">
+                <input type="range" min="0" max="100" step="1" value="0" class="slider" id="perf" name="promo100scale" onclick="setClick1()">
             </div>
         </div>
 

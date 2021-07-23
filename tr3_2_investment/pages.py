@@ -152,9 +152,6 @@ class investment(Page):
         promo_verbal_1 = self.session.vars['promo_verbal'][x]
         promo_verbal_2 = self.session.vars['promo_verbal'][y]
 
-        performance1 = self.session.vars['performance'][x]
-        performance2 = self.session.vars['performance'][y]
-
         #print("num and sex of obs x", self.player.x, female_1, word_1)
         #print("num and sex of obs y", self.player.y, female_2, word_2)
 
@@ -162,14 +159,10 @@ class investment(Page):
         chose_2 = self.player.chose_2
 
         return dict(
-            photo1=pic_1,
-            photo2=pic_2,
             promo_verbal_1=promo_verbal_1,
             promo_verbal_2=promo_verbal_2,
             chose_1=chose_1,
             chose_2=chose_2,
-            word_1=word_1,
-            word_2=word_2,
             female_1=female_1,
             female_2=female_2
                 )
@@ -215,7 +208,7 @@ class investment(Page):
             self.player.right_choice = 1
         elif self.player.chose_2 == 1 and self.player.performance2 < self.player.performance1:
             self.player.right_choice = 0
-        elif self.player.performance == self.player.performance2:
+        elif self.player.performance1 == self.player.performance2:
             self.player.equal_value = 1
 
         # hier werden die ersten zwei einträge der liste entfernt

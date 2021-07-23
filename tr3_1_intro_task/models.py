@@ -59,7 +59,7 @@ class Subsession(BaseSubsession):
             p.treat = next(treat)
             p.participant.vars['treat'] = p.treat
             # hier wird für jeden Teilnehmer eine zufällige Liste gezogen mit Zahlen die den Zeilen der Liste entsprechen
-            p.participant.vars['list'] = list(range(0,252))
+            p.participant.vars['list'] = list(range(0,84))
             random.shuffle(p.participant.vars['list'])
             p.participant.vars['list_is_empty'] = 0
             p.participant.vars['passed_quest'] = 0
