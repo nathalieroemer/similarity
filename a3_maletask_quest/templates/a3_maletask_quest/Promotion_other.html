@@ -11,10 +11,6 @@
         flex-grow: 1;
         margin: auto;
     }
-    .slidecontainer {
-        flex-grow: 1;
-        margin: auto;
-    }
     .slider:invalid {
         border: 5px solid red!important;
     }
@@ -162,6 +158,13 @@
 		border-radius: 0px;
 	}
 
+    [class*="col-"] {
+        width: 9%;
+        padding: 0 0 0 0;
+    }
+    .row{
+        width: 100%;
+    }
 </style>
 {% endblock %}
 
@@ -232,7 +235,7 @@
                 <b>I performed well on the test I took in part 1.</b>
             </label>
         </p>
-        <div class="row">
+        <div class="row" style="margin-left: 10px">
             <div class="col-md">
                 <p align="center">Entirely disagree</p>
             </div>
@@ -293,7 +296,7 @@
             <div class="col-md">
                 90
             </div>
-            <div class="col-md">
+            <div class="col-md" style="margin-right: -65px">
                 100
             </div>
         </div>
@@ -310,7 +313,7 @@
                 <b>I would apply for a job that required me to perform well on the test I took in part 1.</b>
             </label>
         </p>
-        <div class="row">
+        <div class="row" style="margin-left: 10px">
             <div class="col-md">
                 <p align="center">Entirely disagree</p>
             </div>
@@ -371,7 +374,7 @@
             <div class="col-md">
                 90
             </div>
-            <div class="col-md">
+            <div class="col-md" style="margin-right: -65px">
                 100
             </div>
         </div>
@@ -388,7 +391,7 @@
                 <b>I would succeed in a job that required me to perform well on the test I took in part 1.</b>
             </label>
         </p>
-        <div class="row">
+        <div class="row" style="margin-left: 10px">
             <div class="col-md">
                 <p align="center">Entirely disagree</p>
             </div>
@@ -418,7 +421,7 @@
             </div>
         </div>
 
-        <div class="row" style="margin-left: 10px; margin-right: 10px">
+        <div class="row" style="margin-left: 10px">
             <div class="col-md">
                 0
             </div>
@@ -449,10 +452,11 @@
             <div class="col-md">
                 90
             </div>
-            <div class="col-md">
+            <div class="col-md" style="margin-right: -65px">
                 100
             </div>
         </div>
+
         <div class="row" style="margin-left: 10px; margin-right: 10px">
             <div class="slidecontainer">
                 <input type="range" min="0" max="100" step="1" value="0" class="slider" id="suc" name="success" onclick="setClick3()">
