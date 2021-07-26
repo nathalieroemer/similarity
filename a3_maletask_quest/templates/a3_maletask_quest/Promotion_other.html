@@ -38,6 +38,7 @@
         cursor: pointer;
     }
 
+
     /* custom thumb for Safari, Opera, and Chrome */
     .myClass::-webkit-slider-thumb {
         box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
@@ -243,97 +244,67 @@
         </p>
         <div class="row" style="margin-left: 10px">
             <div class="col-md">
-                <p align="center">Entirely disagree</p>
+                <p align="left">Entirely disagree</p>
             </div>
+
+
             <div class="col-md">
-                <p align="center"></p>
-            </div>
-            <div class="col-md">
-                <p align="center"></p>
-            </div>
-            <div class="col-md">
-                <p align="center"></p>
-            </div>
-            <div class="col-md">
-                <p align="center"></p>
-            </div>
-            <div class="col-md">
-                <p align="center"></p>
-            </div>
-            <div class="col-md">
-                <p align="center"></p>
-            </div>
-            <div class="col-md">
-                <p align="center"></p>
-            </div>
-            <div class="col-md">
-                <p align="center"></p>
+                <p align="right">Entirely agree</p>
             </div>
         </div>
 
         <div class="row" style="margin-left: 10px; margin-right: 10px">
-            <div class="col-md">
-                0
+            <div class="input-group-prepend">
+            <span class="input-group-text">0</span>
             </div>
-            <div class="col-md">
 
-            </div>
-            <div class="col-md">
-
-            </div>
-            <div class="col-md">
-
-            </div>
-            <div class="col-md">
-
-            </div>
-             <div class="col-md">
-
-            </div>
-             <div class="col-md">
-
-            </div>
-            <div class="col-md">
-
-            </div>
-            <div class="col-md">
-
-            </div>
-            <div class="col-md">
-
-            </div>
-            <div class="col-md" style="margin-right: -65px">
-                100
-            </div>
-        </div>
-        <div class="row" style="margin-left: 10px; margin-right: 10px">
             <div class="slidecontainer">
                 <input type="range" min="0" max="100" step="1" value="0" class="slider" id="perf" name="promo100scale" onclick="setClick1()">
             </div>
+
+            <div class="input-group-append">
+            <span class="input-group-text">100</span>
+            </div>
         </div>
 
+        <div class="row"  style="margin-left: 10px; margin-right: 10px">
+            <div class="col-md" style="alignment: center">
+            </div>
+            <div class="col-md" style="alignment: center">
+            </div>
+            <div class="col-md" style="alignment: center">
+            <p align="center"><b> <p> Your answer:  <span id="output"></span> </p></b></p>
+            </div>
+
+              <div class="col-md" style="alignment: center">
+            </div>
+                <div class="col-md" style="alignment: center">
+            </div>
+
+        </div>
         <br>
 
     </form>
+
 
     <button class="otree-btn-next btn btn-primary" onclick="validation()">Next</button>
 
     <script>
         var slider1 = document.getElementById("perf");
         var click1 = 0;
-
+        const output = document.getElementById("output");
 
         slider1.oninput = function() {
             slider1.classList.add("myClass","myClassFF","myClassMS");
             slider1.style.background = 'linear-gradient(to right, darkred ' + slider1.value + '%, dodgerblue ' + slider1.value + '%)'
+            output.innerHTML = this.value.toString()
+
         }
 
 
         function setClick1() {
             click1=1;
             slider1.setCustomValidity('');
-        }
-
         }
 
         function slidererrormessage() {

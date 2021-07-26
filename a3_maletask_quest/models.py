@@ -40,7 +40,7 @@ class Player(BasePlayer):
     promo100scale = models.IntegerField()
 
     # Beliefs about correctly answered questions
-    beliefs_correct_q = models.IntegerField()
+    belief_correct_q = models.IntegerField()
 
     # Questionnaire:
     colorb = models.IntegerField(

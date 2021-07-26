@@ -35,7 +35,7 @@
 {% block content %}
 
     <form>
-        <label for="colourblindness"><b>Do you have a red-green colorblindness?</b></label>
+        <label for="colourblindness">Do you have a red-green colorblindness?</label>
         <br>
         <select class="dropdown" name="colorb" id="colourblindness">
             <option value="" selected="selected">---------</option>
@@ -45,7 +45,7 @@
 
         <br>
 
-        <label for="eng"><b>Are you a native English speaker?</b></label>
+        <label for="eng">Are you a native English speaker?</label>
         <br>
         <select class="dropdown" name="native" id="eng" onchange="showproficiency(this.options[this.selectedIndex].value)" required oninvalid="this.setCustomValidity('Please choose an option.')" oninput="this.setCustomValidity('')">
             <option value="" selected="selected">---------</option>
@@ -57,7 +57,7 @@
 
         <br>
 
-        <label for="belief_correct_q"><b>Out of the 20 questions on the test you took in part 1, how many questions do you think you answered correctly?</b></label>
+        <label for="belief_correct_q">Out of the 20 questions on the test you took in part 1, how many questions do you think you answered correctly?</label>
         <br>
         <select class="dropdown" name="belief_correct_q" id="belief_correct_q">
             <option value="" selected="selected">---------</option>
@@ -85,7 +85,7 @@
 
         <br>
 
-        <p><b>How difficult did you find the task?</b></p>
+        <p>How difficult did you find the task?</p>
         <div class="row">
             <div class="col-md" align="center">
                 <label for="d0">Not difficult at all</label>
@@ -137,7 +137,7 @@
         <br>
         <br>
 
-        <p><b>Do you think this task rather favors male or female participants?</b></p>
+        <p>Do you think this task rather favors male or female participants?</p>
         <div class="row">
             <div class="col-md" align="center">
                 <label for="s0">Female</label>
@@ -189,7 +189,7 @@
         <br>
         <br>
 
-        <p><b>How likely do you think is it, that you receive the bonus?</b></p>
+        <p>How likely do you think is it, that you receive the bonus?</p>
         <div class="row">
             <div class="col-md" align="center">
                 <label for="l0">Not likely at all</label>
@@ -241,7 +241,7 @@
         <br>
         <br>
 
-        <p><b>How convincing do you think was your verbal promotion?</b></p>
+        <p>How convincing do you think was your verbal promotion?</p>
         <div class="row">
             <div class="col-md" align="center">
                 <label for="p0">Not convincing at all</label>
@@ -293,7 +293,7 @@
         <br>
         <br>
 
-        <p><b>How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?</b></p>
+        <p>How do you see yourself: Are you someone who is willing to take risks or do you try to avoid them?</p>
         <div class="row">
             <div class="col-md" align="center">
                 <label for="r0">Not willing at all to take risks</label>
@@ -345,7 +345,7 @@
         <br>
         <br>
 
-        <p><b>Do you like to compete with others?</b></p>
+        <p>Do you like to compete with others?</p>
         <div class="row">
             <div class="col-md" align="center">
                 <label for="c0">I don’t like competitions at all</label>
@@ -406,7 +406,7 @@
         function showproficiency(eng){
             if(eng==='1') {
                 document.getElementById('proficiency').innerHTML = '' +
-                    '<p><b>How would you describe your language proficiency in English?</b></p>' +
+                    '<p>How would you describe your language proficiency in English?</p>' +
                     '<div class="row">' +
                     '<div class="col-md" align="center">' +
                     '<label for="ep0">Basic</label>' +
