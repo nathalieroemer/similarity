@@ -78,8 +78,3 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     treat = models.StringField()
     testq = models.IntegerField()
-
-  #  def custom_export(players):
-  #      yield ['session', 'participant_code', 'round_number', 'id_in_group', 'payoff', 'photoid']
-  #      for p in players:
-  #          yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.payoff, p.participant.vars.get('photoid', None)]

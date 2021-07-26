@@ -169,7 +169,13 @@
 {% endblock %}
 
 {% block content %}
-
+<div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+<u>
+<a onclick="window.open('{% static 'worker_Instructions3.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+    Click to review previous instructions
+</a>
+</u>
+</div>
     <p>
         Please answer the following questions. One of the answer may be shown to the third party when deciding between you and your competitor.
     </p>
@@ -240,28 +246,28 @@
                 <p align="center">Entirely disagree</p>
             </div>
             <div class="col-md">
-                <p align="center">Strongly disagree</p>
+                <p align="center"></p>
             </div>
             <div class="col-md">
-                <p align="center">Disagree</p>
+                <p align="center"></p>
             </div>
             <div class="col-md">
-                <p align="center">Somewhat disagree</p>
+                <p align="center"></p>
             </div>
             <div class="col-md">
-                <p align="center">Neither disagree nor agree</p>
+                <p align="center"></p>
             </div>
             <div class="col-md">
-                <p align="center">Somewhat agree</p>
+                <p align="center"></p>
             </div>
             <div class="col-md">
-                <p align="center">Agree</p>
+                <p align="center"></p>
             </div>
             <div class="col-md">
-                <p align="center">Strongly agree</p>
+                <p align="center"></p>
             </div>
             <div class="col-md">
-                <p align="center">Entirely agree</p>
+                <p align="center"></p>
             </div>
         </div>
 
@@ -270,31 +276,31 @@
                 0
             </div>
             <div class="col-md">
-                10
+
             </div>
             <div class="col-md">
-                20
+
             </div>
             <div class="col-md">
-                30
+
             </div>
             <div class="col-md">
-                40
+
             </div>
              <div class="col-md">
-                50
+
             </div>
              <div class="col-md">
-                60
+
             </div>
             <div class="col-md">
-                70
+
             </div>
             <div class="col-md">
-                80
+
             </div>
             <div class="col-md">
-                90
+
             </div>
             <div class="col-md" style="margin-right: -65px">
                 100
@@ -308,208 +314,33 @@
 
         <br>
 
-        <p>
-            <label for="applic">
-                <b>I would apply for a job that required me to perform well on the test I took in part 1.</b>
-            </label>
-        </p>
-        <div class="row" style="margin-left: 10px">
-            <div class="col-md">
-                <p align="center">Entirely disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Strongly disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Somewhat disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Neither disagree nor agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Somewhat agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Strongly agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Entirely agree</p>
-            </div>
-        </div>
-
-        <div class="row" style="margin-left: 10px; margin-right: 10px">
-            <div class="col-md">
-                0
-            </div>
-            <div class="col-md">
-                10
-            </div>
-            <div class="col-md">
-                20
-            </div>
-            <div class="col-md">
-                30
-            </div>
-            <div class="col-md">
-                40
-            </div>
-             <div class="col-md">
-                50
-            </div>
-             <div class="col-md">
-                60
-            </div>
-            <div class="col-md">
-                70
-            </div>
-            <div class="col-md">
-                80
-            </div>
-            <div class="col-md">
-                90
-            </div>
-            <div class="col-md" style="margin-right: -65px">
-                100
-            </div>
-        </div>
-        <div class="row" style="margin-left: 10px; margin-right: 10px">
-            <div class="slidecontainer">
-                <input type="range" min="0" max="100" step="1" value="0" class="slider" id="applic" name="application" onclick="setClick2()">
-            </div>
-        </div>
-
-        <br>
-
-        <p>
-            <label for="suc">
-                <b>I would succeed in a job that required me to perform well on the test I took in part 1.</b>
-            </label>
-        </p>
-        <div class="row" style="margin-left: 10px">
-            <div class="col-md">
-                <p align="center">Entirely disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Strongly disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Somewhat disagree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Neither disagree nor agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Somewhat agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Strongly agree</p>
-            </div>
-            <div class="col-md">
-                <p align="center">Entirely agree</p>
-            </div>
-        </div>
-
-        <div class="row" style="margin-left: 10px">
-            <div class="col-md">
-                0
-            </div>
-            <div class="col-md">
-                10
-            </div>
-            <div class="col-md">
-                20
-            </div>
-            <div class="col-md">
-                30
-            </div>
-            <div class="col-md">
-                40
-            </div>
-             <div class="col-md">
-                50
-            </div>
-             <div class="col-md">
-                60
-            </div>
-            <div class="col-md">
-                70
-            </div>
-            <div class="col-md">
-                80
-            </div>
-            <div class="col-md">
-                90
-            </div>
-            <div class="col-md" style="margin-right: -65px">
-                100
-            </div>
-        </div>
-
-        <div class="row" style="margin-left: 10px; margin-right: 10px">
-            <div class="slidecontainer">
-                <input type="range" min="0" max="100" step="1" value="0" class="slider" id="suc" name="success" onclick="setClick3()">
-            </div>
-        </div>
     </form>
 
     <button class="otree-btn-next btn btn-primary" onclick="validation()">Next</button>
 
     <script>
         var slider1 = document.getElementById("perf");
-        var slider2 = document.getElementById("applic");
-        var slider3 = document.getElementById("suc")
         var click1 = 0;
-        var click2 = 0;
-        var click3 = 0;
+
 
         slider1.oninput = function() {
             slider1.classList.add("myClass","myClassFF","myClassMS");
             slider1.style.background = 'linear-gradient(to right, darkred ' + slider1.value + '%, dodgerblue ' + slider1.value + '%)'
         }
-        slider2.oninput = function() {
-            slider2.classList.add("myClass","myClassFF","myClassMS");
-            slider2.style.background = 'linear-gradient(to right, darkred ' + slider2.value + '%, dodgerblue ' + slider2.value + '%)'
-        }
-        slider3.oninput = function() {
-            slider3.classList.add("myClass","myClassFF","myClassMS");
-            slider3.style.background = 'linear-gradient(to right, darkred ' + slider3.value + '%, dodgerblue ' + slider3.value + '%)'
-        }
+
 
         function setClick1() {
             click1=1;
             slider1.setCustomValidity('');
         }
-        function setClick2() {
-            click2=1;
-            slider2.setCustomValidity('');
-        }
-        function setClick3() {
-            click3=1;
-            slider3.setCustomValidity('');
+
         }
 
         function slidererrormessage() {
             if (click1===0) {
                 slider1.setCustomValidity("Please make your guess.");
             }
-            if (click2===0) {
-                slider2.setCustomValidity("Please make your guess.");
-            }
-            if (click3===0) {
-                slider3.setCustomValidity("Please make your guess.");
-            }
+
         }
 
         function validation() {

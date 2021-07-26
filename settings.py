@@ -47,7 +47,7 @@ SESSION_CONFIGS = [
         name='tr3_1_intro_task',
         display_name='Employer male typed task',
         num_demo_participants=50,
-        app_sequence=['tr3_1_intro_task', 'tr3_2_investment'],
+        app_sequence=['tr3_1_intro_task', 'tr3_2_investment', 'tr3_3_quest'],
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
     ),
 ]

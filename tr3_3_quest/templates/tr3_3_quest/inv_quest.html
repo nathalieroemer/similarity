@@ -64,16 +64,6 @@
 
 {% block content %}
 
-    {% if participant.vars.treat == 'idea_only' %}
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Idea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
     {% if participant.vars.treat == 'verbal_only' %}
 
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
@@ -85,43 +75,11 @@
         </div>
     {% endif %}
 
-    {% if participant.vars.treat == 'verbal_idea' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2VerbalIdea.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'idea_only_b' %}
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2Idea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
     {% if participant.vars.treat == 'verbal_only_b' %}
 
         <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
             <u>
                 <a onclick="window.open('{% static 'Instructions2Verbal_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                    Click to review previous instructions
-                </a>
-            </u>
-        </div>
-    {% endif %}
-
-    {% if participant.vars.treat == 'verbal_idea_b' %}
-
-        <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-            <u>
-                <a onclick="window.open('{% static 'Instructions2VerbalIdea_b.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
                     Click to review previous instructions
                 </a>
             </u>
@@ -184,7 +142,7 @@
         <br>
         <br>
 
-        <p>Do you think the creators task (illustrating words with a given set of materials) rather favors male or female participants?</p>
+        <p>Do you think the creators task (completing the math and science questions from the ASVAB test) rather favors male or female participants?</p>
         <div class="row">
             <div class="col-md" align="center">
                 <label for="s0">Female</label>

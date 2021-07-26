@@ -209,7 +209,7 @@ class investment(Page):
         elif self.player.chose_2 == 1 and self.player.performance2 < self.player.performance1:
             self.player.right_choice = 0
         elif self.player.performance1 == self.player.performance2:
-            self.player.equal_value = 1
+            self.player.equal_performance = 1
 
         # hier werden die ersten zwei einträge der liste entfernt
         # del self.participant.vars['list'][:2]
@@ -217,58 +217,27 @@ class investment(Page):
         self.participant.vars['list'].remove(self.player.x)
         self.participant.vars['list'].remove(self.player.y)
 
-
         list = self.participant.vars['list']
-        #print(list)
-        #print(len(list))
-        # adjust to 51 since then the 50th round already took place
-        if len(list) == 0 or self.participant.vars['count_round'] == 11:
+
+        # adjust to 21 since then the 20th round already took place
+
+        if len(list) == 0 or self.participant.vars['count_round'] == 21:
             self.participant.vars['list_is_empty'] = 1
+            # The following code sets the payoff in the last round after completion of the questionnaire
+            # based on a random round.
+            # print(self.player.roundcount)
+            randomround = randint(1, 20)
+            print("round number is", randomround)
+            print("right choice?", self.player.in_round(randomround).right_choice)
+            if self.player.in_round(randomround).right_choice == 1:
+                self.player.payoff = 1.50
+            elif self.player.in_round(randomround).equal_performance == 1:
+                self.player.payoff = 0.75
+            else:
+                self.player.payoff = 0
+            self.participant.vars['payoff'] = self.player.payoff
+            print("payoff", self.player.payoff)
         else:
             self.participant.vars['list_is_empty'] = 0
 
-        #print("empty", self.participant.vars['list_is_empty'])
-        #print("quest", self.participant.vars['passed_quest'])
-
-
-class inv_quest(Page):
-    def is_displayed(self):
-        return self.participant.vars['passed_quest'] == 0 and self.participant.vars['list_is_empty'] == 1 and self.participant.vars['testq'] == 2
-
-    form_model = 'player'
-    form_fields = [
-        'gender',
-        'english',
-        'english_prof',
-        'colourb',
-        'stereotypes',
-        'chance_bonus',
-        'risk_pref',
-        'comp'
-    ]
-
-    def before_next_page(self):
-        self.player.participant.vars['passed_quest'] = 1
-
-        # The following code sets the payoff in the last round after completion of the questionnaire
-        # based on a random round.
-        #print(self.player.roundcount)
-        randomround = randint(1, self.player.roundcount)
-        print("round number is", randomround)
-        print("right choice?", self.player.in_round(randomround).right_choice)
-        if self.player.in_round(randomround).right_choice == 1:
-            self.player.payoff = 1.50
-        elif self.player.in_round(randomround).equal_value == 1:
-            self.player.payoff = 0.75
-        else:
-            self.player.payoff = 0
-        print("payoff", self.player.payoff)
-
-
-class Results(Page):
-    def is_displayed(self):
-        return self.participant.vars['passed_quest'] == 1 or self.participant.vars['testq'] != 2
-        # Is shown when the participant passed the experiment (questionnaire) or didn't pass the attention check.
-
-
-page_sequence = [investment, inv_quest, Results]
+page_sequence = [investment]

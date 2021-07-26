@@ -5,7 +5,7 @@ from .models import Constants
 
 class PromotionInstr(Page):
     def is_displayed(self):
-        return self.participant.vars['list_empty'] == 1
+        return self.participant.vars['list_empty'] == 1 and self.participant.vars['testq'] ==2
 
 
 
@@ -14,23 +14,17 @@ class Promotion(Page):
     form_fields = ['promotion']
 
     def is_displayed(self):
-        return self.participant.vars['list_empty'] == 1
-
-class BeliefCorrectQ(Page):
-    def is_displayed(self):
-        return self.participant.vars['list_empty'] == 1
+        return self.participant.vars['list_empty'] == 1 and self.participant.vars['testq'] ==2
 
 class Promotion_other(Page):
     form_model = 'player'
     form_fields = [
         'promo6scale',
         'promo100scale',
-        'application',
-        'success'
     ]
 
     def is_displayed(self):
-        return self.participant.vars['list_empty'] == 1
+        return self.participant.vars['list_empty'] == 1 and self.participant.vars['testq'] ==2
 
 
 class Questionnaire(Page):
@@ -44,16 +38,21 @@ class Questionnaire(Page):
         'bonus_chance',
         'prom_quality',
         'risk_pref',
-        'competition'
+        'competition',
+        'belief_correct_q'
     ]
 
     def is_displayed(self):
         return self.participant.vars['list_empty'] == 1
 
+class FinalPage(Page):
+    def is_displayed(self):
+        return self.participant.vars['list_empty'] == 1 or self.participant.vars['testq'] !=2
+
 page_sequence = [
     PromotionInstr,
     Promotion,
-    BeliefCorrectQ,
     Promotion_other,
     Questionnaire,
+    FinalPage
     ]

@@ -38,8 +38,6 @@ class Player(BasePlayer):
     # Promotion, other questons:
     promo6scale = models.IntegerField()
     promo100scale = models.IntegerField()
-    application = models.IntegerField()
-    success = models.IntegerField()
 
     # Beliefs about correctly answered questions
     beliefs_correct_q = models.IntegerField()

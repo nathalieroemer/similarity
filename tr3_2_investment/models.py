@@ -20,7 +20,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'tr3_decisions'
     players_per_group = None
-    num_rounds = 10
+    num_rounds = 20
 
 
 class Subsession(BaseSubsession):
@@ -30,9 +30,6 @@ class Group(BaseGroup):
     pass
 
 class Player(BasePlayer):
-
-    value_1 = models.IntegerField()
-    value_2 = models.IntegerField()
 
     id1 = models.StringField()
     id2 = models.StringField()
@@ -51,25 +48,12 @@ class Player(BasePlayer):
 
     right_choice = models.IntegerField()
 
-    list = models.LongStringField()
     chose_1 = models.IntegerField()
     chose_2 = models.IntegerField()
 
-    equal_value = models.IntegerField(
+    equal_performance = models.IntegerField(
         initial=0
     )
 
     roundcount = models.IntegerField()
 
-    gender = models.IntegerField()
-    english = models.IntegerField()
-    english_prof = models.IntegerField(
-        blank=True
-    )
-    colourb = models.IntegerField(
-        blank=True
-    )
-    stereotypes = models.IntegerField()
-    chance_bonus = models.IntegerField()
-    risk_pref = models.IntegerField()
-    comp = models.IntegerField()

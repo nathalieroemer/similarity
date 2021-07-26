@@ -1,27 +1,73 @@
-{% extends "global/Page.html" %}
-{% load otree static %}
+<style>
+    ._otree-content{
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #212529;
+        text-align: left;
+    }
 
-{% block title %}
-    Your task
-{% endblock %}
+    .page-header {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+    }
+
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .5rem;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+    }
+
+    .h2, h2 {
+    font-size: 2rem;
+    }
+
+    body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    }
+</style>
+
+<body>
+    <div class="otree-body container">
+        <h2 class="otree-title page-header">Welcome to this task.</h2>
+
+        <div class="_otree-content">
 
 
-{% block content %}
+    <p>
+        You will receive a fixed payment of $0.30. Additionally, you can earn a $1.50 <b>bonus</b>.
+        This bonus is awarded based on your performance on the task.
+    </p>
+    <p>
+        Please carefully read the following instructions before starting to work.
+        Note that there will be an attention check.
+        If you do not pass it, you cannot participate in this task.
+        To be eligible for payment, you further have to perform all tasks within the next 2 hours.
+    </p>
+    <p>
+        At any point in time, you will be able to review previous instruction by clicking on
+        "Click to review previous instructions" in the right top corner of your screen.
+    </p>
+        </div>
 
-    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
-        <u>
-            <a onclick="window.open('{% static 'Instructions1.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
-                Click to review previous instructions
-            </a>
-        </u>
-    </div>
+        <h2 class="otree-title page-header">Your task</h2>
+
+        <div class="_otree-content">
+
 
     <p>
         This task consists of 20 rounds. In each round, you will have to choose between two workers. You choose a worker by clicking on the button, indicating the respective worker.
-        {% if player.treat == 'no_info' or player.treat == 'verbal_only' %}
         If the worker is <span style="color:#9400D3">female</span> this button is <span style="color:#9400D3">purple</span>.
         If the worker is <span style="color:#00BFFF">male</span> this button is <span style="color:#00BFFF">blue</span>.
-        {% endif %}
     </p>
 
     <p>
@@ -68,16 +114,11 @@
 
     <p>
 
-        {% if player.treat == 'verbal_only' or player.treat == 'verbal_only_b' %}
            You will be provided with a description written by the workers in the respective round.
             Workers know that the description may be shown to you and have an incentive to
             convince you that they performed well on the test.
-        {% endif %}
 
     </p>
-
-    <br>
-
-{% next_button %}
-
-{% endblock %}
+        </div>
+    </div>
+</body>

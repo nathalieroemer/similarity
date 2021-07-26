@@ -6,9 +6,15 @@
 {% endblock %}
 
 {% block content %}
+<div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+<u>
+<a onclick="window.open('{% static 'worker_Instructions2.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+    Click to review previous instructions
+</a>
+</u>
+</div>
 <p>
-    In the following it is your task to complete a math and science test.
-    On the test, you will be asked to answer up to 20 questions from the Armed Services Vocational Aptitude Battery (ASVAB).
+    In the following test, you will be asked to </b> answer up to 20 questions </b> from the Armed Services Vocational Aptitude Battery (ASVAB).
     Each question will test your aptitude in one of the following five categories:
     General Science, Arithmetic Reasoning, Math Knowledge Mechanical Comprehension, and Assembling Objects.
     In addition to being used by the military to determine which jobs armed service members are qualified for performance on
@@ -16,13 +22,15 @@
 </p>
 <p>
     You will be presented with each of the 20 questions on separate pages.
-    You will be given up to 30 seconds to answer each question, although you may push the ‘Next’-button at the bottom of the page
+    You will be given up to <b> 30 seconds to answer each question</b>, although you may push the ‘Next’-button at the bottom of the page
     to answer a question before the 30 seconds are up.
 </p>
 <p>
-    Whether or not you receive a bonus depends on whether a third party thinks you performed well on the test.
+    Whether or not you receive a bonus depends the <b>perception of a third party regarding how many of your answers are correct</b>. Thus, you should answer </b>as many questions correctly as possible</b>.
 </p>
-
+<p>
+    Half of the participants will receive a bonus.
+</p>
     {% next_button %}
 
 {% endblock %}
