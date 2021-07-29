@@ -25,7 +25,6 @@ class inv_quest(Page):
         'gender',
         'english',
         'english_prof',
-        'colourb',
         'stereotypes',
         'chance_bonus',
         'risk_pref',

@@ -36,9 +36,7 @@ class Player(BasePlayer):
     english_prof = models.IntegerField(
         blank=True
     )
-    colourb = models.IntegerField(
-        blank=True
-    )
+
     stereotypes = models.IntegerField()
     chance_bonus = models.IntegerField()
     risk_pref = models.IntegerField()
