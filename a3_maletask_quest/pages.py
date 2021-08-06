@@ -30,7 +30,6 @@ class Promotion_other(Page):
 class Questionnaire(Page):
     form_model = 'player'
     form_fields = [
-        'colorb',
         'native',
         'eng_prof',
         'difficult',

@@ -1,0 +1,41 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+        <u>
+            <a onclick="window.open('{% static 'Instructions1.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                Click to review previous instructions
+            </a>
+        </u>
+    </div>
+
+    <p>
+        Next, you will see 36 descriptions of illustrations on your screen. The creators and writers of the descriptions are workers from another task who were asked to illustrate words (e.g., objects, items or actions) using a fixed set of materials. The set of materials is displayed  below:
+    </p>
+    <p style="text-align: center">
+        <img src="{% static material %}"/>
+    </p>
+    <p>
+        Creators tried to generate illustrations that are of high originality and of high recognizability.
+           <ul>
+            <li>
+             An illustration is <b>original</b> if the illustrated word is <b>not</b> among a set of 50 words that other creators illustrated in that task.
+            </li>
+        </ul>
+        <ul>
+            <li>
+            The <b>recognizability</b> is the fraction of people (from 0-100%) that recognize the word when they see the illustration only.
+            </li>
+         </ul>
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}

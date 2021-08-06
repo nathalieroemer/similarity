@@ -43,9 +43,7 @@ class Player(BasePlayer):
     belief_correct_q = models.IntegerField()
 
     # Questionnaire:
-    colorb = models.IntegerField(
-        blank=True
-    )
+
     native = models.IntegerField()
     eng_prof = models.IntegerField(
         blank=True  # Only shown if not native

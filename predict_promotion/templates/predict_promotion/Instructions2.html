@@ -1,0 +1,55 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+        <u>
+            <a onclick="window.open('{% static 'Instructions2.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                Click to review previous instructions
+            </a>
+        </u>
+    </div>
+
+<b><u>Your task</u></b>
+<br>
+
+    <p>
+        Based on the descriptions, your task is to predict:
+        <ol>
+            <li> Which fraction of people recognized the illustrated word</li>
+            <li> Whether the illustration is original</li>
+            <li> The gender of the writer</li>
+        </ol>
+    </p>
+ <p>
+        <b><u>Payment</u></b>
+    </p>
+    <p>
+        You will receive your payment only if you complete the entire task. You receive <b>$0.30</b> for
+        participating in the task. In addition, you can receive a bonus of up to <b>$3.00</b> depending on the accuracy of your predictions.
+        To determine the bonus, we will randomly choose one out of the 36 rounds after you completed the task. </p>
+
+    <p>
+        <ul>
+    <li> Your receive <b> $1.00 each </b> if your prediction with respect to the originality and the gender is correct in the randomly determined round. </li>
+            <li> For your prediction with respect to the quality, payment depends on the deviation from the true recognition rate of the illustration presented in the randomly determined round:
+                <ul>
+                    <li> If your answer deviates by 5 or less percentage points your bonus is <b> $1.00</b>.</li>
+                    <li> If your answer deviates by more than 5 and 10 or less percentage points your bonus is <b> $0.50</b>.</li>
+                     <li> If your answer deviates by more than 15 percentage points your bonus is <b> $0</b>.</li>
+
+                </ul>
+
+            </li>
+        </ul>
+    </p>
+
+
+    {% next_button %}
+
+{% endblock %}
