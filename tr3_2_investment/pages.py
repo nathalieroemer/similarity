@@ -184,7 +184,6 @@ class investment(Page):
             self.session.vars['count_obs_pb'][self.player.x] = self.session.vars['count_obs_pb'][self.player.x] + 1
             self.session.vars['count_obs_pb'][self.player.y] = self.session.vars['count_obs_pb'][self.player.y] + 1
 
-
         elif self.participant.vars['treat'] == "no_info":
             self.player.obs_num1 = int(self.session.vars['count_obs_ni'][self.player.x])
             self.player.obs_num2 = int(self.session.vars['count_obs_ni'][self.player.y])
@@ -239,5 +238,6 @@ class investment(Page):
             print("payoff", self.player.payoff)
         else:
             self.participant.vars['list_is_empty'] = 0
+
 
 page_sequence = [investment]

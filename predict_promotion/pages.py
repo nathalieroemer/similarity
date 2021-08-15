@@ -5,6 +5,7 @@ from .models import Constants
 from random import randint
 import itertools
 
+
 class Welcome(Page):
     def is_displayed(self):
         return self.participant.vars['passed_instr'] == 0
@@ -18,6 +19,7 @@ class Instructions(Page):
         return dict(
             material="{}.png".format("material"),
         )
+
 
 class Instructions2(Page):
     def is_displayed(self):
@@ -33,7 +35,6 @@ class Task(Page):
 
     def is_displayed(self):
         return self.participant.vars['list_is_empty'] == 0
-
 
     def vars_for_template(self):
         x = self.participant.vars['list'][0]
@@ -81,7 +82,6 @@ class Task(Page):
         if self.player.dev_recog >= 15:
             self.player.recog_pay = 0
 
-
         del self.participant.vars['list'][:1]
         list = self.participant.vars['list']
         print(list)
@@ -94,6 +94,7 @@ class Task(Page):
             self.player.payoffround = randomround
             print("round number is", randomround)
             self.player.payoff = self.player.in_round(randomround).fem_pay + self.player.in_round(randomround).orig_pay + self.player.in_round(randomround).recog_pay
+
 
 class Results(Page):
     def is_displayed(self):

@@ -21,7 +21,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'predict_promo'
+    name_in_url = 'predict_test'
     players_per_group = None
     num_rounds = 252
     IMAGE_EXTENTION = 'png'
@@ -88,7 +88,7 @@ class Player(BasePlayer):
     roundcount = models.IntegerField()
     photoid = models.StringField()
     word = models.StringField()
-    promo=models.StringField()
+    promo = models.StringField()
 
     fem_pay = models.CurrencyField()
     orig_pay = models.CurrencyField()
@@ -104,8 +104,6 @@ class Player(BasePlayer):
     female = models.IntegerField()
 
     payoffround = models.IntegerField()
-
-
 
     x = models.IntegerField()
     photo_id = models.StringField()

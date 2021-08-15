@@ -50,6 +50,18 @@ SESSION_CONFIGS = [
         app_sequence=['tr3_1_intro_task', 'tr3_2_investment', 'tr3_3_quest'],
         ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
     ),
+    dict(
+        name='prediction',
+        display_name='prediction',
+        num_demo_participants=10,
+        app_sequence=['p1_predict_intro', 'p2_predict_task'],
+    ),
+    dict(
+        name='prediction_test',
+        display_name='prediction_test',
+        num_demo_participants=10,
+        app_sequence=['predict_promotion']
+    )
 ]
 
 # ISO-639 code

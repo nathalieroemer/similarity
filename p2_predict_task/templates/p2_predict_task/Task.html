@@ -1,0 +1,401 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree_tags %}
+
+{% block title %}
+   Task
+{% endblock %}
+
+{% block styles %}
+<style>
+
+.textinput{
+    display: block;
+    max-width: 400px;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+
+.dropdown{
+    width: auto;
+    height: calc(2.25rem + 2px);
+    display: block;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.numberinput{
+    display: block;
+    max-width: 100px;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+  .otree-form-errors {
+    visibility: hidden;
+    display: none;
+}
+
+.textarea:invalid {
+    border:5px solid red!important;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+.divbild {
+    width:480px;
+    height:430px;
+    overflow:hidden;
+    margin-right:-80px;
+    border-radius: 7px;
+    }
+
+.my_nextbutton {
+     cursor: pointer;
+     display: inline-block;
+    font-weight: 400;
+     color: #fff;
+     background-color: #007bff;
+     border-color: #007bff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+     }
+
+.slidecontainer {
+    flex-grow: 1;
+    margin: auto;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border: 1px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none!important;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    -webkit-appearance: none !important;
+}
+
+.slider:invalid {
+    border: 5px solid red!important;
+}
+
+/* custom thumb for Safari, Opera, and Chrome */
+.myClass::-webkit-slider-thumb {
+    box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+    border: 2px solid #007bff;
+    height: 20px !important;
+    width: 20px !important;
+	border-radius: 10px !important;
+    background: #007bff !important;
+	cursor: pointer !important !important;
+	-webkit-appearance: none !important;
+	margin-top: -8px !important;
+    }
+
+/* custom thumb for Firefox */
+.myClassFF::-moz-range-thumb {
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		border: 1px solid #007bff;
+		height: 20px !important;
+		width: 20px !important;
+		border-radius: 10px !important;
+		background: #007bff !important;
+		cursor: pointer !important !important;
+		-moz-appearance: none !important;
+		margin-top: -8px !important;
+	}
+        /* custom thumb for Microsoft */
+
+.myClassMS::-ms-thumb {
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border: 1px solid #007bff;
+		height: 20px !important;
+		width: 20px !important;
+		border-radius: 10px !important;
+		background: #007bff !important;
+		cursor: pointer !important !important;
+		margin-top: -8px !important;
+	}
+        /* hide default range styling */
+	input[type=range] {
+		-webkit-appearance: none;
+		margin: 10px 0;
+		height: 8px;
+		width: 100%;
+		border: 1px solid white;
+	}
+
+        /* hide default focus styling */
+	input[type=range]:focus {
+		outline: none;
+	}
+
+        /* get rid of weird dotted outline around range in Firefox */
+	input[type=range]::-moz-focus-outer {
+        border: 0;
+    	outline: none;
+        }
+        /* custom range styling for Safari, Opera, and Chrome */
+	input[type=range]::-webkit-slider-runnable-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #3071A9;
+		border-radius: 1px;
+		border: 0.5px solid #d3d3d3;
+	}
+        /* custom range styling for Firefox */
+	input[type=range]::-moz-range-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #dbdbdb;
+		border-radius: 1px;
+		border: 0.5px solid #aeacac;
+	}
+       /* custom range styling for Microsoft */
+	input[type=range]::ms-track {
+		width: 100%;
+		height: 8px;
+		cursor: pointer;
+		animate: 0.2s;
+		box-shadow: 0px 0px 0px #000000, 0px 0px 0px #007bff;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+        /* hide default thumb in Opera, Safari, Chrome */
+	input[type=range]::-webkit-slider-thumb {
+		border: 0px;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-webkit-appearance: none;
+	}
+        /* hide default thumb in Firefox */
+	input[type=range]::-moz-range-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+		-moz-appearance: none;
+	}
+       /* hide default thumb for Microsoft */
+       input[type=range]::-ms-thumb {
+		-webkit-appearance: none;
+		border: none;
+		height: 0px;
+		width: 0px;
+		border-radius: 0px;
+	}
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+        <u>
+            <a onclick="window.open('{% static 'Instructions3.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                Click to review previous instructions
+            </a>
+        </u>
+    </div>
+
+    <p>
+        The worker describes its performance as follows:
+    </p>
+    <p>
+        {{ promo }}
+    </p>
+    <br>
+    <p>
+        <u> Performance </u>
+    </p>
+
+    <form>
+
+        <label class="col-form-label">
+             Please use the slider to indicate how many questions out of 20 you think the worker answered correctly on the task.
+        </label>
+
+        <br>
+
+        <div class="row">
+            <div class="input-group-prepend">
+                <span class="input-group-text">0</span>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="20" step="1" class="slider" id="slidea" name="g_answers">
+            </div>
+            <div class="input-group-append">
+                <span class="input-group-text">20</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p><span id="out1"><br></span></p>
+            </div>
+        </div>
+
+        <br>
+
+        <p>
+            <u>Gender</u>
+        </p>
+        <p>
+            In the follwing you have to guess the gender of the worker.
+        </p>
+        <p>
+            Keep in mind:
+        </p>
+        <ul>
+            <li>
+                Larger values of <i>Your Guess</i> (larger width of red part) represent a greater chance that the worker
+                is female and a smaller chance that the worker is male.
+            </li>
+            <li>
+                Smaller values of <i>Your Guess</i> (larger width of blue part) represent a greater chance that the
+                worker is male and a smaller chance that the worker is female.
+            </li>
+        </ul>
+
+        <label class="col-form-label">
+             Please use the slider to indicate your guess for the chance that the worker who wrote the text is female.
+        </label>
+
+        <br>
+
+        <div class="row">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Male</span>
+            </div>
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100" step="1" class="slider" id="slideg" name="g_fem">
+            </div>
+            <div class="input-group-append">
+                <span class="input-group-text">Female</span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <p><span id="out2"><br></span></p>
+            </div>
+        </div>
+
+    </form>
+
+    <br>
+
+    <button class="my_nextbutton" id="next">Next</button>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+var slider1 = document.getElementById("slidea");
+var slider2 = document.getElementById("slideg");
+var output1 = document.getElementById("out1");
+var output2 = document.getElementById("out2");
+var click1 = 0;
+var click2 = 0;
+
+slider1.oninput = function() {
+    output1.innerHTML = 'Your answer: The worker answered <b>' + this.value.toString() + ' questions</b> correctly.' ;
+    slider1.classList.add("myClass","myClassFF","myClassMS");
+    slider1.style.background = 'linear-gradient(to right, darkred ' + (slider1.value/20)*100 + '%, dodgerblue ' + (slider1.value/20)*100 + '%)'
+}
+
+slider2.oninput = function() {
+    output2.innerHTML = 'Your answer: <b>' + this.value.toString() + '% chance </b> that the worker is female.' ;
+    slider2.classList.add("myClass","myClassFF","myClassMS");
+    slider2.style.background = 'linear-gradient(to right, darkred ' + slider2.value + '%, dodgerblue ' + slider2.value + '%)'
+}
+
+document.getElementById("slidea").onclick=setClick1;
+    function setClick1() {
+        click1=1;
+        document.getElementById("slidea").setCustomValidity('');
+    }
+
+document.getElementById("slideg").onclick=setClick2;
+    function setClick2() {
+        click2=1;
+        document.getElementById("slideg").setCustomValidity('');
+    }
+
+document.getElementById("next").onclick=validateForm;
+    function validateForm() {
+        const first = document.getElementById("slidea");
+        const second = document.getElementById("slideg");
+
+        if (click1 !== 1) {
+            first.setCustomValidity("Please make your guess.");
+        }
+        else if (click2 !== 1) {
+            second.setCustomValidity("Please make your guess.")
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; cursor:pointer; color: dimgrey;">
+        <u>
+            <a onclick="window.open('{% static 'Instructions1.html' %}', '_blank', 'location=yes, height=570,width=520,scrollbars=yes,status=yes');">
+                Click to review previous instructions
+            </a>
+        </u>
+    </div>
+
+    <form>
+        <div class="form-group required">
+            <label class="col-form-label" for="t1">Whether or not you earn a bonus depends on...</label>
+            <div class="controls  field-testq">
+                <ul id="id_testq">
+                    <li>
+                        <label for="t1">
+                            <input type="radio" name="test" value="1" required="" id="t1" class="form-check-input" oninvalid="this.setCustomValidity('Please choose an option.')" onclick="this.setCustomValidity('')">
+                            ... a coinflip.
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="t2">
+                            <input type="radio" name="test" value="2" required="" id="t2" class="form-check-input" onclick="document.getElementById('t1').setCustomValidity('')">
+                            ... the accuracy of your guess regarding the number of correctly answered questions and the gender of the worker.
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="t3">
+                            <input type="radio" name="test" value="3" required="" id="t3" class="form-check-input" onclick="document.getElementById('t1').setCustomValidity('')">
+                            ... your performance on the test from the Armed Service Vocational Aptitude Battery (ASVAB).
+                        </label>
+                    </li>
+
+                    <li>
+                        <label for="t4">
+                            <input type="radio" name="test" value="4" required="" id="t4" class="form-check-input" onclick="document.getElementById('t1').setCustomValidity('')">
+                            There is no bonus in this task.
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    <br>
+
+    {% next_button %}
+
+{% endblock %}
