@@ -37,20 +37,6 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 SESSION_CONFIGS = [
     dict(
-        name='maletask_intro',  ## name muss app name entsprechen
-        display_name='maletask_intro',  ### display name kann gleich sein
-        num_demo_participants=50,
-        app_sequence=['a1_maletask_intro', 'a2_maletask_test', 'a3_maletask_quest'],
-        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
-    ),
-    dict(
-        name='tr3_1_intro_task',
-        display_name='Employer male typed task',
-        num_demo_participants=50,
-        app_sequence=['tr3_1_intro_task', 'tr3_2_investment', 'tr3_3_quest'],
-        ## hier kann ich auch weitere apps hinzufügen, namen entsprechen ordner namen
-    ),
-    dict(
         name='prediction',
         display_name='prediction',
         num_demo_participants=10,

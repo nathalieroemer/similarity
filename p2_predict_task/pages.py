@@ -50,6 +50,8 @@ class Task(Page):
         # payoff/bonus for guess of gender
         rand_num1 = randint(0, 100)
         rand_num2 = randint(0, 100)
+        print("random num1 is", rand_num1)
+        print("random num2 is", rand_num2)
         if (self.player.g_fem >= rand_num1 and self.player.female == 1) or \
                 (self.player.g_fem >= rand_num2 and self.player.female == 1):
             self.player.gen_pay = 1.00
