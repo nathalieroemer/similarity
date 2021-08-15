@@ -40,6 +40,7 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     def creating_session(self):
+        # The variables are saved as session.vars to access and manipulate them later in the experiment.
         self.session.vars['words'] = Constants.df['word'].to_list()
         self.session.vars['photo_id'] = Constants.df['photoid'].to_list()
         self.session.vars['image_data'] = Constants.df['image_data'].to_list()
@@ -49,6 +50,8 @@ class Subsession(BaseSubsession):
         self.session.vars['orig'] = Constants.df['orig50'].to_list()
 
         for p in self.get_players():
+            # Every player gets a list assigned with shuffled numbers between 0 and 252 via which the data sets are
+            # identified later in the experiment.
             li = list(range(0, 252))
             random.shuffle(li)
             p.participant.vars['list'] = li

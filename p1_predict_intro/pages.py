@@ -25,8 +25,7 @@ class AttentionCheck(Page):
     ]
 
     def before_next_page(self):
-        # Das Testergebnis des Aufmerksamkeitstests wird als Participant-Variable abgespeichert,
-        # um in der nächsten App genutzt werden zu können.
+        # To use the result from the attention check in the next app it is saved in a participant variable.
         self.participant.vars['test'] = self.player.test
 
 
