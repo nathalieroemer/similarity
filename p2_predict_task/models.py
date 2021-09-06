@@ -37,6 +37,7 @@ class Player(BasePlayer):
 
     answers = models.IntegerField()
     female = models.IntegerField()
+    # TODO: Hilfsvariable kann entfernt werden, wenn mit neuem Datensatz gelöst.
     hilfe = models.IntegerField()
 
     g_answers = models.IntegerField()

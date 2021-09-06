@@ -28,6 +28,8 @@ class Constants(BaseConstants):
     number_of_rows = len(index)
     df_shuffled = df.sample(frac=1).reset_index()
 
+    # Todo: Variable, die Anzahl richtiger Antworten speichert, muss eingeführt werden.
+    #  answers = df_shuffled['...'].to_list()
     words = df_shuffled['word'].to_list()
     promo = df_shuffled['promo_txt'].to_list()
     photo_ids = df_shuffled['photoid'].to_list()
@@ -41,6 +43,8 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     def creating_session(self):
         # The variables are saved as session.vars to access and manipulate them later in the experiment.
+        # Todo: Variable, die Anzahl richtiger Antworten speichert, muss eingeführt werden.
+        #  self.session.vars['answers'] = Constants.df['answers'].to_list()
         self.session.vars['words'] = Constants.df['word'].to_list()
         self.session.vars['photo_id'] = Constants.df['photoid'].to_list()
         self.session.vars['image_data'] = Constants.df['image_data'].to_list()

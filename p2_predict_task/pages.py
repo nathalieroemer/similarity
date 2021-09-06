@@ -17,7 +17,9 @@ class Task(Page):
     def vars_for_template(self):
         x = self.participant.vars['list'][0]
         promo = self.session.vars['promo'][x]
+        # TODO: Nur die Variable promo ist nötig für das template, female und answers wurden nur zum Testen mitaufgenommen.
         female = self.session.vars['female'][x]
+        # Todo: Biher gelöst über eine Hilfsvariable, muss angepasst werden:
         answers = randint(0, 20)
         self.player.hilfe = answers
 
@@ -34,7 +36,7 @@ class Task(Page):
 
         # TODO: Die Variablennamne müssen entsprechend dem neuen Datensatz angepasst werden. Für die "answers"-Variable
         #  wird derzeit noch eine zufällige Zahl zwischen 0 und 20 genutzt (siehe vars_for_template).
-        #self.player.answers = self.session.vars['recog'][self.player.x]
+        #self.player.answers = self.session.vars['answers'][self.player.x]
         self.player.answers = self.player.hilfe
         self.player.female = self.session.vars['female'][self.player.x]
 
