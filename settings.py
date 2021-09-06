@@ -40,13 +40,22 @@ SESSION_CONFIGS = [
         name='prediction',
         display_name='prediction',
         num_demo_participants=10,
-        app_sequence=['p1_predict_intro', 'p2_predict_task'],
+        app_sequence=['as1', 'as2'],
     ),
     dict(
         name='prediction_test',
         display_name='prediction_test',
         num_demo_participants=10,
         app_sequence=['predict_promotion']
+    ),
+    dict(
+        name='assessing_similarity',
+        display_name='Assessing Similarity',
+        num_demo_participants=100,
+        app_sequence=[
+            'as1',
+            'as2'
+        ],
     )
 ]
 

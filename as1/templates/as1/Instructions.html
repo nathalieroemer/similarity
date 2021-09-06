@@ -1,0 +1,31 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Willkommen
+{% endblock %}
+
+{% block content %}
+
+<p>
+    Sie werden im Folgenden mehrere Seiten mit verschiedenen Darstellungen sehen.
+    Sechs Darstellungen sind oben auf der Seite abgebildet, zwei Darstellungen unten.
+</p>
+<p>
+    Ihre Aufgabe ist es, die beiden unteren Darstellungen mit den sechs oberen zu vergleichen.
+    Achten Sie bei dem Vergleich auf den dargestellten Begriff, die genutzten Materialien und die Art und Weise,
+    wie der Begriff dargestellt wurde.
+</p>
+<p>
+    Insgesamt werden Sie 115 Vergleiche anstellen. Nach jeweils 15 Vergleichen wird eine Pausenseite angezeigt.
+    Sie können die Seite dann verlassen oder das Fenster schließen und zu beliebiger späterer Zeit über
+    denselben Link wieder fortfahren.
+</p>
+
+<br>
+
+    {% next_button %}
+
+{% endblock %}
+
+

@@ -1,0 +1,152 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Ihre Aufgabe
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; color: dimgrey;">
+            Fortschritt: {{ player.round_number }} von {{ Constants.num_rounds }}
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <i>Kamel</i>
+        </div>
+        <div class="col">
+            <i>Schwein</i>
+        </div>
+        <div class="col">
+            <i>Erdbeere</i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="{% static kamel %}" style="max-width:102%; max-height: 170%;">
+        </div>
+        <div class="col">
+            <img src="{% static schwein %}" style="max-width:102%; max-height: 170%;">
+        </div>
+        <div class="col">
+            <img src="{% static erdbeere %}" style="max-width:102%; max-height: 170%;">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <i>Schere</i>
+        </div>
+        <div class="col">
+            <i>Geschenk</i>
+        </div>
+        <div class="col">
+            <i>Tasse</i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="{% static schere %}" style="max-width:102%; max-height: 170%;">
+        </div>
+        <div class="col">
+            <img src="{% static geschenk %}" style="max-width:102%; max-height: 170%;">
+        </div>
+        <div class="col">
+            <img src="{% static tasse %}" style="max-width:102%; max-height: 170%;">
+        </div>
+    </div>
+
+    <br>
+
+    <p>
+        Welche der folgenden beiden Darstellungen hat die größere Ähnlichkeit zu den oben bereitgestellten Darstellungen
+        im Hinblick auf...
+    </p>
+
+    <br>
+
+    <form>
+        <div class="row">
+            <div class="col" style="text-align: center">
+                <label for="s0"><b>{{ word1 }}</b></label>
+            </div>
+            <div class="col" style="text-align: center">
+                <label for="s1"><b>{{ word2 }}</b></label>
+            </div>
+        </div>
+
+        <br>
+
+        <p style="text-align: center">
+            ... die dargestellten Begriffe?
+        </p>
+
+        <div class="row">
+            <div class="col" style="text-align: center">
+                <input type="radio" id="t0" name="c_term" value="1" required oninvalid="this.setCustomValidity('Bitte wählen Sie eine Darstellung aus.')" onclick="this.setCustomValidity('')">
+            </div>
+            <div class="col" style="text-align: center">
+                <input type="radio" id="t1" name="c_term" value="2" onclick="document.getElementById('t0').setCustomValidity('')">
+            </div>
+        </div>
+
+        <br>
+
+        <p style="text-align: center">
+            ... die genutzten Materialien?
+        </p>
+        <div class="row">
+            <div class="col" style="text-align: center">
+                <input type="radio" id="m0" name="c_material" value="1" required oninvalid="this.setCustomValidity('Bitte wählen Sie eine Darstellung aus.')" onclick="this.setCustomValidity('')">
+            </div>
+            <div class="col" style="text-align: center">
+                <input type="radio" id="m1" name="c_material" value="2" onclick="document.getElementById('m0').setCustomValidity('')">
+            </div>
+        </div>
+
+        <br>
+
+        <p style="text-align: center">
+            ... die Art und Weise, wie die Begriffe dargestellt wurden?
+        </p>
+        <div class="row">
+            <div class="col" style="text-align: center">
+                <input type="radio" id="d0" name="c_display" value="1" required oninvalid="this.setCustomValidity('Bitte wählen Sie eine Darstellung aus.')" onclick="this.setCustomValidity('')">
+            </div>
+            <div class="col" style="text-align: center">
+                <input type="radio" id="d1" name="c_display" value="2" onclick="document.getElementById('d0').setCustomValidity('')">
+            </div>
+        </div>
+
+        <br>
+
+        <p style="text-align: center">
+            ... die Darstellung insgesamt?
+        </p>
+        <div class="row">
+            <div class="col" style="text-align: center">
+                <input type="radio" id="o0" name="c_overall" value="1" required oninvalid="this.setCustomValidity('Bitte wählen Sie eine Darstellung aus.')" onclick="this.setCustomValidity('')">
+            </div>
+            <div class="col" style="text-align: center">
+                <input type="radio" id="o1" name="c_overall" value="2" onclick="document.getElementById('o0').setCustomValidity('')">
+            </div>
+        </div>
+    </form>
+
+    <br>
+
+    <div class="row">
+        <div class="col">
+            <img src="data:image/(png|jpeg);base64,{{ pic1 }}" style="display: block; margin-left: auto; margin-right: auto"/>
+        </div>
+        <div class="col">
+            <img src="data:image/(png|jpeg);base64,{{ pic2 }}" style="display: block; margin-left: auto; margin-right: auto"/>
+        </div>
+    </div>
+
+    <br>
+
+    {% next_button %}
+
+{% endblock %}

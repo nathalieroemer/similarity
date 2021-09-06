@@ -1,0 +1,22 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Zeit für eine Pause.
+{% endblock %}
+
+{% block content %}
+
+    <div style="position: absolute; top: 30px; right: 30px; width: 300px; text-align:right; color: dimgrey;">
+            Fortschritt: {{ player.round_number }} von {{ Constants.num_rounds }}
+    </div>
+
+    <p>
+        Sie können diese Seite schließen und jederzeit über denselben Link fortfahren.
+    </p>
+
+    <br>
+
+    {% next_button %}
+
+{% endblock %}
