@@ -18,9 +18,9 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'p2_predict_task'
+    name_in_url = 'p2'
     players_per_group = None
-    num_rounds = 3
+    num_rounds = 3  # TODO: has to be adjusted
 
 
 class Subsession(BaseSubsession):
@@ -35,14 +35,12 @@ class Player(BasePlayer):
     x = models.IntegerField()
     promo = models.StringField()
 
-    answers = models.IntegerField()
+    score = models.IntegerField()
     female = models.IntegerField()
-    # TODO: Hilfsvariable kann entfernt werden, wenn mit neuem Datensatz gelöst.
-    hilfe = models.IntegerField()
 
-    g_answers = models.IntegerField()
+    g_score = models.IntegerField()
     g_fem = models.IntegerField()
 
-    dev_ans = models.IntegerField()
-    ans_pay = models.CurrencyField()
+    dev_score = models.IntegerField()
+    score_pay = models.CurrencyField()
     gen_pay = models.CurrencyField()

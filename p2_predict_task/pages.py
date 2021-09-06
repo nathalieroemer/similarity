@@ -7,7 +7,7 @@ from random import randint
 class Task(Page):
     form_model = 'player'
     form_fields = [
-        'g_answers',
+        'g_score',
         'g_fem'
     ]
 
@@ -17,16 +17,14 @@ class Task(Page):
     def vars_for_template(self):
         x = self.participant.vars['list'][0]
         promo = self.session.vars['promo'][x]
-        # TODO: Nur die Variable promo ist nötig für das template, female und answers wurden nur zum Testen mitaufgenommen.
+        # The variables female and score are only displayed for test purposes (shown in Debug info at bottom of page).
         female = self.session.vars['female'][x]
-        # Todo: Biher gelöst über eine Hilfsvariable, muss angepasst werden:
-        answers = randint(0, 20)
-        self.player.hilfe = answers
+        score = self.session.vars['score'][x]
 
         return dict(
             promo=promo,
             female=female,
-            answers=answers
+            answers=score
         )
 
     def before_next_page(self):
@@ -34,20 +32,17 @@ class Task(Page):
         self.player.x = self.participant.vars['list'][0]
         self.player.promo = str(self.session.vars['promo'][self.player.x])
 
-        # TODO: Die Variablennamne müssen entsprechend dem neuen Datensatz angepasst werden. Für die "answers"-Variable
-        #  wird derzeit noch eine zufällige Zahl zwischen 0 und 20 genutzt (siehe vars_for_template).
-        #self.player.answers = self.session.vars['answers'][self.player.x]
-        self.player.answers = self.player.hilfe
+        self.player.score = self.session.vars['score'][self.player.x]
         self.player.female = self.session.vars['female'][self.player.x]
 
         # payoff/bonus for guess of correctly answered questions
-        self.player.dev_ans = abs(self.player.answers - self.player.g_answers)
-        if self.player.dev_ans <= 1:
-            self.player.ans_pay = 4.00
-        if self.player.dev_ans == 2:
-            self.player.ans_pay = 2.00
-        if self.player.dev_ans > 2:
-            self.player.ans_pay = 0
+        self.player.dev_score = abs(self.player.score - self.player.g_score)
+        if self.player.dev_score <= 1:
+            self.player.score_pay = 4.00
+        if self.player.dev_score == 2:
+            self.player.score_pay = 2.00
+        if self.player.dev_score > 2:
+            self.player.score_pay = 0
 
         # payoff/bonus for guess of gender
         rand_num1 = randint(0, 100)
@@ -72,7 +67,7 @@ class Task(Page):
             self.participant.vars['list_is_empty'] = 1
             randomround = randint(1, self.round_number)
             print("random round number is", randomround)
-            self.player.payoff = self.player.in_round(randomround).ans_pay + self.player.in_round(randomround).gen_pay
+            self.player.payoff = self.player.in_round(randomround).score_pay + self.player.in_round(randomround).gen_pay
             self.participant.vars['end'] = 1
 
 
