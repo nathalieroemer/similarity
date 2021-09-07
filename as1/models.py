@@ -65,6 +65,7 @@ class Subsession(BaseSubsession):
 
             # p.participant.vars['list_ins'] = l_ins
             # p.participant.vars['list_base'] = l_base
+            # Liste mit 236 Werten von 0 bis 235.
             li = list(range(236))
             random.shuffle(li)
             p.participant.vars['list'] = li

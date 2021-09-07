@@ -26,8 +26,8 @@ class Task(Page):
         self.player.x = x
         self.player.y = y
 
-        print(str(self.session.vars['image_data2'][x]))
-        print(str(self.session.vars['image_data2'][y]))
+        # print(str(self.session.vars['image_data2'][x]))
+        # print(str(self.session.vars['image_data2'][y]))
 
         if str(self.session.vars['image_data2'][x]) == 'nan':
             pic1 = str(self.session.vars['image_data1'][x])
@@ -68,10 +68,25 @@ class Task(Page):
         self.participant.vars['list'].remove(self.player.x)
         self.participant.vars['list'].remove(self.player.y)
 
+        # Zum Testen, ob die am Ende übrig bleibenden Bilder aus Baseline-Treatment stammen:
+        # a = self.participant.vars['list'][5]
+        # b = self.participant.vars['list'][4]
+        # ce = self.participant.vars['list'][3]
+        # d = self.participant.vars['list'][2]
+        # e = self.participant.vars['list'][1]
+        # f = self.participant.vars['list'][0]
+        # print(str(self.session.vars['photo_ids'][a]))
+        # print(str(self.session.vars['photo_ids'][b]))
+        # print(str(self.session.vars['photo_ids'][ce]))
+        # print(str(self.session.vars['photo_ids'][d]))
+        # print(str(self.session.vars['photo_ids'][e]))
+        # print(str(self.session.vars['photo_ids'][f]))
+
 
 class Break(Page):
     def is_displayed(self):
-        return self.round_number in [2, 4, 6, 8]
+        # Muss angepasst werden, wenn Rundenzahl verändert wird:
+        return self.round_number in [15, 30, 45, 60, 75, 90, 105]
 
 
 class Finish(Page):

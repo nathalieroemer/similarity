@@ -20,7 +20,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'AS_Task'
     players_per_group = None
-    num_rounds = 10
+    num_rounds = 115
 
 
 class Subsession(BaseSubsession):
