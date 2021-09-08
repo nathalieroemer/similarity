@@ -1,3 +1,3 @@
 pandas==1.1.1
 Django==2.2.12
-otree[mturk]>=3.2.2,<5
+otree[mturk]==3.2.2
